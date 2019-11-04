@@ -1,0 +1,12 @@
+--- Version ---
+1. Win10 SDK: Windows 10 SDK, version 1803 (10.0.17134.12)
+https://developer.microsoft.com/en-us/windows/downloads/sdk-archive
+
+2. Download: SQL Browser to view DSDB.db
+https://sqlitebrowser.org/blog/portableapp-for-3-11-2-release-now-available/
+
+3. DSDB.db located on: C:\Users\<username>\AppData\Local\Packages\c4360c7f-f72b-452e-8e65-ef04f3a706c3_fyn9mt8xvtdby\LocalState 
+
+4. You don't need to install anything else, just build + run the solution.
+
+5. After you ran the project, if homepage print 'abc' then whole project is working successfully.

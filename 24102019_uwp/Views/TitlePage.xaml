@@ -1,0 +1,97 @@
+﻿<Page
+    x:Class="_24102019_uwp.Views.TitlePage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:_24102019_uwp.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <SplitView IsPaneOpen="True"
+           DisplayMode="Inline"
+           PanePlacement="Right"
+           OpenPaneLength="320"
+           Name="splView">
+
+        <SplitView.Pane>
+            <StackPanel>
+                <TextBlock FontWeight="Bold" Margin="24,32,0,0">
+                    Title ID
+                </TextBlock>
+                <TextBox Margin="24,12,22,0" PlaceholderText="ID will be generated"/>
+
+                <TextBlock FontWeight="Bold" Margin="24,24,0,0">
+                    Price
+                </TextBlock>
+                <TextBox Margin="24,12,22,0" PlaceholderText="Please input price"/>
+
+                <TextBlock FontWeight="Bold" Margin="24,24,0,0">
+                    Rental Charge
+                </TextBlock>
+                <TextBox Margin="24,12,22,0" PlaceholderText="Please input rental charge"/>
+
+                <TextBlock FontWeight="Bold" Margin="24,24,0,0">
+                    Rental Period
+                </TextBlock>
+                <TextBox Margin="24,12,22,0" PlaceholderText="Please input rental period"/>
+
+                <TextBlock FontWeight="Bold" Margin="24,24,0,0">
+                    Type
+                </TextBlock>
+                <ComboBox PlaceholderText="Pick a title" Width="272" Margin="0,12,0,0" HorizontalAlignment="Center" VerticalAlignment="Top">
+                    <x:String>Blue</x:String>
+                    <x:String>Green</x:String>
+                    <x:String>Red</x:String>
+                    <x:String>Yellow</x:String>
+                </ComboBox>
+
+                <TextBlock FontWeight="Bold" Margin="24,24,0,0">
+                    Description
+                </TextBlock>
+                <TextBox Margin="24,12,22,0" PlaceholderText="Please input description" Height="100"/>
+
+                <CheckBox FontWeight="Bold" Margin="24,24,0,0">
+                    Available for rent?
+                </CheckBox>
+                
+
+                <Button Margin="24,24,0,0">Save</Button>
+
+            </StackPanel>
+        </SplitView.Pane>
+
+        <StackPanel Padding="24">
+
+            <TextBlock FontWeight="Bold" Margin="0,8,0,0">
+                Find Title
+            </TextBlock>
+
+            <AutoSuggestBox
+                    x:Name="autobox"
+                    PlaceholderText="Search title"
+                    Width="272"
+                    HorizontalAlignment="Left"
+                    QueryIcon="Find" VerticalAlignment="Top" 
+                    Margin="0,12,0,0"/>
+
+            <CommandBar DefaultLabelPosition="Right" Background="White" Name="cmdbar" Margin="0,24,0,0">
+                <AppBarButton Icon="Filter" Label="Filter"/>
+                <AppBarButton Icon="Add" Label="Add"/>
+                <AppBarButton Icon="Delete" Label="Delete"/>
+
+                <CommandBar.Content>
+                    <TextBlock Text="List of titles" Margin="0,9" FontWeight="Bold"/>
+                </CommandBar.Content>
+            </CommandBar>
+
+            <ListView x:Name="Fruits" Margin="0,24,0,0">
+                <x:String>Apricot</x:String>
+                <x:String>Banana</x:String>
+                <x:String>Cherry</x:String>
+                <x:String>Orange</x:String>
+                <x:String>Strawberry</x:String>
+            </ListView>
+        </StackPanel>
+    </SplitView>
+</Page>
