@@ -57,6 +57,7 @@
 
             <NavigationView.PaneFooter>
                 <NavigationViewItem x:ConnectionId='4' Icon="Contact" 
+                                    Name="btnLogin"
                                     Content="Login" 
                                                                       
                                     Tag="Login" />

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using _24102019_uwp.Business;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -26,11 +27,21 @@ namespace _24102019_uwp.Views.Dialogs
 
         private void ContentDialog_PrimaryButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)
         {
+            var result = Login.login(txtID.Text, txtPW.Password.ToString());
+
+            if (!result)
+            {
+                args.Cancel = true;
+                txtStatus.Margin = new Thickness(0, 0, 0, 12);
+                txtStatus.Visibility = Visibility.Visible;
+            }
         }
 
         private void ContentDialog_SecondaryButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)
         {
             Hide();
         }
+
+        
     }
 }

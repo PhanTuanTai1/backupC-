@@ -13,8 +13,9 @@
                                                              >
 
     <StackPanel>
-        <TextBox PlaceholderText="Insert your user id here"></TextBox>
-        <PasswordBox Margin="0,12,0,0" PlaceholderText="Insert your password here"></PasswordBox>
+        <TextBlock x:ConnectionId='2' Foreground="Red" Name="txtStatus" Visibility="Collapsed">Login failed</TextBlock>
+        <TextBox x:ConnectionId='3' PlaceholderText="Insert your user id here" Name="txtID"></TextBox>
+        <PasswordBox x:ConnectionId='4' Margin="0,12,0,0" PlaceholderText="Insert your password here" Name="txtPW"></PasswordBox>
     </StackPanel>
 </ContentDialog>
 

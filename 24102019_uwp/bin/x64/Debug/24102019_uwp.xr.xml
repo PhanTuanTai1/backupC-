@@ -89,8 +89,8 @@
       <RootProperty Name="Foreground" />
       <RootProperty Name="VerticalAlignment" />
       <RootProperty Name="Name" />
-      <RootProperty Name="FontSize" />
       <RootProperty Name="Visibility" />
+      <RootProperty Name="FontSize" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.TextBox">
       <RootProperty Name="Name" />
@@ -233,6 +233,7 @@
     </RootType>
     <RootType FullName="_24102019_uwp.Views.Dialogs.CalculatorDialog" />
     <RootType FullName="Windows.UI.Xaml.Controls.PasswordBox">
+      <RootProperty Name="Name" />
       <RootProperty Name="Margin" />
       <RootProperty Name="PlaceholderText" />
     </RootType>
