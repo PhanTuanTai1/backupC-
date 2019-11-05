@@ -91,11 +91,6 @@
       <RootProperty Name="Style" />
       <RootProperty Name="HorizontalAlignment" />
       <RootProperty Name="VerticalAlignment" />
-<<<<<<< HEAD
-      <RootProperty Name="FontSize" />
-=======
-      <RootProperty Name="Name" />
->>>>>>> aea167eb2a095c96aeebf3a381aab7f2e990a17e
       <RootProperty Name="Visibility" />
       <RootProperty Name="FontSize" />
     </RootType>

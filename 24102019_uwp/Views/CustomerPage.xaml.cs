@@ -30,7 +30,17 @@ namespace _24102019_uwp.Views
             SetStatusTextBox(false);
             controller = new CustomerBS();
         }
+        public static async void DisplayDialog(string title, string content)
+        {
+            ContentDialog noWifiDialog = new ContentDialog
+            {
+                Title = title,
+                Content = content,
+                CloseButtonText = "Ok"
+            };
 
+            ContentDialogResult result = await noWifiDialog.ShowAsync();
+        }
         private void Save(object sender, RoutedEventArgs e)
         {
             if (Validation())
@@ -136,6 +146,11 @@ namespace _24102019_uwp.Views
         }
         private void Delete(object sender, RoutedEventArgs e)
         {
+            if (!Login.IsLogin)
+            {
+                DisplayDialog("Not logged in yet", "To use this function, you need to login.");
+                return;
+            }
             ContentDialog cd = new ContentDialog();
             cd.Content = "Are you sure you want to delete this customer ?";
             cd.Title = "Delete Customer";
