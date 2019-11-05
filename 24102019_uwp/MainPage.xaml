@@ -57,6 +57,7 @@
 
             <NavigationView.PaneFooter>
                 <NavigationViewItem Icon="Contact" 
+                                    Name="btnLogin"
                                     Content="Login" 
                                     Tapped="NavigationViewItem_Tapped"
                                     Tag="Login" />

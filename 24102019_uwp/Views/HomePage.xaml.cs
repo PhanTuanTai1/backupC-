@@ -1,4 +1,5 @@
-﻿using _24102019_uwp.Data;
+﻿using _24102019_uwp.Business;
+using _24102019_uwp.Data;
 using _24102019_uwp.Models;
 using System;
 using System.Collections.Generic;
@@ -31,16 +32,11 @@ namespace _24102019_uwp.Views
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            //using (var db = new ApplicationDBContext())
-            //{
-            //    db.Users.Add(new User {UserID = 1256, Name = "abc", Password = "123", Salt = "123" });
-            //    db.SaveChanges();
-            //    txtTest.Text = db.Users.ToList().First().Name;
-            //}
-            //using (var db = new ApplicationDBContext())
-            //{
-            //    int t = db.Users.Count();
-            //}
+           
+        }
+
+        private void BtnLogout_Click(object sender, RoutedEventArgs e)
+        {
         }
     }
 }

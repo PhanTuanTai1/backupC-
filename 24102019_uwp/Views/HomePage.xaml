@@ -7,7 +7,7 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Loaded="Page_Loaded">
 
-    <Grid>
-        <TextBlock Name="txtTest">Home</TextBlock>
-    </Grid>
+    <StackPanel Padding="24,32,24,24">
+        
+    </StackPanel>
 </Page>

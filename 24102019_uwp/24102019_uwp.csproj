@@ -120,6 +120,7 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Business\CustomerBS.cs" />
+    <Compile Include="Business\Login.cs" />
     <Compile Include="Business\PayLateChargeBS.cs" />
     <Compile Include="Business\RentBS.cs" />
     <Compile Include="Business\ReturnBS.cs" />

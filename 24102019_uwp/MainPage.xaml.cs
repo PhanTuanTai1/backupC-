@@ -1,4 +1,5 @@
-﻿using _24102019_uwp.Views;
+﻿using _24102019_uwp.Business;
+using _24102019_uwp.Views;
 using _24102019_uwp.Views.Dialogs;
 using System;
 using System.Collections.Generic;
@@ -24,12 +25,14 @@ namespace _24102019_uwp
     public sealed partial class MainPage : Page
     {
         public static Frame mainFrame;
+        public static NavigationView navigation;
 
         public MainPage()
         {
             this.InitializeComponent();
 
             mainFrame = contentFrame;
+            navigation = nvTopLevelNav;
         }
 
         private void nvTopLevelNav_Loaded(object sender, RoutedEventArgs e)
@@ -42,6 +45,7 @@ namespace _24102019_uwp
                     break;
                 }
             }
+            nvTopLevelNav.Header = "Home Page";
             contentFrame.Navigate(typeof(HomePage));
         }
 
@@ -78,14 +82,28 @@ namespace _24102019_uwp
                     nvTopLevelNav.Header = "Title Page";
                     break;
                 case "Individual_Page":
+                    if(!Login.IsLogin)
+                    {
+                        DisplayDialog("Not logged in yet", "To use this function, you need to login.");
+                        return;
+                    }
                     contentFrame.Navigate(typeof(IndividualPage));
                     nvTopLevelNav.Header = "Individual Page";
                     break;
                 case "Miscellaneous_Page":
+                    if (!Login.IsLogin)
+                    {
+                        DisplayDialog("Not logged in yet", "To use this function, you need to login.");
+                        return;
+                    }
                     contentFrame.Navigate(typeof(MiscellaneousPage));
                     nvTopLevelNav.Header = "Individual Page";
                     break;
                 case "Report_Page":
+                    if (!Login.IsLogin)
+                    {
+                        return;
+                    }
                     contentFrame.Navigate(typeof(ReportPage));
                     nvTopLevelNav.Header = "Report Page";
                     break;
@@ -96,13 +114,72 @@ namespace _24102019_uwp
 
         private async void NavigationViewItem_Tapped(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
         {
-            var dialog = new LoginDialog();
-            var result = await dialog.ShowAsync();
+            if(!Login.IsLogin)
+            {
+                var dialog = new LoginDialog();
+                var result = await dialog.ShowAsync();
+
+                if(result == ContentDialogResult.Primary)
+                {
+                    DisplayCompleteDialog();
+
+                    btnLogin.Content = "Logout";
+                }
+            }
+            else
+            {
+                DisplayNoWifiDialog();
+                Login.Logout();
+                btnLogin.Content = "Login";
+            }
+        }
+
+        public static async void DisplayDialog(string title, string content)
+        {
+            ContentDialog noWifiDialog = new ContentDialog
+            {
+                Title = title,
+                Content = content,
+                CloseButtonText = "Ok"
+            };
+
+            ContentDialogResult result = await noWifiDialog.ShowAsync();
+        }
+
+        private async void DisplayCompleteDialog()
+        {
+            ContentDialog noWifiDialog = new ContentDialog
+            {
+                Title = "Login successfully",
+                Content = "Hello " + Login.User.Name,
+                CloseButtonText = "Ok"
+            };
+
+            ContentDialogResult result = await noWifiDialog.ShowAsync();
+        }
+
+        private async void DisplayNoWifiDialog()
+        {
+            ContentDialog noWifiDialog = new ContentDialog
+            {
+                Title = "Logout successfully",
+                Content = "Come back any time :)",
+                CloseButtonText = "Bye"
+            };
+
+            ContentDialogResult result = await noWifiDialog.ShowAsync();
         }
 
         private void NavPageReprt_Tapped(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
         {
+            if (!Login.IsLogin)
+            {
+                DisplayDialog("Not logged in yet", "To use this function, you need to login.");
+                return;
+            }
+
             contentFrame.Navigate(typeof(ReportPage));
+            nvTopLevelNav.Header = "Report Page";
         }
     }
 }

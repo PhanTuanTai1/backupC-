@@ -13,7 +13,8 @@
     SecondaryButtonClick="ContentDialog_SecondaryButtonClick">
 
     <StackPanel>
-        <TextBox PlaceholderText="Insert your user id here"></TextBox>
-        <PasswordBox Margin="0,12,0,0" PlaceholderText="Insert your password here"></PasswordBox>
+        <TextBlock Foreground="Red" Name="txtStatus" Visibility="Collapsed">Login failed</TextBlock>
+        <TextBox PlaceholderText="Insert your user id here" Name="txtID"></TextBox>
+        <PasswordBox Margin="0,12,0,0" PlaceholderText="Insert your password here" Name="txtPW"></PasswordBox>
     </StackPanel>
 </ContentDialog>

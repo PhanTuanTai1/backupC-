@@ -30,13 +30,21 @@
     <AppXManifest Include="H:\ProjectC#\BACKUP\new2\new1\disc_store_management\24102019_uwp\bin\x64\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+<<<<<<< HEAD
       <Modified>2019-11-05T15:31:14.845</Modified>
+=======
+      <Modified>2019-11-05T13:17:34.237</Modified>
+>>>>>>> aea167eb2a095c96aeebf3a381aab7f2e990a17e
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="H:\ProjectC#\BACKUP\new2\new1\disc_store_management\24102019_uwp\bin\x64\Debug\24102019_uwp.exe">
       <PackagePath>entrypoint\24102019_uwp.exe</PackagePath>
+<<<<<<< HEAD
       <Modified>2019-11-05T15:31:14.462</Modified>
+=======
+      <Modified>2019-11-05T13:17:33.794</Modified>
+>>>>>>> aea167eb2a095c96aeebf3a381aab7f2e990a17e
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\User\.nuget\packages\microsoft.aspnetcore.hosting.abstractions\1.0.2\lib\netstandard1.3\Microsoft.AspNetCore.Hosting.Abstractions.dll">
       <PackagePath>Microsoft.AspNetCore.Hosting.Abstractions.dll</PackagePath>
@@ -630,87 +638,171 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="H:\ProjectC#\BACKUP\new2\new1\disc_store_management\24102019_uwp\bin\x64\Debug\24102019_uwp.xr.xml">
       <PackagePath>24102019_uwp.xr.xml</PackagePath>
+<<<<<<< HEAD
       <Modified>2019-11-05T15:31:14.077</Modified>
+=======
+      <Modified>2019-11-05T12:18:44.241</Modified>
+>>>>>>> aea167eb2a095c96aeebf3a381aab7f2e990a17e
     </AppxPackagedFile>
     <AppxPackagedFile Include="H:\ProjectC#\BACKUP\new2\new1\disc_store_management\24102019_uwp\bin\x64\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
+<<<<<<< HEAD
       <Modified>2019-11-05T15:31:14.139</Modified>
+=======
+      <Modified>2019-11-05T13:17:33.521</Modified>
+>>>>>>> aea167eb2a095c96aeebf3a381aab7f2e990a17e
     </AppxPackagedFile>
     <AppxPackagedFile Include="H:\ProjectC#\BACKUP\new2\new1\disc_store_management\24102019_uwp\bin\x64\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
+<<<<<<< HEAD
       <Modified>2019-11-05T15:31:14.140</Modified>
+=======
+      <Modified>2019-11-05T13:17:33.522</Modified>
+>>>>>>> aea167eb2a095c96aeebf3a381aab7f2e990a17e
     </AppxPackagedFile>
     <AppxPackagedFile Include="H:\ProjectC#\BACKUP\new2\new1\disc_store_management\24102019_uwp\bin\x64\Debug\Views\CustomerPage.xbf">
       <PackagePath>Views\CustomerPage.xbf</PackagePath>
+<<<<<<< HEAD
       <Modified>2019-11-05T15:31:14.104</Modified>
+=======
+      <Modified>2019-11-05T13:17:33.522</Modified>
+>>>>>>> aea167eb2a095c96aeebf3a381aab7f2e990a17e
     </AppxPackagedFile>
     <AppxPackagedFile Include="H:\ProjectC#\BACKUP\new2\new1\disc_store_management\24102019_uwp\bin\x64\Debug\Views\CustomerReportPage.xbf">
       <PackagePath>Views\CustomerReportPage.xbf</PackagePath>
+<<<<<<< HEAD
       <Modified>2019-11-05T15:31:14.140</Modified>
+=======
+      <Modified>2019-11-05T13:17:33.522</Modified>
+>>>>>>> aea167eb2a095c96aeebf3a381aab7f2e990a17e
     </AppxPackagedFile>
     <AppxPackagedFile Include="H:\ProjectC#\BACKUP\new2\new1\disc_store_management\24102019_uwp\bin\x64\Debug\Views\DetailCustomerReportPage.xbf">
       <PackagePath>Views\DetailCustomerReportPage.xbf</PackagePath>
+<<<<<<< HEAD
       <Modified>2019-11-05T15:31:14.141</Modified>
+=======
+      <Modified>2019-11-05T13:17:33.523</Modified>
+>>>>>>> aea167eb2a095c96aeebf3a381aab7f2e990a17e
     </AppxPackagedFile>
     <AppxPackagedFile Include="H:\ProjectC#\BACKUP\new2\new1\disc_store_management\24102019_uwp\bin\x64\Debug\Views\DetailReturnDiskPage.xbf">
       <PackagePath>Views\DetailReturnDiskPage.xbf</PackagePath>
+<<<<<<< HEAD
       <Modified>2019-11-05T15:31:14.141</Modified>
+=======
+      <Modified>2019-11-05T13:17:33.523</Modified>
+>>>>>>> aea167eb2a095c96aeebf3a381aab7f2e990a17e
     </AppxPackagedFile>
     <AppxPackagedFile Include="H:\ProjectC#\BACKUP\new2\new1\disc_store_management\24102019_uwp\bin\x64\Debug\Views\DetailReservationPage.xbf">
       <PackagePath>Views\DetailReservationPage.xbf</PackagePath>
+<<<<<<< HEAD
       <Modified>2019-11-05T15:31:14.142</Modified>
+=======
+      <Modified>2019-11-05T13:17:33.523</Modified>
+>>>>>>> aea167eb2a095c96aeebf3a381aab7f2e990a17e
     </AppxPackagedFile>
     <AppxPackagedFile Include="H:\ProjectC#\BACKUP\new2\new1\disc_store_management\24102019_uwp\bin\x64\Debug\Views\Dialogs\CalculatorDialog.xbf">
       <PackagePath>Views\Dialogs\CalculatorDialog.xbf</PackagePath>
+<<<<<<< HEAD
       <Modified>2019-11-05T15:31:14.142</Modified>
+=======
+      <Modified>2019-11-05T13:17:33.524</Modified>
+>>>>>>> aea167eb2a095c96aeebf3a381aab7f2e990a17e
     </AppxPackagedFile>
     <AppxPackagedFile Include="H:\ProjectC#\BACKUP\new2\new1\disc_store_management\24102019_uwp\bin\x64\Debug\Views\Dialogs\LoginDialog.xbf">
       <PackagePath>Views\Dialogs\LoginDialog.xbf</PackagePath>
+<<<<<<< HEAD
       <Modified>2019-11-05T15:31:14.143</Modified>
+=======
+      <Modified>2019-11-05T13:17:33.524</Modified>
+>>>>>>> aea167eb2a095c96aeebf3a381aab7f2e990a17e
     </AppxPackagedFile>
     <AppxPackagedFile Include="H:\ProjectC#\BACKUP\new2\new1\disc_store_management\24102019_uwp\bin\x64\Debug\Views\Dialogs\PayLateChargeDialog.xbf">
       <PackagePath>Views\Dialogs\PayLateChargeDialog.xbf</PackagePath>
+<<<<<<< HEAD
       <Modified>2019-11-05T15:31:14.143</Modified>
+=======
+      <Modified>2019-11-05T13:17:33.525</Modified>
+>>>>>>> aea167eb2a095c96aeebf3a381aab7f2e990a17e
     </AppxPackagedFile>
     <AppxPackagedFile Include="H:\ProjectC#\BACKUP\new2\new1\disc_store_management\24102019_uwp\bin\x64\Debug\Views\HomePage.xbf">
       <PackagePath>Views\HomePage.xbf</PackagePath>
+<<<<<<< HEAD
       <Modified>2019-11-05T15:31:14.143</Modified>
+=======
+      <Modified>2019-11-05T13:17:33.525</Modified>
+>>>>>>> aea167eb2a095c96aeebf3a381aab7f2e990a17e
     </AppxPackagedFile>
     <AppxPackagedFile Include="H:\ProjectC#\BACKUP\new2\new1\disc_store_management\24102019_uwp\bin\x64\Debug\Views\IndividualPage.xbf">
       <PackagePath>Views\IndividualPage.xbf</PackagePath>
+<<<<<<< HEAD
       <Modified>2019-11-05T15:31:14.144</Modified>
+=======
+      <Modified>2019-11-05T13:17:33.525</Modified>
+>>>>>>> aea167eb2a095c96aeebf3a381aab7f2e990a17e
     </AppxPackagedFile>
     <AppxPackagedFile Include="H:\ProjectC#\BACKUP\new2\new1\disc_store_management\24102019_uwp\bin\x64\Debug\Views\LateChargePage.xbf">
       <PackagePath>Views\LateChargePage.xbf</PackagePath>
+<<<<<<< HEAD
       <Modified>2019-11-05T15:31:14.144</Modified>
+=======
+      <Modified>2019-11-05T13:17:33.526</Modified>
+>>>>>>> aea167eb2a095c96aeebf3a381aab7f2e990a17e
     </AppxPackagedFile>
     <AppxPackagedFile Include="H:\ProjectC#\BACKUP\new2\new1\disc_store_management\24102019_uwp\bin\x64\Debug\Views\MiscellaneousPage.xbf">
       <PackagePath>Views\MiscellaneousPage.xbf</PackagePath>
+<<<<<<< HEAD
       <Modified>2019-11-05T15:31:14.145</Modified>
+=======
+      <Modified>2019-11-05T13:17:33.526</Modified>
+>>>>>>> aea167eb2a095c96aeebf3a381aab7f2e990a17e
     </AppxPackagedFile>
     <AppxPackagedFile Include="H:\ProjectC#\BACKUP\new2\new1\disc_store_management\24102019_uwp\bin\x64\Debug\Views\RentPage.xbf">
       <PackagePath>Views\RentPage.xbf</PackagePath>
+<<<<<<< HEAD
       <Modified>2019-11-05T15:31:14.145</Modified>
+=======
+      <Modified>2019-11-05T13:17:33.526</Modified>
+>>>>>>> aea167eb2a095c96aeebf3a381aab7f2e990a17e
     </AppxPackagedFile>
     <AppxPackagedFile Include="H:\ProjectC#\BACKUP\new2\new1\disc_store_management\24102019_uwp\bin\x64\Debug\Views\ReportPage.xbf">
       <PackagePath>Views\ReportPage.xbf</PackagePath>
+<<<<<<< HEAD
       <Modified>2019-11-05T15:31:14.146</Modified>
+=======
+      <Modified>2019-11-05T13:17:33.527</Modified>
+>>>>>>> aea167eb2a095c96aeebf3a381aab7f2e990a17e
     </AppxPackagedFile>
     <AppxPackagedFile Include="H:\ProjectC#\BACKUP\new2\new1\disc_store_management\24102019_uwp\bin\x64\Debug\Views\ReservationPage.xbf">
       <PackagePath>Views\ReservationPage.xbf</PackagePath>
+<<<<<<< HEAD
       <Modified>2019-11-05T15:31:14.146</Modified>
+=======
+      <Modified>2019-11-05T13:17:33.527</Modified>
+>>>>>>> aea167eb2a095c96aeebf3a381aab7f2e990a17e
     </AppxPackagedFile>
     <AppxPackagedFile Include="H:\ProjectC#\BACKUP\new2\new1\disc_store_management\24102019_uwp\bin\x64\Debug\Views\ReturnPage.xbf">
       <PackagePath>Views\ReturnPage.xbf</PackagePath>
+<<<<<<< HEAD
       <Modified>2019-11-05T15:31:14.146</Modified>
+=======
+      <Modified>2019-11-05T13:17:33.527</Modified>
+>>>>>>> aea167eb2a095c96aeebf3a381aab7f2e990a17e
     </AppxPackagedFile>
     <AppxPackagedFile Include="H:\ProjectC#\BACKUP\new2\new1\disc_store_management\24102019_uwp\bin\x64\Debug\Views\TitlePage.xbf">
       <PackagePath>Views\TitlePage.xbf</PackagePath>
+<<<<<<< HEAD
       <Modified>2019-11-05T15:31:14.146</Modified>
+=======
+      <Modified>2019-11-05T13:17:33.528</Modified>
+>>>>>>> aea167eb2a095c96aeebf3a381aab7f2e990a17e
     </AppxPackagedFile>
     <AppxPackagedFile Include="H:\ProjectC#\BACKUP\new2\new1\disc_store_management\24102019_uwp\bin\x64\Debug\Views\TitleReportPage.xbf">
       <PackagePath>Views\TitleReportPage.xbf</PackagePath>
+<<<<<<< HEAD
       <Modified>2019-11-05T15:31:14.147</Modified>
+=======
+      <Modified>2019-11-05T13:17:33.528</Modified>
+>>>>>>> aea167eb2a095c96aeebf3a381aab7f2e990a17e
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.17134.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
@@ -718,11 +810,19 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="H:\ProjectC#\BACKUP\new2\new1\disc_store_management\24102019_uwp\bin\x64\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
+<<<<<<< HEAD
       <Modified>2019-11-05T14:02:20.572</Modified>
+=======
+      <Modified>2019-11-05T12:18:47.160</Modified>
+>>>>>>> aea167eb2a095c96aeebf3a381aab7f2e990a17e
     </AppxPackagedFile>
     <AppxPackagedFile Include="H:\ProjectC#\BACKUP\new2\new1\disc_store_management\24102019_uwp\bin\x64\Debug\Core\24102019_uwp.exe">
       <PackagePath>24102019_uwp.exe</PackagePath>
+<<<<<<< HEAD
       <Modified>2019-11-05T15:31:14.832</Modified>
+=======
+      <Modified>2019-11-05T13:17:34.220</Modified>
+>>>>>>> aea167eb2a095c96aeebf3a381aab7f2e990a17e
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>
