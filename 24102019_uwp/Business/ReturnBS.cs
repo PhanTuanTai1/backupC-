@@ -66,7 +66,8 @@ namespace _24102019_uwp.Business
                     rd.ReturnDate = returnDate;
                     db.SaveChanges();
                     List<Rentail_Detail> lst = db.Rentail_Detail.Where(x => x.RentalID == r.RentalID && x.ReturnDate == null).ToList();
-                    if (lateCharge > 0 && lst.Count == 0)
+                    List<Rentail_Detail> lstAll = db.Rentail_Detail.Where(x => x.RentalID == r.RentalID).ToList();
+                    if (lstAll.Sum(x=>x.OwnedMoney) > 0 && lst.Count == 0)
                     {
                         r.Status = (int)RentalInformation.RentalStatus.RESERVATION;
                     }
