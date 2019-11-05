@@ -27,12 +27,19 @@ namespace _24102019_uwp.Business
                                     rd1,
                                     r1
                                 };
-                    Rentail_Detail rd = (Rentail_Detail)query.FirstOrDefault().rd1;
-                    Rental r = (Rental)query.FirstOrDefault().r1;
-                    Title t = db.Titles.Single(x => x.TitleID == d.TitleID);
-                   
-                    detail = new DetailReturnDisk(r.CusID, d.TitleID, d.DiskID, r.StartRentDate, (DateTime)rd.DueDate, DateTime.Now, c.getName(r.CusID), getTitleName(d.TitleID),t.Price);
-                    return detail;
+                    try
+                    {
+                        Rentail_Detail rd = (Rentail_Detail)query.FirstOrDefault().rd1;
+                        Rental r = (Rental)query.FirstOrDefault().r1;
+                        Title t = db.Titles.Single(x => x.TitleID == d.TitleID);
+                        detail = new DetailReturnDisk(r.CusID, d.TitleID, d.DiskID, r.StartRentDate, (DateTime)rd.DueDate, DateTime.Now, c.getName(r.CusID), getTitleName(d.TitleID), t.Price);
+                        return detail;
+                    }
+                    catch
+                    {
+                        return null;
+                    }
+                    
                 }
                 return null;
             }
@@ -69,6 +76,7 @@ namespace _24102019_uwp.Business
                     }
                     db.SaveChanges();
                     AddLateCharge(diskID, r.RentalID, lateCharge);
+                    PlaceOnHold(diskID);
                     return true;
                 }
                 return false;
@@ -84,6 +92,26 @@ namespace _24102019_uwp.Business
                     rd.OwnedMoney = lateCharge;
                 }
                 db.SaveChanges();
+            }
+        }
+        public void PlaceOnHold(int diskID)
+        {
+            using (ApplicationDBContext db = new ApplicationDBContext())
+            {
+                Disk d = db.Disks.SingleOrDefault(x => x.DiskID == diskID);
+                if(d != null)
+                {
+                    List<Reservation> lstReservationByDiskID = db.Reservations.Where(x => x.TitleID == d.TitleID).ToList();
+                    Reservation FirstReservation = lstReservationByDiskID.Where(x=>x.Status == (short)Checkout.ReservationStatus.WAITING && x.Deleted == false).OrderBy(x => x.StartResDate).FirstOrDefault();
+                    if(FirstReservation != null)
+                    {
+                        d.ChkOutStatus = (short)Checkout.DiskStatus.ONHOLD;
+                        FirstReservation.Status = (int)Checkout.ReservationStatus.HOLDING;
+                        db.SaveChanges();
+                        //return true;
+                    }
+                }
+                //return false;
             }
         }
     }

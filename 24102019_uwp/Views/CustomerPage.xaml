@@ -22,24 +22,27 @@
                     Customer ID
                 </TextBlock>
                 <TextBox Margin="24,12,22,0" PlaceholderText="ID will be generated" IsEnabled="False" Name="Id"/>
-
-                <TextBlock FontWeight="Bold" Margin="24,24,0,0">
+                <TextBlock Margin="24,10,22,0" Name="ErrorID"  Foreground="Red"/>
+                <TextBlock FontWeight="Bold" Margin="24,7,0,0">
                     Name
                 </TextBlock>
+                
                 <TextBox Margin="24,12,22,0" PlaceholderText="Please input customer name" Name="Name"/>
-
-                <TextBlock FontWeight="Bold" Margin="24,24,0,0">
+                <TextBlock Margin="24,10,22,0" Name="ErrorName"  Foreground="Red"/>
+                    <TextBlock FontWeight="Bold" Margin="24,7,0,0">
                     Phone
                 </TextBlock>
                 <TextBox Margin="24,12,22,0" PlaceholderText="Please input customer phone" Name="Phone"/>
-
-                <TextBlock FontWeight="Bold" Margin="24,24,0,0">
+                <TextBlock Margin="24,10,22,0" Name="ErrorPhone"  Foreground="Red"/>
+                <TextBlock FontWeight="Bold" Margin="24,7,0,0">
                     Address
                 </TextBlock>
                 <TextBox Margin="24,12,22,0" PlaceholderText="Please input customer address" Name="Address"/>
-
-                <Button Margin="24,24,0,0" Name="BtnSave" Click="Save">Save</Button>
-
+                <TextBlock Margin="24,10,22,0" Name="ErrorAddress" Foreground="Red"/>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Stretch">
+                    <Button Margin="24,10,0,0" Name="BtnSave" Click="Save" Width="64">Save</Button>
+                    <Button Margin="24,10,0,0" Name="BtnCancel" Click="Cancel" Width="64">Cancel</Button>
+                </StackPanel>
             </StackPanel>
         </SplitView.Pane>
 
@@ -55,14 +58,15 @@
                     Width="300"
                     HorizontalAlignment="Left"
                     QueryIcon="Find" VerticalAlignment="Top" 
+                    QuerySubmitted="Autobox_QuerySubmitted"
                     Margin="0,12,0,0"
-               PreviewKeyDown="Autobox_PreviewKeyDown"/>
+                    PreviewKeyDown="Autobox_PreviewKeyDown"/>
 
             <CommandBar DefaultLabelPosition="Right" Background="White" Name="cmdbar" Margin="0,24,0,0">
                 <AppBarButton Icon="Add" Label="Add" Click="Add" Name="BtnAdd"/>
                 <AppBarButton Icon="Edit" Label="Modify" Click="Modify" Name="BtnModify"/>
                 <AppBarButton Icon="Delete" Label="Delete" Click="Delete" Name="BtnDelete"/>
-                <AppBarButton Icon="Refresh" Label="Refresh" Click="Refresh" Name="BtnRefresh" PreviewKeyDown="BtnRefresh_PreviewKeyDown"/>
+                <AppBarButton Icon="Refresh" Label="Refresh" Click="Refresh" Name="BtnRefresh"/>
                 <CommandBar.Content>
                     <TextBlock Text="List of customers" Margin="0,9" FontWeight="Bold"/>
                 </CommandBar.Content>

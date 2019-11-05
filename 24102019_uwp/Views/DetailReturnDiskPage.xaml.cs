@@ -50,7 +50,7 @@ namespace _24102019_uwp.Views
         {
             base.OnNavigatedTo(e);
             drd = (DetailReturnDisk)e.Parameter;
-            setValue(drd);
+            if(drd != null) setValue(drd);
         }
         private void setValue(DetailReturnDisk drd)
         {
@@ -61,6 +61,7 @@ namespace _24102019_uwp.Views
             returnDate = drd.ReturnDate;
             totalDateLate = drd.TotalDateLate;
             lateCharge = drd.LateCharge;
+            
         }
         public void DisplayDialog(bool type)
         {

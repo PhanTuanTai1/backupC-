@@ -33,38 +33,49 @@ namespace _24102019_uwp.Views
 
         private void Save(object sender, RoutedEventArgs e)
         {
-            Customer c = CreateObject();
-            if (add == true && controller.AddCustomer(c))
+            if (Validation())
             {
-                lstCustomer.Add(c);
-                SetStatusTextBox(false);
-                add = false;
-                BtnModify.IsEnabled = true;
-                BtnAdd.IsEnabled = true;
-                BtnDelete.IsEnabled = true;
-                ClearText();
-                DisplayDialog("Add");
-                return;
-            }
-            if (modify == true && controller.ModifyCustomer(c))
-            {
-                Customer modifyOBJ = new Customer()
+                Customer c = CreateObject();
+                if (add == true && controller.AddCustomer(c))
                 {
-                    CusID = c.CusID,
-                    Name = c.Name,
-                    Phone = c.Phone,
-                    Address = c.Address,
-                };
-                lstCustomer.RemoveAt(index);
-                lstCustomer.Insert(index, modifyOBJ);
-                SetStatusTextBox(false);
-                modify = false;
-                BtnModify.IsEnabled = true;
-                BtnAdd.IsEnabled = true;
-                BtnDelete.IsEnabled = true;
-                DisplayDialog("Modify");
-                ClearText();
-            }
+                    AddCustomer(c);
+                }
+                if (modify == true && controller.ModifyCustomer(c))
+                {
+                    ModifyCustomer(c);
+                }
+            }          
+        }
+        private void AddCustomer(Customer c)
+        {
+            lstCustomer.Add(c);
+            SetStatusTextBox(false);
+            add = false;
+            BtnModify.IsEnabled = true;
+            BtnAdd.IsEnabled = true;
+            BtnDelete.IsEnabled = true;
+            ClearText();
+            DisplayDialog("Add");
+            return;
+        }
+        private void ModifyCustomer(Customer c)
+        {
+            Customer modifyOBJ = new Customer()
+            {
+                CusID = c.CusID,
+                Name = c.Name,
+                Phone = c.Phone,
+                Address = c.Address,
+            };
+            lstCustomer.RemoveAt(index);
+            lstCustomer.Insert(index, modifyOBJ);
+            SetStatusTextBox(false);
+            modify = false;
+            BtnModify.IsEnabled = true;
+            BtnAdd.IsEnabled = true;
+            BtnDelete.IsEnabled = true;
+            DisplayDialog("Modify");
+            ClearText();
         }
         private void lvCustomer_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -106,11 +117,22 @@ namespace _24102019_uwp.Views
         }
         private void Modify(object sender, RoutedEventArgs e)
         {
-            SetStatusTextBox(true);
-            (sender as Button).IsEnabled = false;
-            BtnAdd.IsEnabled = false;
-            BtnDelete.IsEnabled = false;
-            modify = true;
+            if(CreateObject() != null)
+            {
+                SetStatusTextBox(true);
+                (sender as Button).IsEnabled = false;
+                BtnAdd.IsEnabled = false;
+                BtnDelete.IsEnabled = false;
+                modify = true;
+            }
+            else
+            {
+                ContentDialog cd = new ContentDialog();
+                cd.Content = "Please select customer to modify";
+                cd.Title = "Notification";
+                cd.PrimaryButtonText = "Close";
+                cd.ShowAsync();
+            }
         }
         private void Delete(object sender, RoutedEventArgs e)
         {
@@ -149,14 +171,21 @@ namespace _24102019_uwp.Views
 
         private Customer CreateObject()
         {
-            Customer c = new Customer()
+            try
             {
-                CusID = int.Parse(Id.Text),
-                Name = Name.Text,
-                Phone = Phone.Text,
-                Address = Address.Text
-            };
-            return c;
+                Customer c = new Customer()
+                {
+                    CusID = int.Parse(Id.Text),
+                    Name = Name.Text,
+                    Phone = Phone.Text,
+                    Address = Address.Text
+                };
+                return c;
+            }
+            catch
+            {
+                return null;
+            }
         }
         private void RandomID()
         {
@@ -180,6 +209,7 @@ namespace _24102019_uwp.Views
             Phone.IsEnabled = e;
             Address.IsEnabled = e;
             BtnSave.IsEnabled = e;
+            BtnCancel.IsEnabled = e;
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
@@ -203,14 +233,7 @@ namespace _24102019_uwp.Views
         {
             if (e.Key == VirtualKey.Enter)
             {
-                if (isNumber(autobox.Text))
-                {
-                    lvCustomer.ItemsSource = lstCustomer.Where(x => x.CusID == int.Parse(autobox.Text));
-                }
-                else
-                {
-                    lvCustomer.ItemsSource = lstCustomer.Where(x => x.Name.Contains(autobox.Text));
-                }
+                Search();
             }
         }
 
@@ -225,6 +248,21 @@ namespace _24102019_uwp.Views
             {
                 UpdateList();
             }
+        }
+        private void Search()
+        {
+            if (isNumber(autobox.Text))
+            {
+                lvCustomer.ItemsSource = lstCustomer.Where(x => x.CusID == int.Parse(autobox.Text));
+            }
+            else
+            {
+                lvCustomer.ItemsSource = lstCustomer.Where(x => x.Name.ToLower().Contains(autobox.Text.ToLower()));
+            }
+        }
+        private void Autobox_QuerySubmitted(AutoSuggestBox sender, AutoSuggestBoxQuerySubmittedEventArgs args)
+        {
+            Search();
         }
 
         public void DisplayDialog(string type)
@@ -243,6 +281,57 @@ namespace _24102019_uwp.Views
                 cd.PrimaryButtonText = "Close";
             }
             cd.ShowAsync();
+        }
+
+        private void Cancel(object sender, RoutedEventArgs e)
+        {
+            if(add)
+            {
+                ClearText();
+                Display();
+                add = false;
+            }
+            SetStatusTextBox(false);
+            UnlockButton(true);
+            modify = false;
+        }
+        private void UnlockButton(bool e)
+        {
+            BtnAdd.IsEnabled = e;
+            BtnDelete.IsEnabled = e;
+            BtnModify.IsEnabled = e;
+        }
+        public bool Validation()
+        {
+            if(Name.Text.Trim().Length == 0)
+            {
+                ErrorName.Text = "Please enter customer name";
+                return false;
+            }
+            if (!Regex.IsMatch(Name.Text.Trim(), @"^\D+$"))
+            {
+                ErrorName.Text = "Customer name must be characters";
+                return false;
+            }            
+            if(Phone.Text.Trim().Length == 0)
+            {
+                ErrorPhone.Text = "Please enter the customer phone number";
+                return false;
+            }
+            if (!Regex.IsMatch(Phone.Text.Trim(), @"^\d{10,15}$"))
+            {
+                ErrorPhone.Text = "Invalid customer phone number";
+                return false;
+            }
+            if (Address.Text.Trim().Length == 0)
+            {
+                ErrorAddress.Text = "Please enter customer address";
+                return false;
+            }
+            ErrorName.Text = "";
+            ErrorPhone.Text = "";
+            ErrorAddress.Text = "";
+            return true;
         }
     }
 }

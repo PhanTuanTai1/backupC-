@@ -33,7 +33,7 @@ namespace _24102019_uwp.Views
 
         private void Autobox_QuerySubmitted(AutoSuggestBox sender, AutoSuggestBoxQuerySubmittedEventArgs args)
         {
-
+            Trigger();
         }
 
         private void Autobox_PreviewKeyDown(object sender, KeyRoutedEventArgs e)
@@ -42,11 +42,7 @@ namespace _24102019_uwp.Views
         {
             if(e.Key == Windows.System.VirtualKey.Enter)
             {
-                DetailReturnDisk d = Search(autobox.Text);
-                if(d != null)
-                {
-                    resultSearch.Navigate(typeof(DetailReturnDiskPage), d);
-                }
+                Trigger();
             }
         }
 
@@ -57,6 +53,19 @@ namespace _24102019_uwp.Views
                 return rb.Search(int.Parse(id));
             }
             return null;
+        }
+        private  void Trigger()
+        {          
+            DetailReturnDisk d = Search(autobox.Text);
+            if (d != null)
+            {
+                notFound.Text = "";
+                resultSearch.Navigate(typeof(DetailReturnDiskPage), d);
+            }
+            else
+            {
+                notFound.Text = "Disk does not exist";
+            }
         }
     }
 }

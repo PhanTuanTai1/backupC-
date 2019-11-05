@@ -22,8 +22,9 @@
                     QueryIcon="Find" VerticalAlignment="Top" 
                     QuerySubmitted="Autobox_QuerySubmitted"
                     PreviewKeyDown="Autobox_PreviewKeyDown"/>
+        
         <Frame Name="resultSearch">
-            
+            <TextBlock Name="notFound" Foreground="Red"></TextBlock>
         </Frame>
     </StackPanel>
 

@@ -4,6 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:_24102019_uwp.Views"
     xmlns:model="using:_24102019_uwp.Models"
+    xmlns:fallOrHigher="http://schemas.microsoft.com/winfx/2006/xaml/presentation?IsApiContractPresent(Windows.Foundation.UniversalApiContract,5)"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
@@ -12,7 +13,7 @@
     <ScrollViewer>
         <RelativePanel>
 
-            <StackPanel Margin="24,32,24,24" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="1452">
+            <fallOrHigher:StackPanel Margin="24,32,24,24" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="1452">
 
                 <TextBlock FontWeight="Bold">
                     Name
@@ -70,7 +71,7 @@
                     $1500
                 </TextBlock>
                 <Button x:Name="Click" Click="Return">Return</Button>
-            </StackPanel>
+            </fallOrHigher:StackPanel>
         </RelativePanel>
     </ScrollViewer>
 </Page>
