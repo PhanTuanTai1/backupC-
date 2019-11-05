@@ -113,5 +113,16 @@ namespace _24102019_uwp.Views
 
             CalculateMoney();
         }
+
+        private void BtnAddToDo_Click(object sender, RoutedEventArgs e)
+        {
+            if (!Login.IsLogin)
+            {
+                MainPage.DisplayDialog("Not logged in yet", "To use this function, you need to login.");
+                return;
+            }
+
+            MainPage.mainFrame.Navigate(typeof(DetailLateChargePage));
+        }
     }
 }

@@ -189,55 +189,57 @@ namespace _24102019_uwp._4102019_uwp_XamlTypeInfo
 
         private void InitTypeTables()
         {
-            _typeNameTable = new string[23];
+            _typeNameTable = new string[24];
             _typeNameTable[0] = "_24102019_uwp.MainPage";
             _typeNameTable[1] = "Windows.UI.Xaml.Controls.Page";
             _typeNameTable[2] = "Windows.UI.Xaml.Controls.UserControl";
             _typeNameTable[3] = "_24102019_uwp.Views.CustomerPage";
             _typeNameTable[4] = "_24102019_uwp.Views.CustomerReportPage";
             _typeNameTable[5] = "_24102019_uwp.Views.DetailCustomerReportPage";
-            _typeNameTable[6] = "_24102019_uwp.Views.DetailReturnDiskPage";
-            _typeNameTable[7] = "_24102019_uwp.Views.DetailReservationPage";
-            _typeNameTable[8] = "_24102019_uwp.Views.Dialogs.CalculatorDialog";
-            _typeNameTable[9] = "Windows.UI.Xaml.Controls.ContentDialog";
-            _typeNameTable[10] = "Windows.UI.Xaml.Controls.ContentControl";
-            _typeNameTable[11] = "_24102019_uwp.Views.Dialogs.LoginDialog";
-            _typeNameTable[12] = "_24102019_uwp.Views.Dialogs.PayLateChargeDialog";
-            _typeNameTable[13] = "_24102019_uwp.Views.HomePage";
-            _typeNameTable[14] = "_24102019_uwp.Views.IndividualPage";
-            _typeNameTable[15] = "_24102019_uwp.Views.LateChargePage";
-            _typeNameTable[16] = "_24102019_uwp.Views.MiscellaneousPage";
-            _typeNameTable[17] = "_24102019_uwp.Views.RentPage";
-            _typeNameTable[18] = "_24102019_uwp.Views.ReportPage";
-            _typeNameTable[19] = "_24102019_uwp.Views.ReservationPage";
-            _typeNameTable[20] = "_24102019_uwp.Views.ReturnPage";
-            _typeNameTable[21] = "_24102019_uwp.Views.TitlePage";
-            _typeNameTable[22] = "_24102019_uwp.Views.TitleReportPage";
+            _typeNameTable[6] = "_24102019_uwp.Views.DetailLateChargePage";
+            _typeNameTable[7] = "_24102019_uwp.Views.DetailReturnDiskPage";
+            _typeNameTable[8] = "_24102019_uwp.Views.DetailReservationPage";
+            _typeNameTable[9] = "_24102019_uwp.Views.Dialogs.CalculatorDialog";
+            _typeNameTable[10] = "Windows.UI.Xaml.Controls.ContentDialog";
+            _typeNameTable[11] = "Windows.UI.Xaml.Controls.ContentControl";
+            _typeNameTable[12] = "_24102019_uwp.Views.Dialogs.LoginDialog";
+            _typeNameTable[13] = "_24102019_uwp.Views.Dialogs.PayLateChargeDialog";
+            _typeNameTable[14] = "_24102019_uwp.Views.HomePage";
+            _typeNameTable[15] = "_24102019_uwp.Views.IndividualPage";
+            _typeNameTable[16] = "_24102019_uwp.Views.LateChargePage";
+            _typeNameTable[17] = "_24102019_uwp.Views.MiscellaneousPage";
+            _typeNameTable[18] = "_24102019_uwp.Views.RentPage";
+            _typeNameTable[19] = "_24102019_uwp.Views.ReportPage";
+            _typeNameTable[20] = "_24102019_uwp.Views.ReservationPage";
+            _typeNameTable[21] = "_24102019_uwp.Views.ReturnPage";
+            _typeNameTable[22] = "_24102019_uwp.Views.TitlePage";
+            _typeNameTable[23] = "_24102019_uwp.Views.TitleReportPage";
 
-            _typeTable = new global::System.Type[23];
+            _typeTable = new global::System.Type[24];
             _typeTable[0] = typeof(global::_24102019_uwp.MainPage);
             _typeTable[1] = typeof(global::Windows.UI.Xaml.Controls.Page);
             _typeTable[2] = typeof(global::Windows.UI.Xaml.Controls.UserControl);
             _typeTable[3] = typeof(global::_24102019_uwp.Views.CustomerPage);
             _typeTable[4] = typeof(global::_24102019_uwp.Views.CustomerReportPage);
             _typeTable[5] = typeof(global::_24102019_uwp.Views.DetailCustomerReportPage);
-            _typeTable[6] = typeof(global::_24102019_uwp.Views.DetailReturnDiskPage);
-            _typeTable[7] = typeof(global::_24102019_uwp.Views.DetailReservationPage);
-            _typeTable[8] = typeof(global::_24102019_uwp.Views.Dialogs.CalculatorDialog);
-            _typeTable[9] = typeof(global::Windows.UI.Xaml.Controls.ContentDialog);
-            _typeTable[10] = typeof(global::Windows.UI.Xaml.Controls.ContentControl);
-            _typeTable[11] = typeof(global::_24102019_uwp.Views.Dialogs.LoginDialog);
-            _typeTable[12] = typeof(global::_24102019_uwp.Views.Dialogs.PayLateChargeDialog);
-            _typeTable[13] = typeof(global::_24102019_uwp.Views.HomePage);
-            _typeTable[14] = typeof(global::_24102019_uwp.Views.IndividualPage);
-            _typeTable[15] = typeof(global::_24102019_uwp.Views.LateChargePage);
-            _typeTable[16] = typeof(global::_24102019_uwp.Views.MiscellaneousPage);
-            _typeTable[17] = typeof(global::_24102019_uwp.Views.RentPage);
-            _typeTable[18] = typeof(global::_24102019_uwp.Views.ReportPage);
-            _typeTable[19] = typeof(global::_24102019_uwp.Views.ReservationPage);
-            _typeTable[20] = typeof(global::_24102019_uwp.Views.ReturnPage);
-            _typeTable[21] = typeof(global::_24102019_uwp.Views.TitlePage);
-            _typeTable[22] = typeof(global::_24102019_uwp.Views.TitleReportPage);
+            _typeTable[6] = typeof(global::_24102019_uwp.Views.DetailLateChargePage);
+            _typeTable[7] = typeof(global::_24102019_uwp.Views.DetailReturnDiskPage);
+            _typeTable[8] = typeof(global::_24102019_uwp.Views.DetailReservationPage);
+            _typeTable[9] = typeof(global::_24102019_uwp.Views.Dialogs.CalculatorDialog);
+            _typeTable[10] = typeof(global::Windows.UI.Xaml.Controls.ContentDialog);
+            _typeTable[11] = typeof(global::Windows.UI.Xaml.Controls.ContentControl);
+            _typeTable[12] = typeof(global::_24102019_uwp.Views.Dialogs.LoginDialog);
+            _typeTable[13] = typeof(global::_24102019_uwp.Views.Dialogs.PayLateChargeDialog);
+            _typeTable[14] = typeof(global::_24102019_uwp.Views.HomePage);
+            _typeTable[15] = typeof(global::_24102019_uwp.Views.IndividualPage);
+            _typeTable[16] = typeof(global::_24102019_uwp.Views.LateChargePage);
+            _typeTable[17] = typeof(global::_24102019_uwp.Views.MiscellaneousPage);
+            _typeTable[18] = typeof(global::_24102019_uwp.Views.RentPage);
+            _typeTable[19] = typeof(global::_24102019_uwp.Views.ReportPage);
+            _typeTable[20] = typeof(global::_24102019_uwp.Views.ReservationPage);
+            _typeTable[21] = typeof(global::_24102019_uwp.Views.ReturnPage);
+            _typeTable[22] = typeof(global::_24102019_uwp.Views.TitlePage);
+            _typeTable[23] = typeof(global::_24102019_uwp.Views.TitleReportPage);
         }
 
         private int LookupTypeIndexByName(string typeName)
@@ -276,19 +278,20 @@ namespace _24102019_uwp._4102019_uwp_XamlTypeInfo
         private object Activate_3_CustomerPage() { return new global::_24102019_uwp.Views.CustomerPage(); }
         private object Activate_4_CustomerReportPage() { return new global::_24102019_uwp.Views.CustomerReportPage(); }
         private object Activate_5_DetailCustomerReportPage() { return new global::_24102019_uwp.Views.DetailCustomerReportPage(); }
-        private object Activate_6_DetailReturnDiskPage() { return new global::_24102019_uwp.Views.DetailReturnDiskPage(); }
-        private object Activate_7_DetailReservationPage() { return new global::_24102019_uwp.Views.DetailReservationPage(); }
-        private object Activate_11_LoginDialog() { return new global::_24102019_uwp.Views.Dialogs.LoginDialog(); }
-        private object Activate_13_HomePage() { return new global::_24102019_uwp.Views.HomePage(); }
-        private object Activate_14_IndividualPage() { return new global::_24102019_uwp.Views.IndividualPage(); }
-        private object Activate_15_LateChargePage() { return new global::_24102019_uwp.Views.LateChargePage(); }
-        private object Activate_16_MiscellaneousPage() { return new global::_24102019_uwp.Views.MiscellaneousPage(); }
-        private object Activate_17_RentPage() { return new global::_24102019_uwp.Views.RentPage(); }
-        private object Activate_18_ReportPage() { return new global::_24102019_uwp.Views.ReportPage(); }
-        private object Activate_19_ReservationPage() { return new global::_24102019_uwp.Views.ReservationPage(); }
-        private object Activate_20_ReturnPage() { return new global::_24102019_uwp.Views.ReturnPage(); }
-        private object Activate_21_TitlePage() { return new global::_24102019_uwp.Views.TitlePage(); }
-        private object Activate_22_TitleReportPage() { return new global::_24102019_uwp.Views.TitleReportPage(); }
+        private object Activate_6_DetailLateChargePage() { return new global::_24102019_uwp.Views.DetailLateChargePage(); }
+        private object Activate_7_DetailReturnDiskPage() { return new global::_24102019_uwp.Views.DetailReturnDiskPage(); }
+        private object Activate_8_DetailReservationPage() { return new global::_24102019_uwp.Views.DetailReservationPage(); }
+        private object Activate_12_LoginDialog() { return new global::_24102019_uwp.Views.Dialogs.LoginDialog(); }
+        private object Activate_14_HomePage() { return new global::_24102019_uwp.Views.HomePage(); }
+        private object Activate_15_IndividualPage() { return new global::_24102019_uwp.Views.IndividualPage(); }
+        private object Activate_16_LateChargePage() { return new global::_24102019_uwp.Views.LateChargePage(); }
+        private object Activate_17_MiscellaneousPage() { return new global::_24102019_uwp.Views.MiscellaneousPage(); }
+        private object Activate_18_RentPage() { return new global::_24102019_uwp.Views.RentPage(); }
+        private object Activate_19_ReportPage() { return new global::_24102019_uwp.Views.ReportPage(); }
+        private object Activate_20_ReservationPage() { return new global::_24102019_uwp.Views.ReservationPage(); }
+        private object Activate_21_ReturnPage() { return new global::_24102019_uwp.Views.ReturnPage(); }
+        private object Activate_22_TitlePage() { return new global::_24102019_uwp.Views.TitlePage(); }
+        private object Activate_23_TitleReportPage() { return new global::_24102019_uwp.Views.TitleReportPage(); }
 
         private global::Windows.UI.Xaml.Markup.IXamlType CreateXamlType(int typeIndex)
         {
@@ -336,113 +339,120 @@ namespace _24102019_uwp._4102019_uwp_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 6:   //  _24102019_uwp.Views.DetailReturnDiskPage
+            case 6:   //  _24102019_uwp.Views.DetailLateChargePage
                 userType = new global::_24102019_uwp._4102019_uwp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_6_DetailReturnDiskPage;
+                userType.Activator = Activate_6_DetailLateChargePage;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 7:   //  _24102019_uwp.Views.DetailReservationPage
+            case 7:   //  _24102019_uwp.Views.DetailReturnDiskPage
                 userType = new global::_24102019_uwp._4102019_uwp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_7_DetailReservationPage;
+                userType.Activator = Activate_7_DetailReturnDiskPage;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 8:   //  _24102019_uwp.Views.Dialogs.CalculatorDialog
+            case 8:   //  _24102019_uwp.Views.DetailReservationPage
+                userType = new global::_24102019_uwp._4102019_uwp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_8_DetailReservationPage;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 9:   //  _24102019_uwp.Views.Dialogs.CalculatorDialog
                 userType = new global::_24102019_uwp._4102019_uwp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.ContentDialog"));
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 9:   //  Windows.UI.Xaml.Controls.ContentDialog
+            case 10:   //  Windows.UI.Xaml.Controls.ContentDialog
                 xamlType = new global::_24102019_uwp._4102019_uwp_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 10:   //  Windows.UI.Xaml.Controls.ContentControl
+            case 11:   //  Windows.UI.Xaml.Controls.ContentControl
                 xamlType = new global::_24102019_uwp._4102019_uwp_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 11:   //  _24102019_uwp.Views.Dialogs.LoginDialog
+            case 12:   //  _24102019_uwp.Views.Dialogs.LoginDialog
                 userType = new global::_24102019_uwp._4102019_uwp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.ContentDialog"));
-                userType.Activator = Activate_11_LoginDialog;
+                userType.Activator = Activate_12_LoginDialog;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 12:   //  _24102019_uwp.Views.Dialogs.PayLateChargeDialog
+            case 13:   //  _24102019_uwp.Views.Dialogs.PayLateChargeDialog
                 userType = new global::_24102019_uwp._4102019_uwp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.ContentDialog"));
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 13:   //  _24102019_uwp.Views.HomePage
+            case 14:   //  _24102019_uwp.Views.HomePage
                 userType = new global::_24102019_uwp._4102019_uwp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_13_HomePage;
+                userType.Activator = Activate_14_HomePage;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 14:   //  _24102019_uwp.Views.IndividualPage
+            case 15:   //  _24102019_uwp.Views.IndividualPage
                 userType = new global::_24102019_uwp._4102019_uwp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_14_IndividualPage;
+                userType.Activator = Activate_15_IndividualPage;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 15:   //  _24102019_uwp.Views.LateChargePage
+            case 16:   //  _24102019_uwp.Views.LateChargePage
                 userType = new global::_24102019_uwp._4102019_uwp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_15_LateChargePage;
+                userType.Activator = Activate_16_LateChargePage;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 16:   //  _24102019_uwp.Views.MiscellaneousPage
+            case 17:   //  _24102019_uwp.Views.MiscellaneousPage
                 userType = new global::_24102019_uwp._4102019_uwp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_16_MiscellaneousPage;
+                userType.Activator = Activate_17_MiscellaneousPage;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 17:   //  _24102019_uwp.Views.RentPage
+            case 18:   //  _24102019_uwp.Views.RentPage
                 userType = new global::_24102019_uwp._4102019_uwp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_17_RentPage;
+                userType.Activator = Activate_18_RentPage;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 18:   //  _24102019_uwp.Views.ReportPage
+            case 19:   //  _24102019_uwp.Views.ReportPage
                 userType = new global::_24102019_uwp._4102019_uwp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_18_ReportPage;
+                userType.Activator = Activate_19_ReportPage;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 19:   //  _24102019_uwp.Views.ReservationPage
+            case 20:   //  _24102019_uwp.Views.ReservationPage
                 userType = new global::_24102019_uwp._4102019_uwp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_19_ReservationPage;
+                userType.Activator = Activate_20_ReservationPage;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 20:   //  _24102019_uwp.Views.ReturnPage
+            case 21:   //  _24102019_uwp.Views.ReturnPage
                 userType = new global::_24102019_uwp._4102019_uwp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_20_ReturnPage;
+                userType.Activator = Activate_21_ReturnPage;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 21:   //  _24102019_uwp.Views.TitlePage
+            case 22:   //  _24102019_uwp.Views.TitlePage
                 userType = new global::_24102019_uwp._4102019_uwp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_21_TitlePage;
+                userType.Activator = Activate_22_TitlePage;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 22:   //  _24102019_uwp.Views.TitleReportPage
+            case 23:   //  _24102019_uwp.Views.TitleReportPage
                 userType = new global::_24102019_uwp._4102019_uwp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_22_TitleReportPage;
+                userType.Activator = Activate_23_TitleReportPage;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;

@@ -12,9 +12,9 @@ namespace _24102019_uwp.Business
     {
         public bool HaveLateCharge(int cusID)
         {
-            using(var db = new ApplicationDBContext())
+            using (var db = new ApplicationDBContext())
             {
-                var count = db.Rentals.Where(p => p.CusID == cusID && p.Status != (short)RentalInformation.RentalStatus.COMPLETE).ToList().Count;
+                var count = db.Rentals.Where(p => p.CusID == cusID && p.Status != (short)RentalInformation.RentalStatus.COMPLETE && !p.Deleted).ToList().Count;
 
                 if (count > 0) return true;
             }
@@ -26,39 +26,89 @@ namespace _24102019_uwp.Business
         {
             var paylatecharges = new List<DisplayPayLateCharge>();
 
-            using(var db = new ApplicationDBContext())
+            using (var db = new ApplicationDBContext())
             {
                 var rentals = db.Rentals.Where(p => p.CusID == cusID && p.Status != (short)RentalInformation.RentalStatus.COMPLETE);
 
                 if (rentals.Count() <= 0) return null;
 
-                foreach(var rent in rentals)
+                foreach (var rent in rentals)
                 {
                     var rentID = rent.RentalID;
 
                     var rentDetails = db.Rentail_Detail.Where(p => p.RentalID == rentID && p.OwnedMoney != null && p.OwnedMoney > 0);
 
-                    foreach(var rentDetail in rentDetails)
+                    foreach (var rentDetail in rentDetails)
                     {
-                        var titleID = db.Disks.SingleOrDefault(p => p.DiskID == rentDetail.DiskID).TitleID;
-
-                        var title = db.Titles.SingleOrDefault(p => p.TitleID == titleID);
-
-                        var temp = ((DateTime)rentDetail.ReturnDate).Subtract((DateTime)rentDetail.DueDate).TotalDays;
-
-                        var paylatecharge = new DisplayPayLateCharge()
+                        if(rentDetail.Deleted == null || !(bool)rentDetail.Deleted)
                         {
-                            DiskID = rentDetail.DiskID,
-                            RentalID = rentDetail.RentalID,
-                            dueDate = ((DateTime)rentDetail.DueDate).ToString("dd/MM/yyyy"),
-                            returnDate = ((DateTime)rentDetail.ReturnDate).ToString("dd/MM/yyyy"),
-                            totalLateDay = ((int)temp).ToString(),
-                            Title = title.Name,
-                            lateCharge = (decimal)rentDetail.OwnedMoney,
-                            startRentDate = rent.StartRentDate.ToString("dd/MM/yyyy")
-                        };
+                            var titleID = db.Disks.SingleOrDefault(p => p.DiskID == rentDetail.DiskID).TitleID;
 
-                        paylatecharges.Add(paylatecharge);
+                            var title = db.Titles.SingleOrDefault(p => p.TitleID == titleID);
+
+                            var temp = ((DateTime)rentDetail.ReturnDate).Subtract((DateTime)rentDetail.DueDate).TotalDays;
+
+                            var paylatecharge = new DisplayPayLateCharge()
+                            {
+                                DiskID = rentDetail.DiskID,
+                                RentalID = rentDetail.RentalID,
+                                dueDate = ((DateTime)rentDetail.DueDate).ToString("dd/MM/yyyy"),
+                                returnDate = ((DateTime)rentDetail.ReturnDate).ToString("dd/MM/yyyy"),
+                                totalLateDay = ((int)temp).ToString(),
+                                Title = title.Name,
+                                lateCharge = (decimal)rentDetail.OwnedMoney,
+                                startRentDate = rent.StartRentDate.ToString("dd/MM/yyyy")
+                            };
+
+                            paylatecharges.Add(paylatecharge);
+                        }
+                    }
+                }
+
+                return paylatecharges;
+            }
+        }
+
+        public List<DisplayPayLateCharge> GetAllDisplayPayLateCharges()
+        {
+            var paylatecharges = new List<DisplayPayLateCharge>();
+
+            using (var db = new ApplicationDBContext())
+            {
+                var rentals = db.Rentals.Where(p => p.Status != (short)RentalInformation.RentalStatus.COMPLETE);
+
+                if (rentals.Count() <= 0) return null;
+
+                foreach (var rent in rentals)
+                {
+                    var rentID = rent.RentalID;
+
+                    var rentDetails = db.Rentail_Detail.Where(p => p.RentalID == rentID && p.OwnedMoney != null && p.OwnedMoney > 0);
+
+                    foreach (var rentDetail in rentDetails)
+                    {
+                        if (rentDetail.Deleted == null || !(bool)rentDetail.Deleted)
+                        {
+                            var titleID = db.Disks.SingleOrDefault(p => p.DiskID == rentDetail.DiskID).TitleID;
+
+                            var title = db.Titles.SingleOrDefault(p => p.TitleID == titleID);
+
+                            var temp = ((DateTime)rentDetail.ReturnDate).Subtract((DateTime)rentDetail.DueDate).TotalDays;
+
+                            var paylatecharge = new DisplayPayLateCharge()
+                            {
+                                DiskID = rentDetail.DiskID,
+                                RentalID = rentDetail.RentalID,
+                                dueDate = ((DateTime)rentDetail.DueDate).ToString("dd/MM/yyyy"),
+                                returnDate = ((DateTime)rentDetail.ReturnDate).ToString("dd/MM/yyyy"),
+                                totalLateDay = ((int)temp).ToString(),
+                                Title = title.Name,
+                                lateCharge = (decimal)rentDetail.OwnedMoney,
+                                startRentDate = rent.StartRentDate.ToString("dd/MM/yyyy")
+                            };
+
+                            paylatecharges.Add(paylatecharge);
+                        }
                     }
                 }
 
@@ -68,7 +118,7 @@ namespace _24102019_uwp.Business
 
         public decimal PayLateCharge(decimal money, List<DisplayPayLateCharge> displayPayLateCharges)
         {
-            using(var db = new ApplicationDBContext())
+            using (var db = new ApplicationDBContext())
             {
                 foreach (var display in displayPayLateCharges)
                 {
@@ -76,7 +126,7 @@ namespace _24102019_uwp.Business
                     {
                         var found = db.Rentail_Detail.SingleOrDefault(p => p.RentalID == display.RentalID && p.DiskID == display.DiskID);
 
-                        if(found != null)
+                        if (found != null)
                         {
                             found.OwnedMoney = 0;
                             money -= display.lateCharge;
@@ -86,7 +136,7 @@ namespace _24102019_uwp.Business
                     if (money <= 0) break;
                 }
 
-                foreach(var display in displayPayLateCharges)
+                foreach (var display in displayPayLateCharges)
                 {
                     var rentID = display.RentalID;
 
@@ -94,13 +144,13 @@ namespace _24102019_uwp.Business
 
                     int count = 0;
 
-                    foreach(var rent in rentD)
+                    foreach (var rent in rentD)
                     {
                         if (rent.OwnedMoney > 0 || rent.OwnedMoney == null) break;
                         count++;
                     }
 
-                    if(count == rentD.ToList().Count)
+                    if (count == rentD.ToList().Count)
                     {
                         var rental = db.Rentals.SingleOrDefault(p => p.RentalID == rentID);
 
@@ -127,6 +177,22 @@ namespace _24102019_uwp.Business
             }
 
             return money;
+        }
+
+        public bool DeleteLateCharge(int rentalID, int diskID)
+        {
+            using (var db = new ApplicationDBContext())
+            {
+                var found = db.Rentail_Detail.SingleOrDefault(p => p.DiskID == diskID && p.RentalID == rentalID);
+
+                if (found != null)
+                {
+                    found.Deleted = true;
+                    db.SaveChanges();
+                    return true;
+                }
+            }
+            return false;
         }
 
     }

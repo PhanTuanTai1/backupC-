@@ -157,6 +157,9 @@
     <Compile Include="Views\DetailCustomerReportPage.xaml.cs">
       <DependentUpon>DetailCustomerReportPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\DetailLateChargePage.xaml.cs">
+      <DependentUpon>DetailLateChargePage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\DetailReturnDiskPage.xaml.cs">
       <DependentUpon>DetailReturnDiskPage.xaml</DependentUpon>
     </Compile>
@@ -237,6 +240,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\DetailCustomerReportPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DetailLateChargePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
