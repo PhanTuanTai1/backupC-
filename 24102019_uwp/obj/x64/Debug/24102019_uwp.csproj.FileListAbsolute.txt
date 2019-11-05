@@ -695,3 +695,8 @@ C:\Users\nguye\Desktop\backupC-\24102019_uwp\obj\x64\Debug\Views\DetailLateCharg
 C:\Users\nguye\Desktop\backupC-\24102019_uwp\obj\x64\Debug\Views\DetailLateChargePage.xaml
 C:\Users\nguye\Desktop\backupC-\24102019_uwp\obj\x64\Debug\Views\DetailLateChargePage.xbf
 C:\Users\nguye\Desktop\backupC-\24102019_uwp\bin\x64\Debug\Views\DetailLateChargePage.xbf
+H:\ProjectC#\BACKUP\new2\new1\disc_store_management\24102019_uwp\obj\x64\Debug\Views\DetailLateChargePage.xaml
+H:\ProjectC#\BACKUP\new2\new1\disc_store_management\24102019_uwp\obj\x64\Debug\Views\DetailLateChargePage.xbf
+H:\ProjectC#\BACKUP\new2\new1\disc_store_management\24102019_uwp\bin\x64\Debug\Views\DetailLateChargePage.xbf
+H:\ProjectC#\BACKUP\new2\new1\disc_store_management\24102019_uwp\obj\x64\Debug\Views\DetailLateChargePage.g.i.cs
+H:\ProjectC#\BACKUP\new2\new1\disc_store_management\24102019_uwp\obj\x64\Debug\Views\DetailLateChargePage.g.cs
