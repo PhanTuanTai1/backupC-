@@ -16,6 +16,7 @@ Views\DetailReservationPage.xbf
 Views\DetailReturnDiskPage.xbf
 Views\Dialogs\CalculatorDialog.xbf
 Views\Dialogs\LoginDialog.xbf
+Views\Dialogs\PayLateChargeDialog.xbf
 Views\HomePage.xbf
 Views\IndividualPage.xbf
 Views\LateChargePage.xbf

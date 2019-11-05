@@ -7,6 +7,11 @@
     <RootPropertyPathName Name="cusPhone" />
     <RootPropertyPathName Name="cusName" />
     <RootPropertyPathName Name="Title" />
+    <RootPropertyPathName Name="lateCharge" />
+    <RootPropertyPathName Name="totalLateDay" />
+    <RootPropertyPathName Name="returnDate" />
+    <RootPropertyPathName Name="dueDate" />
+    <RootPropertyPathName Name="startRentDate" />
     <RootPropertyPathName Name="DiskID" />
     <RootPropertyPathName Name="Price" />
     <RootPropertyPathName Name="Name" />
@@ -232,6 +237,7 @@
       <RootProperty Name="PlaceholderText" />
     </RootType>
     <RootType FullName="_24102019_uwp.Views.Dialogs.LoginDialog" />
+    <RootType FullName="_24102019_uwp.Views.Dialogs.PayLateChargeDialog" />
     <RootType FullName="_24102019_uwp.Views.HomePage" />
     <RootType FullName="_24102019_uwp.Views.IndividualPage" />
     <RootType FullName="_24102019_uwp.Views.LateChargePage" />
