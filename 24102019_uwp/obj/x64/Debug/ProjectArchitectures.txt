@@ -1,1 +1,1 @@
-H:\ProjectC#\BACKUP\new2\new1\disc_store_management\24102019_uwp\24102019_uwp.csproj;x64
+C:\Users\nguye\Desktop\backupC-\24102019_uwp\24102019_uwp.csproj;x64

@@ -9,7 +9,15 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <StackPanel Padding="24">
-        <TextBlock FontWeight="Bold" Margin="0,8,0,0">
+
+        <HyperlinkButton x:Name="btnAddToDo"
+                Margin="0,8,0,0"
+                Content="Go to detail late charge page"
+                RelativePanel.AlignTopWithPanel="True"
+                RelativePanel.AlignRightWithPanel="True"
+                Click="BtnAddToDo_Click"/>
+
+        <TextBlock FontWeight="Bold" Margin="0,32,0,0">
             Find customers
         </TextBlock>
 

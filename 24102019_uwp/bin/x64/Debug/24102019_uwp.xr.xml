@@ -2,16 +2,16 @@
 <Roots >
   <Roots.PropertyPathNames>
     <RootPropertyPathName Name="CusID" />
-    <RootPropertyPathName Name="status" />
-    <RootPropertyPathName Name="startResDate" />
-    <RootPropertyPathName Name="cusPhone" />
-    <RootPropertyPathName Name="cusName" />
-    <RootPropertyPathName Name="Title" />
     <RootPropertyPathName Name="lateCharge" />
     <RootPropertyPathName Name="totalLateDay" />
     <RootPropertyPathName Name="returnDate" />
     <RootPropertyPathName Name="dueDate" />
     <RootPropertyPathName Name="startRentDate" />
+    <RootPropertyPathName Name="Title" />
+    <RootPropertyPathName Name="status" />
+    <RootPropertyPathName Name="startResDate" />
+    <RootPropertyPathName Name="cusPhone" />
+    <RootPropertyPathName Name="cusName" />
     <RootPropertyPathName Name="DiskID" />
     <RootPropertyPathName Name="Price" />
     <RootPropertyPathName Name="Name" />
@@ -207,8 +207,9 @@
       <RootEvent Name="Click" />
     </RootType>
     <RootType FullName="_24102019_uwp.Views.DetailCustomerReportPage" />
-    <RootType FullName="_24102019_uwp.Views.DetailReturnDiskPage" />
     <RootType FullName="Windows.UI.Xaml.Data.Binding" />
+    <RootType FullName="_24102019_uwp.Views.DetailLateChargePage" />
+    <RootType FullName="_24102019_uwp.Views.DetailReturnDiskPage" />
     <RootType FullName="_24102019_uwp.Views.DetailReservationPage" />
     <RootType FullName="Windows.UI.Xaml.Controls.ContentDialog">
       <RootProperty Name="Title" />

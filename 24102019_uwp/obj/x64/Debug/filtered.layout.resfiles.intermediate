@@ -1,4 +1,3 @@
-WinMetadata\Windows.winmd
 Assets\LockScreenLogo.scale-200.png
 Assets\SplashScreen.scale-200.png
 Assets\Square150x150Logo.scale-200.png
@@ -12,6 +11,7 @@ MainPage.xbf
 Views\CustomerPage.xbf
 Views\CustomerReportPage.xbf
 Views\DetailCustomerReportPage.xbf
+Views\DetailLateChargePage.xbf
 Views\DetailReservationPage.xbf
 Views\DetailReturnDiskPage.xbf
 Views\Dialogs\CalculatorDialog.xbf
@@ -28,3 +28,4 @@ Views\ReturnPage.xbf
 Views\TitlePage.xbf
 Views\TitleReportPage.xbf
 Properties\Default.rd.xml
+WinMetadata\Windows.winmd

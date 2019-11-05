@@ -20,6 +20,8 @@ namespace _24102019_uwp.Models
         [Column(TypeName = "money")]
         public decimal? OwnedMoney { get; set; }
 
+        public bool? Deleted { get; set; }
+
         public virtual Disk Disk { get; set; }
 
         public virtual Rental Rental { get; set; }
