@@ -120,12 +120,10 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Business\CustomerBS.cs" />
+    <Compile Include="Business\PayLateChargeBS.cs" />
     <Compile Include="Business\RentBS.cs" />
-
     <Compile Include="Business\ReturnBS.cs" />
-
     <Compile Include="Business\ReservationBS.cs" />
-
     <Compile Include="Data\ApplicationDBContext.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
@@ -139,6 +137,7 @@
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\DetailReturnDisk.cs" />
     <Compile Include="Models\Disk.cs" />
+    <Compile Include="Models\DisplayPayLateCharge.cs" />
     <Compile Include="Models\DisplayReservation.cs" />
     <Compile Include="Models\Rentail_Detail.cs" />
     <Compile Include="Models\Rental.cs" />
@@ -157,19 +156,20 @@
     <Compile Include="Views\DetailCustomerReportPage.xaml.cs">
       <DependentUpon>DetailCustomerReportPage.xaml</DependentUpon>
     </Compile>
-
     <Compile Include="Views\DetailReturnDiskPage.xaml.cs">
       <DependentUpon>DetailReturnDiskPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\DetailReservationPage.xaml.cs">
       <DependentUpon>DetailReservationPage.xaml</DependentUpon>
-
     </Compile>
     <Compile Include="Views\Dialogs\CalculatorDialog.xaml.cs">
       <DependentUpon>CalculatorDialog.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Dialogs\LoginDialog.xaml.cs">
       <DependentUpon>LoginDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Dialogs\PayLateChargeDialog.xaml.cs">
+      <DependentUpon>PayLateChargeDialog.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\HomePage.xaml.cs">
       <DependentUpon>HomePage.xaml</DependentUpon>
@@ -239,11 +239,9 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-
-    <Page Include="Views\DetailReturnDiskPage.xaml"></Page>
-
+    <Page Include="Views\DetailReturnDiskPage.xaml">
+    </Page>
     <Page Include="Views\DetailReservationPage.xaml">
-
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -252,6 +250,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Dialogs\LoginDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Dialogs\PayLateChargeDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

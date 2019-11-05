@@ -8,92 +8,111 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <SplitView x:ConnectionId='2' IsPaneOpen="True"
-           DisplayMode="Inline"
-           PanePlacement="Right"
-           OpenPaneLength="320"
-           Name="splView">
-
-        <SplitView.Pane>
-            <StackPanel>
-                <TextBlock FontWeight="Bold" Margin="24,32,0,0">
-                    Title rented
-                </TextBlock>
-                <TextBlock Margin="24,12,0,0">
-                    101 Dogs - By Nam Anh
-                </TextBlock>
-                
-                <TextBlock FontWeight="Bold" Margin="24,24,0,0">
-                    Start renting date
-                </TextBlock>
-                <TextBlock Margin="24,12,0,0">
-                    05-10-1998
-                </TextBlock>
-                
-                <TextBlock FontWeight="Bold" Margin="24,24,0,0">
-                    Due Date
-                </TextBlock>
-                <TextBlock Margin="24,12,0,0">
-                    05-12-1998
-                </TextBlock>
-
-                <TextBlock FontWeight="Bold" Margin="24,24,0,0">
-                    Returned date
-                </TextBlock>
-                <TextBlock Margin="24,12,0,0" Foreground="Red">
-                    09-12-1998
-                </TextBlock>
-
-                <TextBlock FontWeight="Bold" Margin="24,24,0,0">
-                    Total late days
-                </TextBlock>
-                <TextBlock Margin="24,12,0,0" Foreground="Red">
-                    4 days
-                </TextBlock>
-
-                <TextBlock FontWeight="Bold" Margin="24,24,0,0">
-                    Late charge
-                </TextBlock>
-                <TextBlock Margin="24,12,0,0" Foreground="Red">
-                    $150
-                </TextBlock>
-
-            </StackPanel>
-        </SplitView.Pane>
-
-        <StackPanel Padding="24">
-            <TextBlock FontWeight="Bold" Margin="0,8,0,0">
+    <StackPanel Padding="24">
+        <TextBlock FontWeight="Bold" Margin="0,8,0,0">
             Find customers
-            </TextBlock>
+        </TextBlock>
 
-            <AutoSuggestBox x:ConnectionId='3'
+        <AutoSuggestBox x:ConnectionId='2'
                     x:Name="autobox"
                     Width="272" HorizontalAlignment="Left"
                     PlaceholderText="Search customer"
+                    TextMemberPath="CusID"
+                    DisplayMemberPath="CusID"
+                                                     
+                                                               
+                                                           
                     Margin="0,12,0,0"
                     QueryIcon="Find" VerticalAlignment="Top" />
 
-            <TextBlock FontWeight="Bold" Margin="0,48,0,0">
+        <TextBlock FontWeight="Bold" Margin="0,48,0,0">
                 List of late return disks
+        </TextBlock>
+        <ListView x:ConnectionId='3' x:Name="lvLateCharges" Margin="0,24,0,0">
+            <ListView.HeaderTemplate>
+                <DataTemplate>
+                    <Grid Background="LightGray">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Grid.Column="0" Grid.ColumnSpan="1" 
+                                   Margin="10"  FontWeight="Bold" 
+                                   Text="Title" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        <TextBlock Grid.Column="1" Grid.ColumnSpan="1" 
+                                   Margin="10"  FontWeight="Bold" 
+                                   Text="Start rent date" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        <TextBlock Grid.Column="2" Grid.ColumnSpan="1" 
+                                   Margin="10"  FontWeight="Bold" 
+                                   Text="Due date" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        <TextBlock Grid.Column="3" Grid.ColumnSpan="1" 
+                                   Margin="10"  FontWeight="Bold" 
+                                   Text="Return date" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        <TextBlock Grid.Column="4" Grid.ColumnSpan="1" 
+                                   Margin="10"  FontWeight="Bold" 
+                                   Text="Total late day(s)" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        <TextBlock Grid.Column="5" Grid.ColumnSpan="1" 
+                                   Margin="10"  FontWeight="Bold" 
+                                   Text="Late charge" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </Grid>
+                </DataTemplate>
+            </ListView.HeaderTemplate>
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                </Style>
+            </ListView.ItemContainerStyle>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        
+                        <TextBlock Grid.Column="0" Grid.ColumnSpan="1" 
+                                   Margin="10"
+                                   Text="{Binding Title}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        <TextBlock Grid.Column="1" Grid.ColumnSpan="1" 
+                                   Margin="10" 
+                                   Text="{Binding startRentDate}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        <TextBlock Grid.Column="2" Grid.ColumnSpan="1" 
+                                   Margin="10" 
+                                   Text="{Binding dueDate}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        <TextBlock Grid.Column="3" Grid.ColumnSpan="1" 
+                                   Margin="10" 
+                                   Foreground="Red"
+                                   Text="{Binding returnDate}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        <TextBlock Grid.Column="4" Grid.ColumnSpan="1" 
+                                   Margin="10" Foreground="Red"
+                                   Text="{Binding totalLateDay}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        <TextBlock Grid.Column="5" Grid.ColumnSpan="1" 
+                                   Margin="10" Foreground="Red"
+                                   Text="{Binding lateCharge}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+
+        </ListView>
+
+        <RelativePanel Margin="0,48,8,0" >
+            <Button x:ConnectionId='4' FontWeight="Bold" Padding="10,5,10,5"                      >
+                Pay late charge
+            </Button>
+
+            <TextBlock x:ConnectionId='5' Name="txtTotal"  FontWeight="Bold" FontSize="24" RelativePanel.AlignRightWithPanel="True">
+                    Total late charge: 0
             </TextBlock>
-            <ListView x:ConnectionId='4' x:Name="Fruits" Margin="0,12,0,0">
-                <x:String>Apricot</x:String>
-                <x:String>Banana</x:String>
-                <x:String>Cherry</x:String>
-                <x:String>Orange</x:String>
-                <x:String>Strawberry</x:String>
-            </ListView>
-
-            <RelativePanel Margin="0,48,8,0" >
-                <Button x:ConnectionId='5' FontWeight="Bold" Padding="10,5,10,5"                      >
-                    Pay late charge
-                </Button>
-
-                <TextBlock FontWeight="Bold" FontSize="24" RelativePanel.AlignRightWithPanel="True">
-                    Total late charge: $1500
-                </TextBlock>
-            </RelativePanel>
-        </StackPanel>
-    </SplitView>
+        </RelativePanel>
+    </StackPanel>
 </Page>
 

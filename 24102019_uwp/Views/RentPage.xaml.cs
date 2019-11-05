@@ -80,6 +80,24 @@ namespace _24102019_uwp.Views
                 if(result == ContentDialogResult.Primary)
                 {
                     SetToDefault();
+
+                    if(new PayLateChargeBS().HaveLateCharge(customer.CusID))
+                    {
+                        ContentDialog completeDialog = new ContentDialog
+                        {
+                            Title = "Pay late charge",
+                            Content = "You are having unpaid late charge, would you like to pay?",
+                            CloseButtonText = "Maybe next time",
+                            PrimaryButtonText = "OK"
+                        };
+
+                        ContentDialogResult dialogResult = await completeDialog.ShowAsync();
+
+                        if (dialogResult == ContentDialogResult.Primary)
+                        {
+                            MainPage.mainFrame.Navigate(typeof(LateChargePage), customer.CusID);
+                        }
+                    }
                 }
                 else
                 {
@@ -95,7 +113,6 @@ namespace _24102019_uwp.Views
                 Title = title,
                 Content = content,
                 CloseButtonText = button,
-                
             };
 
             ContentDialogResult result = await completeDialog.ShowAsync();
@@ -168,6 +185,8 @@ namespace _24102019_uwp.Views
             if (args.ChosenSuggestion == null && !string.IsNullOrEmpty(productFind.Text))
             {
                 var disk = productFind.Items.SingleOrDefault(p => (p as Disk).DiskID.ToString() == productFind.Text) as Disk;
+
+                if (disk == null) return;
 
                 if (selected.Contains(disk.DiskID)) return;
 

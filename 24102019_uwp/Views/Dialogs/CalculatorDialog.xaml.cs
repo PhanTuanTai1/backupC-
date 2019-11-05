@@ -38,6 +38,8 @@ namespace _24102019_uwp.Views.Dialogs
 
         private void ContentDialog_PrimaryButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)
         {
+            if (discIDs.Count == 0) return;
+
             DateTime dateTime = DateTime.Now;
 
             Rental rental = new Rental() { CusID = cusID, Deleted = false, StartRentDate = dateTime, Status = (short)RentalInformation.RentalStatus.RENTED };
