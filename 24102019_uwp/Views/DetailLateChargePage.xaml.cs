@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Threading.Tasks;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -74,18 +75,37 @@ namespace _24102019_uwp.Views
             MainPage.mainFrame.Navigate(typeof(LateChargePage));
         }
 
-        private void AppBarButton_Tapped(object sender, TappedRoutedEventArgs e)
+        private async void AppBarButton_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            var item = lvLateCharges.SelectedItem as DisplayPayLateCharge;
+            var deleteConfirm = await DisplayDialog("Delete?", "Are you sure to delete this record?");
 
-            var result = new PayLateChargeBS().DeleteLateCharge(item.RentalID, item.DiskID);
-
-            if(result)
+            if(deleteConfirm == ContentDialogResult.Primary)
             {
-                displayPayLateCharges = new PayLateChargeBS().GetAllDisplayPayLateCharges();
+                var item = lvLateCharges.SelectedItem as DisplayPayLateCharge;
 
-                lvLateCharges.ItemsSource = displayPayLateCharges;
+                var result = new PayLateChargeBS().DeleteLateCharge(item.RentalID, item.DiskID);
+
+                if (result)
+                {
+                    displayPayLateCharges = new PayLateChargeBS().GetAllDisplayPayLateCharges();
+
+                    lvLateCharges.ItemsSource = displayPayLateCharges;
+                }
             }
+        }
+
+        private async Task<ContentDialogResult> DisplayDialog(string title, string content)
+        {
+            ContentDialog noWifiDialog = new ContentDialog
+            {
+                Title = title,
+                Content = content,
+                CloseButtonText = "Cancle",
+                PrimaryButtonText = "OK"
+            };
+
+            ContentDialogResult result = await noWifiDialog.ShowAsync();
+            return result;
         }
     }
 }
