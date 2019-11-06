@@ -1,25 +1,13 @@
-﻿using System;
+﻿using _24102019_uwp.Business;
+using _24102019_uwp.Models;
+using System;
 using System.Collections.Generic;
-using System.IO;
+using System.Collections.ObjectModel;
 using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
+using System.Text.RegularExpressions;
+using Windows.System;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Navigation;
-using _24102019_uwp.Business;
-using _24102019_uwp.Models;
-using System.Collections.ObjectModel;
-using System.Threading.Tasks;
-using Windows.UI.Core;
-using Windows.System;
-using System.Text.RegularExpressions;
-using _24102019_uwp.Data;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -31,7 +19,7 @@ namespace _24102019_uwp.Views
     public sealed partial class TitlePage : Page
     {
 
-        ObservableCollection<Title> lstTitle;
+        ObservableCollection<customTitle> lstTitle;
         bool add, modify;
         const int preID = 160;
         int index;
@@ -44,7 +32,7 @@ namespace _24102019_uwp.Views
             this.InitializeComponent();
             TitleControler = new TitleBS();
             TypeController = new TypeBS();
-            lstTitle = new ObservableCollection<Title>(TitleControler.getTitles().ToList());
+            lstTitle = new ObservableCollection<customTitle>(TitleControler.getTitles().Where(n => n.Deleted == false).ToList());
 
             lsType = TypeController.getTypes();
 
@@ -59,7 +47,7 @@ namespace _24102019_uwp.Views
             Title t = CreateObject();
             if (add == true && TitleControler.AddTitle(t))
             {
-                lstTitle.Add(t);
+                UpdateList();
                 SetStatusTextBox(false);
                 add = false;
                 BtnModify.IsEnabled = true;
@@ -71,18 +59,7 @@ namespace _24102019_uwp.Views
             }
             if (modify == true && TitleControler.ModifyTitle(t))
             {
-                Title modifyOBJ = new Title()
-                {
-                    TypeID = t.TypeID,
-                    TitleID = t.TypeID,
-                    Price = t.Price,
-                    Name = t.Name,
-                    IsAvailable = t.IsAvailable,
-                    Description = t.Description,
-                    Deleted = t.Deleted
-                };
-                lstTitle.RemoveAt(index);
-                lstTitle.Insert(index, modifyOBJ);
+                UpdateList();
                 SetStatusTextBox(false);
                 modify = false;
                 BtnModify.IsEnabled = true;
@@ -98,7 +75,7 @@ namespace _24102019_uwp.Views
         }
         private void Display()
         {
-            Title t = (Title)lvTitle.SelectedItem;
+            customTitle t = (customTitle)lvTitle.SelectedItem;
             if (t != null)
             {
                 TitleID.Text = t.TitleID + "";
@@ -107,18 +84,15 @@ namespace _24102019_uwp.Views
                 Price.Text = t.Price + "";
                 IsAvailable.IsChecked = (bool)t.IsAvailable;
                 Deleted.IsChecked = (bool)t.Deleted;
-                Type.SelectedIndex = lsType.IndexOf(lsType.Single(n => n.TypeID == t.TypeID));
+                Type.SelectedIndex = lsType.IndexOf(lsType.Single(n => n.TypeName == t.TypeName));
             }
         }
 
 
         private void UpdateList()
         {
-            lstTitle = new ObservableCollection<Title>();
-            foreach (var i in TitleControler.getTitles().Where(x => x.Deleted == false))
-            {
-                lstTitle.Add(i);
-            }
+            lstTitle = new ObservableCollection<customTitle>();
+            lstTitle = new ObservableCollection<customTitle>(TitleControler.getTitles().Where(n=>n.Deleted==false).ToList());
             lvTitle.ItemsSource = lstTitle;
         }
 
@@ -130,6 +104,7 @@ namespace _24102019_uwp.Views
             (sender as Button).IsEnabled = false;
             BtnModify.IsEnabled = false;
             BtnDelete.IsEnabled = false;
+            Deleted.IsEnabled = false;
             add = true;
         }
         private void Modify(object sender, RoutedEventArgs e)
@@ -158,7 +133,7 @@ namespace _24102019_uwp.Views
             Title t = (Title)lvTitle.SelectedItem;
             if (TitleControler.RemoveTitle(t.TitleID))
             {
-                lstTitle.Remove(t);
+                UpdateList();
                 cd.Content = "Successfully deleted title";
                 cd.Title = "Notification";
                 cd.PrimaryButtonText = "Close";
@@ -230,7 +205,11 @@ namespace _24102019_uwp.Views
         }
         private bool isNumber(string key)
         {
-            if (Regex.IsMatch(key, @"^\d+$")) return true;
+            if (Regex.IsMatch(key, @"^\d+$"))
+            {
+                return true;
+            }
+
             return false;
         }
         private void Autobox_PreviewKeyDown(object sender, Windows.UI.Xaml.Input.KeyRoutedEventArgs e)
@@ -290,5 +269,8 @@ namespace _24102019_uwp.Views
             }
             cd.ShowAsync();
         }
+
     }
+
+    
 }

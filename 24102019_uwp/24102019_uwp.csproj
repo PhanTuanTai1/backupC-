@@ -139,7 +139,6 @@
     </Compile>
     <Compile Include="Migrations\ApplicationDBContextModelSnapshot.cs" />
     <Compile Include="Models\Checkout.cs" />
-    <Compile Include="Models\CustomCustomer.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\DetailReturnDisk.cs" />
     <Compile Include="Models\Disk.cs" />

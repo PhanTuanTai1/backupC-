@@ -106,7 +106,7 @@
                     </DataTemplate>
                 </ListView.HeaderTemplate>
                 <ListView.ItemTemplate>
-                    <DataTemplate x:Name="TableDataTemplate" x:DataType="model:Title">
+                    <DataTemplate x:Name="TableDataTemplate" x:DataType="local:customTitle">
                         <Grid Height="48" AutomationProperties.Name="{x:Bind Name}" Padding="10">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*"/>
@@ -121,7 +121,7 @@
                             <TextBlock Grid.Column="0" Text="{x:Bind TitleID}" HorizontalAlignment="Stretch" />
                             <TextBlock Grid.Column="1" Text="{x:Bind Name}" HorizontalAlignment="Stretch" />
                             <TextBlock Grid.Column="2" Text="{x:Bind Price}" HorizontalAlignment="Stretch"/>
-                            <TextBlock Grid.Column="3" Text="{x:Bind TypeID}" HorizontalAlignment="Stretch" />
+                            <TextBlock Grid.Column="3" Text="{x:Bind TypeName}" HorizontalAlignment="Stretch" />
                             <TextBlock Grid.Column="5" Text="{x:Bind IsAvailable}" HorizontalAlignment="Stretch" />
                             <TextBlock Grid.Column="6" Text="{x:Bind Deleted}" HorizontalAlignment="Stretch"/>
                             <TextBlock Grid.Column="4" Text="{x:Bind Description}" HorizontalAlignment="Stretch"/>

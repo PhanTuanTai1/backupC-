@@ -106,7 +106,7 @@
                     </DataTemplate>
                 </ListView.HeaderTemplate>
                 <ListView.ItemTemplate>
-                    <DataTemplate x:Name="TableDataTemplate"                         >
+                    <DataTemplate x:Name="TableDataTemplate"                               >
                         <Grid x:ConnectionId='15' Height="48"                                           Padding="10">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*"/>
@@ -121,7 +121,7 @@
                             <TextBlock x:ConnectionId='16' Grid.Column="0"                         HorizontalAlignment="Stretch" />
                             <TextBlock x:ConnectionId='17' Grid.Column="1"                      HorizontalAlignment="Stretch" />
                             <TextBlock x:ConnectionId='18' Grid.Column="2"                       HorizontalAlignment="Stretch"/>
-                            <TextBlock x:ConnectionId='19' Grid.Column="3"                        HorizontalAlignment="Stretch" />
+                            <TextBlock x:ConnectionId='19' Grid.Column="3"                          HorizontalAlignment="Stretch" />
                             <TextBlock x:ConnectionId='20' Grid.Column="5"                             HorizontalAlignment="Stretch" />
                             <TextBlock x:ConnectionId='21' Grid.Column="6"                         HorizontalAlignment="Stretch"/>
                             <TextBlock x:ConnectionId='22' Grid.Column="4"                             HorizontalAlignment="Stretch"/>

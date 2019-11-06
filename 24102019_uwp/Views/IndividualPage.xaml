@@ -68,7 +68,7 @@
                 <AppBarButton Icon="Delete" Label="Delete" Click="Delete" Name="BtnDelete"/>
                 <AppBarButton Icon="Refresh" Label="Refresh" Click="Refresh" Name="BtnRefresh" PreviewKeyDown="BtnRefresh_PreviewKeyDown"/>
                 <CommandBar.Content>
-                    <TextBlock Text="List of titles" Margin="0,9" FontWeight="Bold"/>
+                    <TextBlock Text="List of disks" Margin="0,9" FontWeight="Bold"/>
                 </CommandBar.Content>
             </CommandBar>
 

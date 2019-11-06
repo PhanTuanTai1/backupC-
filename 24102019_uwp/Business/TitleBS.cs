@@ -1,5 +1,6 @@
 ﻿using _24102019_uwp.Data;
 using _24102019_uwp.Models;
+using _24102019_uwp.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +11,24 @@ namespace _24102019_uwp.Business
 {
     public class TitleBS
     {
-        public List<Title> getTitles()
+        public List<customTitle> getTitles()
+        {
+            using (ApplicationDBContext db = new ApplicationDBContext())
+            {
+                return db.Titles.Select(n => new customTitle()
+                {
+                    Deleted = n.Deleted,
+                    Description = n.Description,
+                    IsAvailable = n.IsAvailable,
+                    Name = n.Name,
+                    Price = n.Price,
+                    TitleID = n.TitleID,
+                    TypeName = db.Types.Single(m => m.TypeID == n.TypeID).TypeName
+                }).ToList();
+            }
+            
+        }
+        public List<Title> getTitlesMain()
         {
             using (ApplicationDBContext db = new ApplicationDBContext())
             {

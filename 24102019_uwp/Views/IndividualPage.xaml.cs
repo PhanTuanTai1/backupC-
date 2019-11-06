@@ -31,9 +31,8 @@ namespace _24102019_uwp.Views
             DiskControler = new DiskBS();
             lsDisk = new ObservableCollection<customDisk>(DiskControler.getDisks());
             lvDisk.ItemsSource = lsDisk;
-            cbTitle.ItemsSource = TitleControler.getTitles();
+            cbTitle.ItemsSource = TitleControler.getTitlesMain();
             cbTitle.DisplayMemberPath = "Name";
-            cbTitle.SelectedIndex = 0;
             SetStatusTextBox(false);
 
         }
@@ -69,6 +68,21 @@ namespace _24102019_uwp.Views
                 customDisk d = (customDisk)lvDisk.SelectedItem;
                 userRent.Content = DiskControler.getUserRent(d.DiskID);
                 dueDate.Text = DiskControler.getDueDate(d.DiskID);
+                switch (d.ChkOutStatus)
+                {
+                    case (short)Checkout.DiskStatus.ONHOLD:
+                        status.Text = "On Hold";
+                        break;
+                    case (short)Checkout.DiskStatus.RENTED:
+                        status.Text = "Rented";
+                        break;
+                    case (short)Checkout.DiskStatus.SHELF:
+                        status.Text = "One Shelf";
+                        break;
+                    default:
+                        break;
+                }
+                
             }
             catch (Exception)
             {
@@ -155,7 +169,7 @@ namespace _24102019_uwp.Views
             {
                 return new Disk()
                 {
-                    ChkOutStatus = 0,
+                    ChkOutStatus = (short)Checkout.DiskStatus.SHELF,
                     Deleted = false,
                     DiskID = RandomID() + int.Parse(t),
                     TitleID = ((Title)cbTitle.SelectedItem).TitleID
@@ -266,4 +280,6 @@ namespace _24102019_uwp.Views
             Deleted = deleted;
         }
     }
+
+    
 }
