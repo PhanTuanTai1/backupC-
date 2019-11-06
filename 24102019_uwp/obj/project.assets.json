@@ -21644,6 +21644,7 @@
       "hasTools": true,
       "files": [
         ".nupkg.metadata",
+        ".signature.p7s",
         "build/Microsoft.Net.Native.Compiler.props",
         "build/Microsoft.Net.Native.Compiler.targets",
         "microsoft.net.native.compiler.1.7.3.nupkg.sha512",
@@ -22544,6 +22545,7 @@
       "hasTools": true,
       "files": [
         ".nupkg.metadata",
+        ".signature.p7s",
         "build/Microsoft.Net.Native.SharedLibrary-arm.props",
         "build/Microsoft.Net.Native.SharedLibrary-arm.targets",
         "microsoft.net.native.sharedlibrary-arm.1.7.0.nupkg.sha512",
@@ -22944,6 +22946,7 @@
       "hasTools": true,
       "files": [
         ".nupkg.metadata",
+        ".signature.p7s",
         "build/Microsoft.Net.Native.SharedLibrary-x64.props",
         "build/Microsoft.Net.Native.SharedLibrary-x64.targets",
         "microsoft.net.native.sharedlibrary-x64.1.7.0.nupkg.sha512",
@@ -23344,6 +23347,7 @@
       "hasTools": true,
       "files": [
         ".nupkg.metadata",
+        ".signature.p7s",
         "build/Microsoft.Net.Native.SharedLibrary-x86.props",
         "build/Microsoft.Net.Native.SharedLibrary-x86.targets",
         "microsoft.net.native.sharedlibrary-x86.1.7.0.nupkg.sha512",
@@ -26514,6 +26518,7 @@
       "path": "runtime.win7.system.private.uri/4.0.2",
       "files": [
         ".nupkg.metadata",
+        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "ref/netstandard/_._",
@@ -28820,7 +28825,6 @@
       "path": "system.net.websockets.client/4.0.2",
       "files": [
         ".nupkg.metadata",
-        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -31486,24 +31490,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\User\\.nuget\\packages\\": {},
+    "C:\\Users\\VB Yoshara\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft SDKs\\UWPNuGetPackages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "H:\\ProjectC#\\BACKUP\\new2\\new1\\disc_store_management\\24102019_uwp\\24102019_uwp.csproj",
+      "projectUniqueName": "C:\\Users\\VB Yoshara\\Desktop\\ghep\\backupC-\\24102019_uwp\\24102019_uwp.csproj",
       "projectName": "24102019_uwp",
-      "projectPath": "H:\\ProjectC#\\BACKUP\\new2\\new1\\disc_store_management\\24102019_uwp\\24102019_uwp.csproj",
-      "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-      "outputPath": "H:\\ProjectC#\\BACKUP\\new2\\new1\\disc_store_management\\24102019_uwp\\obj\\",
+      "projectPath": "C:\\Users\\VB Yoshara\\Desktop\\ghep\\backupC-\\24102019_uwp\\24102019_uwp.csproj",
+      "packagesPath": "C:\\Users\\VB Yoshara\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\VB Yoshara\\Desktop\\ghep\\backupC-\\24102019_uwp\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft SDKs\\UWPNuGetPackages\\"
       ],
       "configFilePaths": [
-        "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\VB Yoshara\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

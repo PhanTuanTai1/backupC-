@@ -15,6 +15,7 @@
     <RootPropertyPathName Name="DiskID" />
     <RootPropertyPathName Name="Price" />
     <RootPropertyPathName Name="Name" />
+    <RootPropertyPathName Name="TypeName" />
   </Roots.PropertyPathNames>
   <Roots.RootTypes>
     <RootType FullName="Windows.UI.Xaml.Application" />
@@ -101,6 +102,7 @@
       <RootProperty Name="IsEnabled" />
       <RootProperty Name="Width" />
       <RootProperty Name="HorizontalAlignment" />
+      <RootProperty Name="IsReadOnly" />
       <RootProperty Name="Height" />
       <RootEvent Name="TextChanged" />
     </RootType>
@@ -109,6 +111,7 @@
       <RootProperty Name="Margin" />
       <RootProperty Name="Width" />
       <RootProperty Name="Content" />
+      <RootProperty Name="IsEnabled" />
       <RootProperty Name="FontWeight" />
       <RootProperty Name="Padding" />
       <RootProperty Name="Background" />
@@ -173,6 +176,7 @@
       <RootProperty Name="Label" />
       <RootEvent Name="Click" />
       <RootEvent Name="Tapped" />
+      <RootEvent Name="PreviewKeyDown" />
     </RootType>
     <RootType FullName="_24102019_uwp.Views.CustomerPage" />
     <RootType FullName="Windows.UI.Xaml.Controls.ComboBox">
@@ -180,9 +184,9 @@
       <RootProperty Name="Width" />
       <RootProperty Name="Margin" />
       <RootProperty Name="Items" />
+      <RootProperty Name="Name" />
       <RootProperty Name="HorizontalAlignment" />
       <RootProperty Name="VerticalAlignment" />
-      <RootProperty Name="Name" />
       <RootProperty Name="DisplayMemberPath" />
       <RootEvent Name="SelectionChanged" />
     </RootType>
@@ -204,6 +208,7 @@
     <RootType FullName="Windows.UI.Xaml.Controls.HyperlinkButton">
       <RootProperty Name="Margin" />
       <RootProperty Name="Content" />
+      <RootProperty Name="Name" />
       <RootEvent Name="Click" />
     </RootType>
     <RootType FullName="_24102019_uwp.Views.DetailCustomerReportPage" />
@@ -251,6 +256,7 @@
     <RootType FullName="_24102019_uwp.Views.ReservationPage" />
     <RootType FullName="_24102019_uwp.Views.ReturnPage" />
     <RootType FullName="Windows.UI.Xaml.Controls.CheckBox">
+      <RootProperty Name="Name" />
       <RootProperty Name="FontWeight" />
       <RootProperty Name="Margin" />
       <RootProperty Name="Content" />

@@ -120,11 +120,15 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Business\CustomerBS.cs" />
+    <Compile Include="Business\DiskBS.cs" />
     <Compile Include="Business\Login.cs" />
     <Compile Include="Business\PayLateChargeBS.cs" />
     <Compile Include="Business\RentBS.cs" />
+    <Compile Include="Business\ReportBS.cs" />
     <Compile Include="Business\ReturnBS.cs" />
     <Compile Include="Business\ReservationBS.cs" />
+    <Compile Include="Business\TitleBS.cs" />
+    <Compile Include="Business\TypeBS.cs" />
     <Compile Include="Data\ApplicationDBContext.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
@@ -135,6 +139,7 @@
     </Compile>
     <Compile Include="Migrations\ApplicationDBContextModelSnapshot.cs" />
     <Compile Include="Models\Checkout.cs" />
+    <Compile Include="Models\CustomCustomer.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\DetailReturnDisk.cs" />
     <Compile Include="Models\Disk.cs" />
