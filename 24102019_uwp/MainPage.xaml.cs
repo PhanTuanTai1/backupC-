@@ -82,28 +82,28 @@ namespace _24102019_uwp
                     nvTopLevelNav.Header = "Title Page";
                     break;
                 case "Individual_Page":
-                    if(!Login.IsLogin)
-                    {
-                        DisplayDialog("Not logged in yet", "To use this function, you need to login.");
-                        return;
-                    }
+                    //if(!Login.IsLogin)
+                    //{
+                    //    DisplayDialog("Not logged in yet", "To use this function, you need to login.");
+                    //    return;
+                    //}
                     contentFrame.Navigate(typeof(IndividualPage));
                     nvTopLevelNav.Header = "Individual Page";
                     break;
                 case "Miscellaneous_Page":
-                    if (!Login.IsLogin)
-                    {
-                        DisplayDialog("Not logged in yet", "To use this function, you need to login.");
-                        return;
-                    }
+                    //if (!Login.IsLogin)
+                    //{
+                    //    DisplayDialog("Not logged in yet", "To use this function, you need to login.");
+                    //    return;
+                    //}
                     contentFrame.Navigate(typeof(MiscellaneousPage));
                     nvTopLevelNav.Header = "Individual Page";
                     break;
                 case "Report_Page":
-                    if (!Login.IsLogin)
-                    {
-                        return;
-                    }
+                    //if (!Login.IsLogin)
+                    //{
+                    //    return;
+                    //}
                     contentFrame.Navigate(typeof(ReportPage));
                     nvTopLevelNav.Header = "Report Page";
                     break;

@@ -1,4 +1,4 @@
-﻿<Page
+﻿<Page x:ConnectionId='1'
     x:Class="_24102019_uwp.Views.TitleReportPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -10,19 +10,61 @@
 
     <StackPanel Padding="0">
         <CommandBar DefaultLabelPosition="Right" Background="White" Margin="0,32,0,0">
-            <AppBarButton x:ConnectionId='3' Icon="Go" Label="View Detail"                           />
+            <AppBarButton x:ConnectionId='11' Icon="Go" Label="View Detail"                           />
+            <AppBarButton x:ConnectionId='12' Icon="Refresh" Label="Refresh"                 Name="BtnRefresh"/>
 
             <CommandBar.Content>
                 <TextBlock Text="List of titles" Margin="0,9" FontWeight="Bold"/>
             </CommandBar.Content>
         </CommandBar>
 
-        <ListView x:ConnectionId='2' x:Name="Fruits" Margin="0,24,0,0">
-            <x:String>Apricot</x:String>
-            <x:String>Banana</x:String>
-            <x:String>Cherry</x:String>
-            <x:String>Orange</x:String>
-            <x:String>Strawberry</x:String>
+        <ListView x:ConnectionId='2'                                Margin="0,24,0,0" Name="lvTitle" >
+            <ListView.HeaderTemplate>
+                <DataTemplate>
+                    <Grid Padding="12" Background="{ThemeResource SystemBaseLowColor}">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Column="0" Text="ID" Style="{ThemeResource CaptionTextBlockStyle}"/>
+                        <TextBlock Grid.Column="1" Text="Name" Style="{ThemeResource CaptionTextBlockStyle}"/>
+                        <TextBlock Grid.Column="2" Text="Copy in Rent" Style="{ThemeResource CaptionTextBlockStyle}"/>
+                        <TextBlock Grid.Column="3" Text="Copy in Stock" Style="{ThemeResource CaptionTextBlockStyle}"/>
+                        <TextBlock Grid.Column="4" Text="Copy on Hold" Style="{ThemeResource CaptionTextBlockStyle}"/>
+                        <TextBlock Grid.Column="5" Text="Copy Reservation" Style="{ThemeResource CaptionTextBlockStyle}"/>
+                    </Grid>
+                </DataTemplate>
+            </ListView.HeaderTemplate>
+            <ListView.ItemTemplate>
+                <DataTemplate x:Name="TableDataTemplate"                                     >
+                    <Grid x:ConnectionId='4' Height="48"                                         Padding="10">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock x:ConnectionId='5' Grid.Column="0" TextWrapping="Wrap"                    HorizontalAlignment="Stretch" />
+                        <TextBlock x:ConnectionId='6' Grid.Column="1" TextWrapping="Wrap"                      HorizontalAlignment="Stretch" />
+                        <TextBlock x:ConnectionId='7' Grid.Column="2" TextWrapping="Wrap"                          HorizontalAlignment="Stretch"/>
+                        <TextBlock x:ConnectionId='8' Grid.Column="3" TextWrapping="Wrap"                             HorizontalAlignment="Stretch" />
+                        <TextBlock x:ConnectionId='9' Grid.Column="4" TextWrapping="Wrap"                            HorizontalAlignment="Stretch"/>
+                        <TextBlock x:ConnectionId='10' Grid.Column="5" TextWrapping="Wrap"                                 HorizontalAlignment="Stretch" />
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                </Style>
+            </ListView.ItemContainerStyle>
         </ListView>
     </StackPanel>
 </Page>
