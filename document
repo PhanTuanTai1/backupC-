@@ -5,7 +5,7 @@ https://developer.microsoft.com/en-us/windows/downloads/sdk-archive
 2. Download: SQL Browser to view DSDB.db
 https://sqlitebrowser.org/blog/portableapp-for-3-11-2-release-now-available/
 
-3. DSDB.db located on: C:\Users\<username>\AppData\Local\Packages\c4360c7f-f72b-452e-8e65-ef04f3a706c3_fyn9mt8xvtdby\LocalState 
+3. DSDB.db located on: C:\Users\User\AppData\Local\Packages\c4360c7f-f72b-452e-8e65-ef04f3a706c3_fyn9mt8xvtdby\LocalState 
 
 4. You don't need to install anything else, just build + run the solution.
 

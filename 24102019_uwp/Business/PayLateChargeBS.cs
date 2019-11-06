@@ -14,7 +14,7 @@ namespace _24102019_uwp.Business
         {
             using (var db = new ApplicationDBContext())
             {
-                var count = db.Rentals.Where(p => p.CusID == cusID && p.Status != (short)RentalInformation.RentalStatus.COMPLETE && !p.Deleted).ToList().Count;
+                var count = db.Rentals.Where(p => p.CusID == cusID && p.Status == (short)RentalInformation.RentalStatus.RESERVATION && !p.Deleted).ToList().Count;
 
                 if (count > 0) return true;
             }

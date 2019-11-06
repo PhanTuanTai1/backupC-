@@ -31,8 +31,9 @@ namespace _24102019_uwp.Business
                     {
                         Rentail_Detail rd = (Rentail_Detail)query.FirstOrDefault().rd1;
                         Rental r = (Rental)query.FirstOrDefault().r1;
-                        Title t = db.Titles.Single(x => x.TitleID == d.TitleID);
-                        detail = new DetailReturnDisk(r.CusID, d.TitleID, d.DiskID, r.StartRentDate, (DateTime)rd.DueDate, DateTime.Now, c.getName(r.CusID), getTitleName(d.TitleID), t.Price);
+                        Title title = db.Titles.Single(x => x.TitleID == d.TitleID);
+                        Models.Type t = db.Types.Single(x => x.TypeID == title.TitleID);
+                        detail = new DetailReturnDisk(r.CusID, d.TitleID, d.DiskID, r.StartRentDate, (DateTime)rd.DueDate, DateTime.Now, c.getName(r.CusID), getTitleName(d.TitleID), t.RentCharge);
                         return detail;
                     }
                     catch
@@ -64,21 +65,25 @@ namespace _24102019_uwp.Business
                 {
                     d.ChkOutStatus = (short)Checkout.DiskStatus.SHELF;
                     rd.ReturnDate = returnDate;
-                    db.SaveChanges();
-                    List<Rentail_Detail> lst = db.Rentail_Detail.Where(x => x.RentalID == r.RentalID && x.ReturnDate == null).ToList();
-                    List<Rentail_Detail> lstAll = db.Rentail_Detail.Where(x => x.RentalID == r.RentalID).ToList();
-                    if (lstAll.Sum(x=>x.OwnedMoney) > 0 && lst.Count == 0)
-                    {
-                        r.Status = (int)RentalInformation.RentalStatus.RESERVATION;
-                    }
-                    else if (lst.Count == 0)
-                    {
-                        r.Status = (int)RentalInformation.RentalStatus.COMPLETE;
-                    }
-                    db.SaveChanges();
                     AddLateCharge(diskID, r.RentalID, lateCharge);
-                    PlaceOnHold(diskID);
-                    return true;
+                    db.SaveChanges();
+                    using (ApplicationDBContext db2 = new ApplicationDBContext())
+                    {
+                        List<Rentail_Detail> lst = db2.Rentail_Detail.Where(x => x.RentalID == r.RentalID && x.ReturnDate == null).ToList();
+                        List<Rentail_Detail> lstAll = db2.Rentail_Detail.Where(x => x.RentalID == r.RentalID).ToList();
+                        decimal c = (decimal)lstAll.Sum(x => x.OwnedMoney);
+                        if (lstAll.Sum(x => x.OwnedMoney) > 0 && lst.Count == 0)
+                        {
+                            r.Status = (int)RentalInformation.RentalStatus.RESERVATION;
+                        }
+                        else if (lst.Count == 0)
+                        {
+                            r.Status = (int)RentalInformation.RentalStatus.COMPLETE;
+                        }
+                        db.SaveChanges();
+                        PlaceOnHold(diskID);
+                        return true;
+                    }                   
                 }
                 return false;
             }          

@@ -343,7 +343,6 @@ H:\ProjectC#\BACKUP\new2\new1\disc_store_management\24102019_uwp\obj\x64\Debug\q
 H:\ProjectC#\BACKUP\new2\new1\disc_store_management\24102019_uwp\obj\x64\Debug\qualifiers.txt.intermediate
 H:\ProjectC#\BACKUP\new2\new1\disc_store_management\24102019_uwp\obj\x64\Debug\MultipleQualifiersPerDimensionFound.txt
 H:\ProjectC#\BACKUP\new2\new1\disc_store_management\24102019_uwp\obj\x64\Debug\ProjectArchitectures.txt
-H:\ProjectC#\BACKUP\new2\new1\disc_store_management\24102019_uwp\obj\x64\Debug\24102019_uwp.csprojAssemblyReference.cache
 C:\Users\nguye\Desktop\backupC-\24102019_uwp\obj\x64\Debug\App.g.i.cs
 C:\Users\nguye\Desktop\backupC-\24102019_uwp\obj\x64\Debug\App.g.cs
 C:\Users\nguye\Desktop\backupC-\24102019_uwp\obj\x64\Debug\MainPage.g.i.cs
@@ -1051,3 +1050,4 @@ C:\Users\VB Yoshara\Desktop\ghep\backupC-\24102019_uwp\obj\x64\Debug\qualifiers.
 C:\Users\VB Yoshara\Desktop\ghep\backupC-\24102019_uwp\obj\x64\Debug\qualifiers.txt.intermediate
 C:\Users\VB Yoshara\Desktop\ghep\backupC-\24102019_uwp\obj\x64\Debug\MultipleQualifiersPerDimensionFound.txt
 C:\Users\VB Yoshara\Desktop\ghep\backupC-\24102019_uwp\obj\x64\Debug\ProjectArchitectures.txt
+H:\ProjectC#\BACKUP\new2\new1\disc_store_management\24102019_uwp\obj\x64\Debug\24102019_uwp.csprojAssemblyReference.cache
