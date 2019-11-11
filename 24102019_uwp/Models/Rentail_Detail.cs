@@ -22,6 +22,8 @@ namespace _24102019_uwp.Models
 
         public bool? Deleted { get; set; }
 
+        public bool Paid { get; set; }
+
         public virtual Disk Disk { get; set; }
 
         public virtual Rental Rental { get; set; }

@@ -22,7 +22,7 @@ namespace _24102019_uwp.Business
         {
             using (ApplicationDBContext db = new ApplicationDBContext())
             {
-                return db.Disks.ToList();
+                return db.Disks.Where(p => !p.Deleted).ToList();
             }
         }
 
@@ -58,7 +58,7 @@ namespace _24102019_uwp.Business
         {
             using(ApplicationDBContext db = new ApplicationDBContext())
             {
-                var disk = db.Disks.FirstOrDefault(p => p.TitleID == titleID && p.ChkOutStatus == (short)Checkout.DiskStatus.ONHOLD);
+                var disk = db.Disks.FirstOrDefault(p => p.TitleID == titleID && !p.Deleted && p.ChkOutStatus == (short)Checkout.DiskStatus.ONHOLD);
 
                 return disk;
             }

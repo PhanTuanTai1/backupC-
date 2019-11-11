@@ -33,7 +33,7 @@
                     QueryIcon="Find" VerticalAlignment="Top" />
 
         <CommandBar DefaultLabelPosition="Right" Background="White" Margin="0,32,0,0">
-            <AppBarButton x:ConnectionId='6' Icon="Delete"                              Label="Delete product"/>
+            <AppBarButton x:ConnectionId='7' Icon="Delete"                              Label="Delete product"/>
 
             <CommandBar.Content>
                 <TextBlock Text="List of customer's reserved disk(s)" FontWeight="Bold" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,9,0,0"/>
@@ -41,6 +41,36 @@
         </CommandBar>
 
         <ListView x:ConnectionId='4' x:Name="lvReservation" Margin="0,24,0,0">
+            <ListView.HeaderTemplate>
+                <DataTemplate>
+                    <Grid Background="LightGray">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Grid.Column="0" Grid.ColumnSpan="1" 
+                                   Margin="10"  FontWeight="Bold" 
+                                   Text="Title" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        <TextBlock Grid.Column="1" Grid.ColumnSpan="1" 
+                                   Margin="10"  FontWeight="Bold" 
+                                   Text="Customer name" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        <TextBlock Grid.Column="2" Grid.ColumnSpan="1" 
+                                   Margin="10"  FontWeight="Bold" 
+                                   Text="Phone" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        <TextBlock Grid.Column="3" Grid.ColumnSpan="1" 
+                                   Margin="10"  FontWeight="Bold" 
+                                   Text="Start rent day" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        <TextBlock Grid.Column="4" Grid.ColumnSpan="1" 
+                                   Margin="10"  FontWeight="Bold" 
+                                   Text="Status" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </Grid>
+                </DataTemplate>
+            </ListView.HeaderTemplate>
+            
             <ListView.ItemContainerStyle>
                 <Style TargetType="ListViewItem">
                     <Setter Property="HorizontalContentAlignment" Value="Stretch" />

@@ -82,6 +82,12 @@ namespace _24102019_uwp.Views
 
         private void AppBarButton_Tapped(object sender, TappedRoutedEventArgs e)
         {
+            if (!Login.IsLogin)
+            {
+                MainPage.DisplayDialog("Not logged in yet", "To use this function, you need to login.");
+                return;
+            }
+
             var index = lvReservation.SelectedIndex;
 
             var res = lvReservation.SelectedItem as DisplayReservation;
