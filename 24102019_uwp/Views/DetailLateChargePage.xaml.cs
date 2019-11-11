@@ -77,6 +77,12 @@ namespace _24102019_uwp.Views
 
         private async void AppBarButton_Tapped(object sender, TappedRoutedEventArgs e)
         {
+            if (!Login.IsLogin)
+            {
+                MainPage.DisplayDialog("Not logged in yet", "To use this function, you need to login.");
+                return;
+            }
+
             var deleteConfirm = await DisplayDialog("Delete?", "Are you sure to delete this record?");
 
             if(deleteConfirm == ContentDialogResult.Primary)

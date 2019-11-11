@@ -133,11 +133,6 @@
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\20191102130841_first.cs" />
-    <Compile Include="Migrations\20191102130841_first.designer.cs">
-      <DependentUpon>20191102130841_first.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\ApplicationDBContextModelSnapshot.cs" />
     <Compile Include="Models\Checkout.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\DetailReturnDisk.cs" />
@@ -323,7 +318,9 @@
       <Version>6.2.3</Version>
     </PackageReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Migrations\" />
+  </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>

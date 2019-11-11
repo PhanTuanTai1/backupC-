@@ -36,7 +36,8 @@ namespace _24102019_uwp.Business
                 {
                     var rentID = rent.RentalID;
 
-                    var rentDetails = db.Rentail_Detail.Where(p => p.RentalID == rentID && p.OwnedMoney != null && p.OwnedMoney > 0);
+                    var rentDetails = db.Rentail_Detail.Where(p => p.RentalID == rentID && p.OwnedMoney != null && p.OwnedMoney > 0 && !p.Paid);
+                    //var rentDetails = db.Rentail_Detail.Where(p => p.RentalID == rentID && !p.Paid);
 
                     foreach (var rentDetail in rentDetails)
                     {
@@ -83,7 +84,8 @@ namespace _24102019_uwp.Business
                 {
                     var rentID = rent.RentalID;
 
-                    var rentDetails = db.Rentail_Detail.Where(p => p.RentalID == rentID && p.OwnedMoney != null && p.OwnedMoney > 0);
+                    var rentDetails = db.Rentail_Detail.Where(p => p.RentalID == rentID && p.OwnedMoney != null && p.OwnedMoney > 0 && !p.Paid);
+                    //var rentDetails = db.Rentail_Detail.Where(p => p.RentalID == rentID && !p.Paid);
 
                     foreach (var rentDetail in rentDetails)
                     {
@@ -128,7 +130,8 @@ namespace _24102019_uwp.Business
 
                         if (found != null)
                         {
-                            found.OwnedMoney = 0;
+                            //found.OwnedMoney = 0;
+                            found.Paid = true;
                             money -= display.lateCharge;
                         }
                     }
@@ -146,7 +149,8 @@ namespace _24102019_uwp.Business
 
                     foreach (var rent in rentD)
                     {
-                        if (rent.OwnedMoney > 0 || rent.OwnedMoney == null) break;
+                        //if (rent.OwnedMoney > 0 || rent.OwnedMoney == null) break;
+                        if (!rent.Paid) break;
                         count++;
                     }
 

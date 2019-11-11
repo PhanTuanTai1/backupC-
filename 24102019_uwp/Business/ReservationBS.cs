@@ -22,7 +22,7 @@ namespace _24102019_uwp.Business
         {
             using(ApplicationDBContext db = new ApplicationDBContext())
             {
-                return db.Reservations.Where(p => p.CusID == cusID && p.TitleID == titleID).Count() > 0;
+                return db.Reservations.Where(p => p.CusID == cusID && !p.Deleted && p.TitleID == titleID).Count() > 0;
             }
         }
 
@@ -33,6 +33,17 @@ namespace _24102019_uwp.Business
                 db.Reservations.Add(reservation);
                 db.SaveChanges();
             }
+        }
+
+        public bool IsStillOnShelf(int titleID)
+        {
+            using (ApplicationDBContext db = new ApplicationDBContext())
+            {
+                var totalOnShelf = db.Disks.Where(p => p.TitleID == titleID && !p.Deleted && p.ChkOutStatus == (short)Checkout.DiskStatus.SHELF).Count();
+
+                if (totalOnShelf > 0) return true;
+            }
+            return false;
         }
 
         public List<DisplayReservation> displayReservations()

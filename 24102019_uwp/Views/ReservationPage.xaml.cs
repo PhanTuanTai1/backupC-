@@ -87,6 +87,15 @@ namespace _24102019_uwp.Views
             var titleID = (cbTitle.SelectedItem as Title).TitleID;
 
             var resBS = new ReservationBS();
+
+            var isStillOnShelf = resBS.IsStillOnShelf(titleID);
+
+            if(isStillOnShelf)
+            {
+                MainPage.DisplayDialog("Cannot make a reservation", "You cannot make a reservation because this title still has copies on shelf.");
+                return;
+            }
+
             var result = resBS.checkAlreadyReservation(customer.CusID, titleID);
 
             if(result)
@@ -114,12 +123,6 @@ namespace _24102019_uwp.Views
 
         private void BtnAddToDo_Click(object sender, RoutedEventArgs e)
         {
-            if (!Login.IsLogin)
-            {
-                MainPage.DisplayDialog("Not logged in yet", "To use this function, you need to login.");
-                return;
-            }
-
             MainPage.mainFrame.Navigate(typeof(DetailReservationPage));
         }
     }
