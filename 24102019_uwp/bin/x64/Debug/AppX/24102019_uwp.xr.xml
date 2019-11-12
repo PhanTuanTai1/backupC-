@@ -1,18 +1,18 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Roots >
   <Roots.PropertyPathNames>
-    <RootPropertyPathName Name="returnDate" />
-    <RootPropertyPathName Name="dueDate" />
-    <RootPropertyPathName Name="Title" />
-    <RootPropertyPathName Name="DiskID" />
     <RootPropertyPathName Name="Price" />
     <RootPropertyPathName Name="ReturnDate" />
     <RootPropertyPathName Name="DueDate" />
     <RootPropertyPathName Name="TitleName" />
+    <RootPropertyPathName Name="DiskID" />
     <RootPropertyPathName Name="CusID" />
     <RootPropertyPathName Name="lateCharge" />
     <RootPropertyPathName Name="totalLateDay" />
+    <RootPropertyPathName Name="returnDate" />
+    <RootPropertyPathName Name="dueDate" />
     <RootPropertyPathName Name="startRentDate" />
+    <RootPropertyPathName Name="Title" />
     <RootPropertyPathName Name="status" />
     <RootPropertyPathName Name="startResDate" />
     <RootPropertyPathName Name="cusPhone" />

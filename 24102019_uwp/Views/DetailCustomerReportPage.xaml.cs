@@ -59,8 +59,8 @@ namespace _24102019_uwp.Views
             TotalDiskOut.Text = b.getCountDisk(n.CusID) + "";
             TotalPrice.Text = b.getLateFeeCustomer(n.CusID) + "";
 
-            lvLateCharge.ItemsSource = new PayLateChargeBS().GetDisplayPayLateChargesByCusID(c.ID);
-            lvDisk.ItemsSource = b.getAllDiskOverDue(c.ID);
+            lvDisk.ItemsSource = b.getAllDiskNotPayByCusId(c.ID);
+            lvAllDiskOverDue.ItemsSource = b.getAllDiskOverDue(c.ID);
         }
 
         public class reportDisk

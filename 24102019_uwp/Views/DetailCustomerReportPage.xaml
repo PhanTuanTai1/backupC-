@@ -112,11 +112,12 @@
                     List of overdue DVDs or disks
                 </TextBlock>
 
-                <ListView Margin="0,24,0,0" Name="lvLateCharge">
+                <ListView Margin="0,24,0,0" Name="lvAllDiskOverDue">
                     <ListView.HeaderTemplate>
                         <DataTemplate>
                             <Grid Padding="12" Background="{ThemeResource SystemBaseLowColor}">
                                 <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
                                     <ColumnDefinition Width="*"/>
                                     <ColumnDefinition Width="*"/>
                                     <ColumnDefinition Width="*"/>
@@ -126,6 +127,7 @@
                                 <TextBlock Grid.Column="1" Text="Title Name" Style="{ThemeResource CaptionTextBlockStyle}"/>
                                 <TextBlock Grid.Column="2" Text="Due Date" Style="{ThemeResource CaptionTextBlockStyle}"/>
                                 <TextBlock Grid.Column="3" Text="Return Date" Style="{ThemeResource CaptionTextBlockStyle}"/>
+                                <TextBlock Grid.Column="4" Text="Price" Style="{ThemeResource CaptionTextBlockStyle}"/>
                             </Grid>
                         </DataTemplate>
                     </ListView.HeaderTemplate>
@@ -137,12 +139,14 @@
                                     <ColumnDefinition Width="*"/>
                                     <ColumnDefinition Width="*"/>
                                     <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
                                 </Grid.ColumnDefinitions>
 
                                 <TextBlock Grid.Column="0" Text="{Binding DiskID}" HorizontalAlignment="Stretch" />
-                                <TextBlock Grid.Column="1" Text="{Binding Title}" HorizontalAlignment="Stretch" />
-                                <TextBlock Grid.Column="2" Text="{Binding dueDate}" HorizontalAlignment="Stretch"/>
-                                <TextBlock Grid.Column="3" Text="{Binding returnDate}" HorizontalAlignment="Stretch" />
+                                <TextBlock Grid.Column="1" Text="{Binding TitleName}" HorizontalAlignment="Stretch" />
+                                <TextBlock Grid.Column="2" Text="{Binding DueDate}" HorizontalAlignment="Stretch"/>
+                                <TextBlock Grid.Column="3" Text="{Binding ReturnDate}" HorizontalAlignment="Stretch" />
+                                <TextBlock Grid.Column="4" Text="{Binding Price}" HorizontalAlignment="Stretch" />
                             </Grid>
                         </DataTemplate>
                     </ListView.ItemTemplate>

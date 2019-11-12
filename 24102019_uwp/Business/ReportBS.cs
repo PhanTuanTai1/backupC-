@@ -4,8 +4,6 @@ using _24102019_uwp.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using static _24102019_uwp.Views.DetailCustomerReportPage;
 
 namespace _24102019_uwp.Business
@@ -55,25 +53,17 @@ namespace _24102019_uwp.Business
         {
             using (ApplicationDBContext db = new ApplicationDBContext())
             {
-                //var ls1 = db.Disks
-                //    .Join(db.Rentail_Detail, n => n.DiskID, m => m.DiskID, (n, m) => new { Disk = n, Rentail_Detail = m })
-                //    .Select(n => new customTitleReport() {
-                //        CopyInStock = 0,
-                //        CopyOnHold = ,
-                //        CopyRent = ,
-                //        CopyReservation = ,
-                //        ID = ,
-                //        Name
-                //    })
-                return db.Titles.Select(n => new customTitleReport()
-                {
-                    CopyInStock = db.Disks.Where(m => m.TitleID == n.TypeID && m.ChkOutStatus == (short)Checkout.DiskStatus.SHELF).Count(),
-                    CopyOnHold = db.Disks.Where(m => m.TitleID == n.TypeID && m.ChkOutStatus == (short)Checkout.DiskStatus.ONHOLD).Count(),
-                    CopyRent = db.Disks.Where(m => m.TitleID == n.TypeID && m.ChkOutStatus == (short)Checkout.DiskStatus.RENTED).Count(),
-                    CopyReservation = db.Reservations.Where(m => m.TitleID == n.TitleID && m.Deleted == false).Count(),
-                    ID = n.TitleID,
-                    Name = n.Name
-                }).ToList();
+                return db.Titles.Join(db.Disks, n => n.TitleID, m => m.TitleID, (n, m) => new { Title = n, Disk = m })
+                    .GroupBy(n => n.Title.TitleID)
+                    .Select(n => new customTitleReport()
+                    {
+                        CopyInStock = n.Count(m => m.Disk.ChkOutStatus == (short)Checkout.DiskStatus.INSTOCK),
+                        CopyOnHold = n.Count(m => m.Disk.ChkOutStatus == (short)Checkout.DiskStatus.ONHOLD),
+                        CopyRent = n.Count(m => m.Disk.ChkOutStatus == (short)Checkout.DiskStatus.RENTED),
+                        CopyReservation = db.Reservations.Where(m => m.TitleID == n.Key && m.Status != (short)Checkout.ReservationStatus.COMPLETE && m.Deleted == false).Count(),
+                        ID = n.Key,
+                        Name = db.Titles.SingleOrDefault(m => m.TitleID == n.Key).Name
+                    }).ToList();
             }
 
         }
@@ -90,7 +80,7 @@ namespace _24102019_uwp.Business
         {
             using (ApplicationDBContext db = new ApplicationDBContext())
             {
-                return db.Rentals.Join(db.Rentail_Detail, n => n.RentalID, m => m.RentalID, (n, m) => new { Rental = n, Rentail_Detail = m }).Where(n => n.Rentail_Detail.ReturnDate == null).Count();
+                return db.Rentals.Join(db.Rentail_Detail, n => n.RentalID, m => m.RentalID, (n, m) => new { Rental = n, Rentail_Detail = m }).Where(n => n.Rental.CusID == id).Count();
             }
         }
 
@@ -99,11 +89,33 @@ namespace _24102019_uwp.Business
             return getAll().Single(n => n.ID == id).LateFees;
         }
 
+        public List<reportDisk> getAllDiskNotPayByCusId(int id)
+        {
+            using (ApplicationDBContext db = new ApplicationDBContext())
+            {
+                var ls1 = db.Rentals.Where(n => n.CusID == id).Join(db.Rentail_Detail, p => p.RentalID, m => m.RentalID, (p, m) => new { Rental = p, Rentail_Detail = m }).Where(n => n.Rentail_Detail.ReturnDate != null && n.Rentail_Detail.OwnedMoney > 0 && n.Rentail_Detail.Paid == false);
+                if (ls1.ToList().Count != 0)
+                {
+                    var ls2 = ls1.Select(n => new reportDisk()
+                    {
+                        DiskID = n.Rentail_Detail.DiskID,
+                        TitleName = db.Titles.Single(m => m.TitleID == db.Disks.Single(p => p.DiskID == n.Rentail_Detail.DiskID).TitleID).Name,
+                        DueDate = ((DateTime)(n.Rentail_Detail.DueDate)).ToString("dd/MM/yyyy"),
+                        ReturnDate = ((DateTime)(n.Rentail_Detail.ReturnDate)).ToString("dd/MM/yyyy"),
+                        Price = decimal.Parse(n.Rentail_Detail.OwnedMoney.ToString())
+                    }).ToList();
+                    return ls2;
+                }
+
+                return new List<reportDisk>();
+            }
+        }
+
         public List<reportDisk> getAllDiskOverDue(int id)
         {
             using (ApplicationDBContext db = new ApplicationDBContext())
             {
-                var ls1 = db.Rentals.Where(n => n.CusID == id).Join(db.Rentail_Detail, p => p.RentalID, m => m.RentalID, (p, m) => new { Rental = p, Rentail_Detail = m });
+                var ls1 = db.Rentals.Where(n => n.CusID == id).Join(db.Rentail_Detail, p => p.RentalID, m => m.RentalID, (p, m) => new { Rental = p, Rentail_Detail = m }).Where(n => n.Rentail_Detail.ReturnDate != null && n.Rentail_Detail.OwnedMoney > 0);
                 if (ls1.ToList().Count != 0)
                 {
                     var ls2 = ls1.Select(n => new reportDisk()

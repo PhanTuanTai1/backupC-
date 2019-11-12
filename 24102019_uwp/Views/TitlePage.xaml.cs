@@ -53,6 +53,7 @@ namespace _24102019_uwp.Views
                 BtnModify.IsEnabled = true;
                 BtnAdd.IsEnabled = true;
                 BtnDelete.IsEnabled = true;
+                BtnRefresh.IsEnabled = true;
                 ClearText();
                 DisplayDialog("Add");
                 return;
@@ -65,6 +66,7 @@ namespace _24102019_uwp.Views
                 BtnModify.IsEnabled = true;
                 BtnAdd.IsEnabled = true;
                 BtnDelete.IsEnabled = true;
+                BtnRefresh.IsEnabled = true;
                 DisplayDialog("Modify");
                 ClearText();
             }
@@ -104,6 +106,7 @@ namespace _24102019_uwp.Views
             (sender as Button).IsEnabled = false;
             BtnModify.IsEnabled = false;
             BtnDelete.IsEnabled = false;
+            BtnRefresh.IsEnabled = false;
             Deleted.IsEnabled = false;
             add = true;
         }
@@ -113,6 +116,7 @@ namespace _24102019_uwp.Views
             (sender as Button).IsEnabled = false;
             BtnAdd.IsEnabled = false;
             BtnDelete.IsEnabled = false;
+            BtnRefresh.IsEnabled = false;
             modify = true;
         }
         private void Delete(object sender, RoutedEventArgs e)
