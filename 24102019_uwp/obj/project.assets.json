@@ -31490,40 +31490,24 @@
     ]
   },
   "packageFolders": {
-<<<<<<< HEAD
     "C:\\Users\\User\\.nuget\\packages\\": {},
-=======
-    "C:\\Users\\VB Yoshara\\.nuget\\packages\\": {},
->>>>>>> cc5a47de9bfb4f7fd2f2e07f84b67b5275a93f84
     "C:\\Program Files (x86)\\Microsoft SDKs\\UWPNuGetPackages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-<<<<<<< HEAD
       "projectUniqueName": "H:\\ProjectC#\\BACKUP\\new2\\new1\\disc_store_management\\24102019_uwp\\24102019_uwp.csproj",
       "projectName": "24102019_uwp",
       "projectPath": "H:\\ProjectC#\\BACKUP\\new2\\new1\\disc_store_management\\24102019_uwp\\24102019_uwp.csproj",
       "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
       "outputPath": "H:\\ProjectC#\\BACKUP\\new2\\new1\\disc_store_management\\24102019_uwp\\obj\\",
-=======
-      "projectUniqueName": "C:\\Users\\VB Yoshara\\Desktop\\backupC-new\\backupC-new\\24102019_uwp\\24102019_uwp.csproj",
-      "projectName": "24102019_uwp",
-      "projectPath": "C:\\Users\\VB Yoshara\\Desktop\\backupC-new\\backupC-new\\24102019_uwp\\24102019_uwp.csproj",
-      "packagesPath": "C:\\Users\\VB Yoshara\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\VB Yoshara\\Desktop\\backupC-new\\backupC-new\\24102019_uwp\\obj\\",
->>>>>>> cc5a47de9bfb4f7fd2f2e07f84b67b5275a93f84
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft SDKs\\UWPNuGetPackages\\"
       ],
       "configFilePaths": [
-<<<<<<< HEAD
         "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
-=======
-        "C:\\Users\\VB Yoshara\\AppData\\Roaming\\NuGet\\NuGet.Config",
->>>>>>> cc5a47de9bfb4f7fd2f2e07f84b67b5275a93f84
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
