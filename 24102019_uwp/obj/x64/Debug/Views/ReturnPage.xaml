@@ -21,7 +21,12 @@
                     Margin="0,12,0,0"
                     QueryIcon="Find" VerticalAlignment="Top" 
                                                            
-                                                           />
+                                                           
+                    TextMemberPath="DiskID"
+                    DisplayMemberPath="DiskID"
+                                                                      
+                    ItemsSource="ListDisk"
+                                                            />
         
         <Frame x:ConnectionId='3' Name="resultSearch">
             <TextBlock x:ConnectionId='4' Name="notFound" Foreground="Red"></TextBlock>

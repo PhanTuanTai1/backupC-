@@ -27,7 +27,7 @@ namespace _24102019_uwp.Business
                                     rd1,
                                     r1
                                 };
-                    try
+                    if (query.FirstOrDefault() != null)
                     {
                         Rentail_Detail rd = (Rentail_Detail)query.FirstOrDefault().rd1;
                         Rental r = (Rental)query.FirstOrDefault().r1;
@@ -36,11 +36,6 @@ namespace _24102019_uwp.Business
                         detail = new DetailReturnDisk(r.CusID, d.TitleID, d.DiskID, r.StartRentDate, (DateTime)rd.DueDate, DateTime.Now, c.getName(r.CusID), getTitleName(d.TitleID), t.RentCharge);
                         return detail;
                     }
-                    catch
-                    {
-                        return null;
-                    }
-                    
                 }
                 return null;
             }
@@ -72,7 +67,7 @@ namespace _24102019_uwp.Business
                         List<Rentail_Detail> lst = db2.Rentail_Detail.Where(x => x.RentalID == r.RentalID && x.ReturnDate == null).ToList();
                         List<Rentail_Detail> lstAll = db2.Rentail_Detail.Where(x => x.RentalID == r.RentalID).ToList();
                         decimal c = (decimal)lstAll.Sum(x => x.OwnedMoney);
-                        if (lstAll.Sum(x => x.OwnedMoney) > 0)
+                        if (lstAll.Sum(x => x.OwnedMoney) > 0 && lst.Count == 0)
                         {
                             r.Status = (int)RentalInformation.RentalStatus.RESERVATION;
                         }
@@ -95,8 +90,15 @@ namespace _24102019_uwp.Business
                 Rentail_Detail rd = db.Rentail_Detail.SingleOrDefault(x => x.DiskID == diskID && x.RentalID == rentalID);
                 if(rd != null)
                 {
+                    if(lateCharge == 0)
+                    {
+                        rd.Paid = true;
+                    }
+                    else
+                    {
+                        rd.Paid = false;
+                    }
                     rd.OwnedMoney = lateCharge;
-                    rd.Paid = false;
                 }
                 db.SaveChanges();
             }
@@ -119,6 +121,13 @@ namespace _24102019_uwp.Business
                     }
                 }
                 //return false;
+            }
+        }
+        public List<Disk> getAllDisk()
+        {
+            using (ApplicationDBContext db = new ApplicationDBContext())
+            {
+                return db.Disks.Where(x => x.Deleted == false).ToList();
             }
         }
     }

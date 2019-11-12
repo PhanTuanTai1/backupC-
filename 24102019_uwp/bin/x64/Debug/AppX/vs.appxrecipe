@@ -10,7 +10,7 @@
     <PackageArchitecture>x64</PackageArchitecture>
     <PackageIdentityName>c4360c7f-f72b-452e-8e65-ef04f3a706c3</PackageIdentityName>
     <PackageIdentityPublisher>CN=nguye</PackageIdentityPublisher>
-    <IntermediateOutputPath>C:\Users\nguye\Desktop\New folder %285%29\backupC-\24102019_uwp\obj\x64\Debug\</IntermediateOutputPath>
+    <IntermediateOutputPath>C:\Users\nguye\Desktop\New folder %285%29\backupC\24102019_uwp\obj\x64\Debug\</IntermediateOutputPath>
     <RemoteDeploymentType>
     </RemoteDeploymentType>
     <PackageRegistrationPath>
@@ -18,7 +18,7 @@
     <RemoveNonLayoutFiles>true</RemoveNonLayoutFiles>
     <DeployOptionalPackages>false</DeployOptionalPackages>
     <WindowsSdkPath>E:\Windows Kits\10\</WindowsSdkPath>
-    <LayoutDir>C:\Users\nguye\Desktop\New folder %285%29\backupC-\24102019_uwp\bin\x64\Debug\AppX</LayoutDir>
+    <LayoutDir>C:\Users\nguye\Desktop\New folder %285%29\backupC\24102019_uwp\bin\x64\Debug\AppX</LayoutDir>
     <RegisteredManifestChecksum>F17EE2147703D1B5224DDAADA3B5E1BD9BE3DDCA9CB564DCA79F9A9DC7BA08C7</RegisteredManifestChecksum>
     <RegisteredPackageMoniker>c4360c7f-f72b-452e-8e65-ef04f3a706c3_1.0.0.0_x64__fyn9mt8xvtdby</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>c4360c7f-f72b-452e-8e65-ef04f3a706c3_fyn9mt8xvtdby!App</RegisteredUserModeAppID>
@@ -27,16 +27,16 @@
     <RegisteredVersion>1.0.0.0</RegisteredVersion>
   </PropertyGroup>
   <ItemGroup>
-    <AppXManifest Include="C:\Users\nguye\Desktop\New folder %285%29\backupC-\24102019_uwp\bin\x64\Debug\Core\AppxManifest.xml">
+    <AppXManifest Include="C:\Users\nguye\Desktop\New folder %285%29\backupC\24102019_uwp\bin\x64\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2019-11-11T17:50:26.808</Modified>
+      <Modified>2019-11-30T11:26:07.189</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
-    <AppxPackagedFile Include="C:\Users\nguye\Desktop\New folder %285%29\backupC-\24102019_uwp\bin\x64\Debug\24102019_uwp.exe">
+    <AppxPackagedFile Include="C:\Users\nguye\Desktop\New folder %285%29\backupC\24102019_uwp\bin\x64\Debug\24102019_uwp.exe">
       <PackagePath>entrypoint\24102019_uwp.exe</PackagePath>
-      <Modified>2019-11-11T17:50:24.879</Modified>
+      <Modified>2019-11-30T11:26:05.514</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\nguye\.nuget\packages\microsoft.aspnetcore.hosting.abstractions\1.0.2\lib\netstandard1.3\Microsoft.AspNetCore.Hosting.Abstractions.dll">
       <PackagePath>Microsoft.AspNetCore.Hosting.Abstractions.dll</PackagePath>
@@ -590,143 +590,143 @@
       <PackagePath>System.Xml.XmlSerializer.dll</PackagePath>
       <Modified>2016-06-11T15:15:04.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nguye\Desktop\New folder %285%29\backupC-\24102019_uwp\Properties\Default.rd.xml">
+    <AppxPackagedFile Include="C:\Users\nguye\Desktop\New folder %285%29\backupC\24102019_uwp\Properties\Default.rd.xml">
       <PackagePath>Properties\Default.rd.xml</PackagePath>
       <Modified>2019-11-11T12:53:58.348</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nguye\Desktop\New folder %285%29\backupC-\24102019_uwp\Assets\LockScreenLogo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\nguye\Desktop\New folder %285%29\backupC\24102019_uwp\Assets\LockScreenLogo.scale-200.png">
       <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
       <Modified>2019-11-11T12:53:58.305</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nguye\Desktop\New folder %285%29\backupC-\24102019_uwp\Assets\SplashScreen.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\nguye\Desktop\New folder %285%29\backupC\24102019_uwp\Assets\SplashScreen.scale-200.png">
       <PackagePath>Assets\SplashScreen.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2019-11-11T12:53:58.306</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nguye\Desktop\New folder %285%29\backupC-\24102019_uwp\Assets\Square150x150Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\nguye\Desktop\New folder %285%29\backupC\24102019_uwp\Assets\Square150x150Logo.scale-200.png">
       <PackagePath>Assets\Square150x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2019-11-11T12:53:58.307</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nguye\Desktop\New folder %285%29\backupC-\24102019_uwp\Assets\Square44x44Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\nguye\Desktop\New folder %285%29\backupC\24102019_uwp\Assets\Square44x44Logo.scale-200.png">
       <PackagePath>Assets\Square44x44Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2019-11-11T12:53:58.307</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nguye\Desktop\New folder %285%29\backupC-\24102019_uwp\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
+    <AppxPackagedFile Include="C:\Users\nguye\Desktop\New folder %285%29\backupC\24102019_uwp\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
       <PackagePath>Assets\Square44x44Logo.targetsize-24_altform-unplated.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2019-11-11T12:53:58.308</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nguye\Desktop\New folder %285%29\backupC-\24102019_uwp\Assets\StoreLogo.png">
+    <AppxPackagedFile Include="C:\Users\nguye\Desktop\New folder %285%29\backupC\24102019_uwp\Assets\StoreLogo.png">
       <PackagePath>Assets\StoreLogo.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2019-11-11T12:53:58.309</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nguye\Desktop\New folder %285%29\backupC-\24102019_uwp\Assets\Wide310x150Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\nguye\Desktop\New folder %285%29\backupC\24102019_uwp\Assets\Wide310x150Logo.scale-200.png">
       <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2019-11-11T12:53:58.310</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nguye\Desktop\New folder %285%29\backupC-\24102019_uwp\bin\x64\Debug\24102019_uwp.xr.xml">
+    <AppxPackagedFile Include="C:\Users\nguye\Desktop\New folder %285%29\backupC\24102019_uwp\bin\x64\Debug\24102019_uwp.xr.xml">
       <PackagePath>24102019_uwp.xr.xml</PackagePath>
-      <Modified>2019-11-11T12:53:59.574</Modified>
+      <Modified>2019-11-30T11:15:33.808</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nguye\Desktop\New folder %285%29\backupC-\24102019_uwp\bin\x64\Debug\App.xbf">
+    <AppxPackagedFile Include="C:\Users\nguye\Desktop\New folder %285%29\backupC\24102019_uwp\bin\x64\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
-      <Modified>2019-11-11T17:50:24.535</Modified>
+      <Modified>2019-11-30T11:26:05.154</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nguye\Desktop\New folder %285%29\backupC-\24102019_uwp\bin\x64\Debug\MainPage.xbf">
+    <AppxPackagedFile Include="C:\Users\nguye\Desktop\New folder %285%29\backupC\24102019_uwp\bin\x64\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
-      <Modified>2019-11-11T17:50:24.536</Modified>
+      <Modified>2019-11-30T11:26:05.155</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nguye\Desktop\New folder %285%29\backupC-\24102019_uwp\bin\x64\Debug\Views\CustomerPage.xbf">
+    <AppxPackagedFile Include="C:\Users\nguye\Desktop\New folder %285%29\backupC\24102019_uwp\bin\x64\Debug\Views\CustomerPage.xbf">
       <PackagePath>Views\CustomerPage.xbf</PackagePath>
-      <Modified>2019-11-11T17:50:24.495</Modified>
+      <Modified>2019-11-30T11:26:05.107</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nguye\Desktop\New folder %285%29\backupC-\24102019_uwp\bin\x64\Debug\Views\CustomerReportPage.xbf">
+    <AppxPackagedFile Include="C:\Users\nguye\Desktop\New folder %285%29\backupC\24102019_uwp\bin\x64\Debug\Views\CustomerReportPage.xbf">
       <PackagePath>Views\CustomerReportPage.xbf</PackagePath>
-      <Modified>2019-11-11T17:50:24.536</Modified>
+      <Modified>2019-11-30T11:26:05.155</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nguye\Desktop\New folder %285%29\backupC-\24102019_uwp\bin\x64\Debug\Views\DetailCustomerReportPage.xbf">
+    <AppxPackagedFile Include="C:\Users\nguye\Desktop\New folder %285%29\backupC\24102019_uwp\bin\x64\Debug\Views\DetailCustomerReportPage.xbf">
       <PackagePath>Views\DetailCustomerReportPage.xbf</PackagePath>
-      <Modified>2019-11-11T17:50:24.537</Modified>
+      <Modified>2019-11-30T11:26:05.156</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nguye\Desktop\New folder %285%29\backupC-\24102019_uwp\bin\x64\Debug\Views\DetailLateChargePage.xbf">
+    <AppxPackagedFile Include="C:\Users\nguye\Desktop\New folder %285%29\backupC\24102019_uwp\bin\x64\Debug\Views\DetailLateChargePage.xbf">
       <PackagePath>Views\DetailLateChargePage.xbf</PackagePath>
-      <Modified>2019-11-11T17:50:24.537</Modified>
+      <Modified>2019-11-30T11:26:05.156</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nguye\Desktop\New folder %285%29\backupC-\24102019_uwp\bin\x64\Debug\Views\DetailReturnDiskPage.xbf">
+    <AppxPackagedFile Include="C:\Users\nguye\Desktop\New folder %285%29\backupC\24102019_uwp\bin\x64\Debug\Views\DetailReturnDiskPage.xbf">
       <PackagePath>Views\DetailReturnDiskPage.xbf</PackagePath>
-      <Modified>2019-11-11T17:50:24.538</Modified>
+      <Modified>2019-11-30T11:26:05.157</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nguye\Desktop\New folder %285%29\backupC-\24102019_uwp\bin\x64\Debug\Views\DetailReservationPage.xbf">
+    <AppxPackagedFile Include="C:\Users\nguye\Desktop\New folder %285%29\backupC\24102019_uwp\bin\x64\Debug\Views\DetailReservationPage.xbf">
       <PackagePath>Views\DetailReservationPage.xbf</PackagePath>
-      <Modified>2019-11-11T17:50:24.538</Modified>
+      <Modified>2019-11-30T11:26:05.157</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nguye\Desktop\New folder %285%29\backupC-\24102019_uwp\bin\x64\Debug\Views\Dialogs\CalculatorDialog.xbf">
+    <AppxPackagedFile Include="C:\Users\nguye\Desktop\New folder %285%29\backupC\24102019_uwp\bin\x64\Debug\Views\Dialogs\CalculatorDialog.xbf">
       <PackagePath>Views\Dialogs\CalculatorDialog.xbf</PackagePath>
-      <Modified>2019-11-11T17:50:24.539</Modified>
+      <Modified>2019-11-30T11:26:05.158</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nguye\Desktop\New folder %285%29\backupC-\24102019_uwp\bin\x64\Debug\Views\Dialogs\LoginDialog.xbf">
+    <AppxPackagedFile Include="C:\Users\nguye\Desktop\New folder %285%29\backupC\24102019_uwp\bin\x64\Debug\Views\Dialogs\LoginDialog.xbf">
       <PackagePath>Views\Dialogs\LoginDialog.xbf</PackagePath>
-      <Modified>2019-11-11T17:50:24.539</Modified>
+      <Modified>2019-11-30T11:26:05.158</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nguye\Desktop\New folder %285%29\backupC-\24102019_uwp\bin\x64\Debug\Views\Dialogs\PayLateChargeDialog.xbf">
+    <AppxPackagedFile Include="C:\Users\nguye\Desktop\New folder %285%29\backupC\24102019_uwp\bin\x64\Debug\Views\Dialogs\PayLateChargeDialog.xbf">
       <PackagePath>Views\Dialogs\PayLateChargeDialog.xbf</PackagePath>
-      <Modified>2019-11-11T17:50:24.539</Modified>
+      <Modified>2019-11-30T11:26:05.159</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nguye\Desktop\New folder %285%29\backupC-\24102019_uwp\bin\x64\Debug\Views\HomePage.xbf">
+    <AppxPackagedFile Include="C:\Users\nguye\Desktop\New folder %285%29\backupC\24102019_uwp\bin\x64\Debug\Views\HomePage.xbf">
       <PackagePath>Views\HomePage.xbf</PackagePath>
-      <Modified>2019-11-11T17:50:24.540</Modified>
+      <Modified>2019-11-30T11:26:05.159</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nguye\Desktop\New folder %285%29\backupC-\24102019_uwp\bin\x64\Debug\Views\IndividualPage.xbf">
+    <AppxPackagedFile Include="C:\Users\nguye\Desktop\New folder %285%29\backupC\24102019_uwp\bin\x64\Debug\Views\IndividualPage.xbf">
       <PackagePath>Views\IndividualPage.xbf</PackagePath>
-      <Modified>2019-11-11T17:50:24.516</Modified>
+      <Modified>2019-11-30T11:26:05.134</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nguye\Desktop\New folder %285%29\backupC-\24102019_uwp\bin\x64\Debug\Views\LateChargePage.xbf">
+    <AppxPackagedFile Include="C:\Users\nguye\Desktop\New folder %285%29\backupC\24102019_uwp\bin\x64\Debug\Views\LateChargePage.xbf">
       <PackagePath>Views\LateChargePage.xbf</PackagePath>
-      <Modified>2019-11-11T17:50:24.540</Modified>
+      <Modified>2019-11-30T11:26:05.160</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nguye\Desktop\New folder %285%29\backupC-\24102019_uwp\bin\x64\Debug\Views\MiscellaneousPage.xbf">
+    <AppxPackagedFile Include="C:\Users\nguye\Desktop\New folder %285%29\backupC\24102019_uwp\bin\x64\Debug\Views\MiscellaneousPage.xbf">
       <PackagePath>Views\MiscellaneousPage.xbf</PackagePath>
-      <Modified>2019-11-11T17:50:24.541</Modified>
+      <Modified>2019-11-30T11:26:05.160</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nguye\Desktop\New folder %285%29\backupC-\24102019_uwp\bin\x64\Debug\Views\RentPage.xbf">
+    <AppxPackagedFile Include="C:\Users\nguye\Desktop\New folder %285%29\backupC\24102019_uwp\bin\x64\Debug\Views\RentPage.xbf">
       <PackagePath>Views\RentPage.xbf</PackagePath>
-      <Modified>2019-11-11T17:50:24.541</Modified>
+      <Modified>2019-11-30T11:26:05.160</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nguye\Desktop\New folder %285%29\backupC-\24102019_uwp\bin\x64\Debug\Views\ReportPage.xbf">
+    <AppxPackagedFile Include="C:\Users\nguye\Desktop\New folder %285%29\backupC\24102019_uwp\bin\x64\Debug\Views\ReportPage.xbf">
       <PackagePath>Views\ReportPage.xbf</PackagePath>
-      <Modified>2019-11-11T17:50:24.541</Modified>
+      <Modified>2019-11-30T11:26:05.161</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nguye\Desktop\New folder %285%29\backupC-\24102019_uwp\bin\x64\Debug\Views\ReservationPage.xbf">
+    <AppxPackagedFile Include="C:\Users\nguye\Desktop\New folder %285%29\backupC\24102019_uwp\bin\x64\Debug\Views\ReservationPage.xbf">
       <PackagePath>Views\ReservationPage.xbf</PackagePath>
-      <Modified>2019-11-11T17:50:24.542</Modified>
+      <Modified>2019-11-30T11:26:05.161</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nguye\Desktop\New folder %285%29\backupC-\24102019_uwp\bin\x64\Debug\Views\ReturnPage.xbf">
+    <AppxPackagedFile Include="C:\Users\nguye\Desktop\New folder %285%29\backupC\24102019_uwp\bin\x64\Debug\Views\ReturnPage.xbf">
       <PackagePath>Views\ReturnPage.xbf</PackagePath>
-      <Modified>2019-11-11T17:50:24.542</Modified>
+      <Modified>2019-11-30T11:26:05.161</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nguye\Desktop\New folder %285%29\backupC-\24102019_uwp\bin\x64\Debug\Views\TitlePage.xbf">
+    <AppxPackagedFile Include="C:\Users\nguye\Desktop\New folder %285%29\backupC\24102019_uwp\bin\x64\Debug\Views\TitlePage.xbf">
       <PackagePath>Views\TitlePage.xbf</PackagePath>
-      <Modified>2019-11-11T17:50:24.532</Modified>
+      <Modified>2019-11-30T11:26:05.151</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nguye\Desktop\New folder %285%29\backupC-\24102019_uwp\bin\x64\Debug\Views\TitleReportPage.xbf">
+    <AppxPackagedFile Include="C:\Users\nguye\Desktop\New folder %285%29\backupC\24102019_uwp\bin\x64\Debug\Views\TitleReportPage.xbf">
       <PackagePath>Views\TitleReportPage.xbf</PackagePath>
-      <Modified>2019-11-11T17:50:24.543</Modified>
+      <Modified>2019-11-30T11:26:05.162</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\Windows Kits\10\UnionMetadata\10.0.17134.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
       <Modified>2018-04-19T15:01:52.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nguye\Desktop\New folder %285%29\backupC-\24102019_uwp\bin\x64\Debug\resources.pri">
+    <AppxPackagedFile Include="C:\Users\nguye\Desktop\New folder %285%29\backupC\24102019_uwp\bin\x64\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2019-11-11T17:50:26.439</Modified>
+      <Modified>2019-11-30T11:26:06.725</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nguye\Desktop\New folder %285%29\backupC-\24102019_uwp\bin\x64\Debug\Core\24102019_uwp.exe">
+    <AppxPackagedFile Include="C:\Users\nguye\Desktop\New folder %285%29\backupC\24102019_uwp\bin\x64\Debug\Core\24102019_uwp.exe">
       <PackagePath>24102019_uwp.exe</PackagePath>
-      <Modified>2019-11-11T17:50:26.787</Modified>
+      <Modified>2019-11-30T11:26:07.170</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

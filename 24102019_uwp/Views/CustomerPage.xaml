@@ -26,10 +26,10 @@
                 <TextBlock FontWeight="Bold" Margin="24,7,0,0">
                     Name
                 </TextBlock>
-                
+
                 <TextBox Margin="24,12,22,0" PlaceholderText="Please input customer name" Name="Name"/>
                 <TextBlock Margin="24,10,22,0" Name="ErrorName"  Foreground="Red"/>
-                    <TextBlock FontWeight="Bold" Margin="24,7,0,0">
+                <TextBlock FontWeight="Bold" Margin="24,7,0,0">
                     Phone
                 </TextBlock>
                 <TextBox Margin="24,12,22,0" PlaceholderText="Please input customer phone" Name="Phone"/>

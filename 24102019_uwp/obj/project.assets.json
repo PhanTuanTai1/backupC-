@@ -31486,11 +31486,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\nguye\\Desktop\\New folder (5)\\backupC-\\24102019_uwp\\24102019_uwp.csproj",
+      "projectUniqueName": "C:\\Users\\nguye\\Desktop\\New folder (5)\\backupC\\24102019_uwp\\24102019_uwp.csproj",
       "projectName": "24102019_uwp",
-      "projectPath": "C:\\Users\\nguye\\Desktop\\New folder (5)\\backupC-\\24102019_uwp\\24102019_uwp.csproj",
+      "projectPath": "C:\\Users\\nguye\\Desktop\\New folder (5)\\backupC\\24102019_uwp\\24102019_uwp.csproj",
       "packagesPath": "C:\\Users\\nguye\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\nguye\\Desktop\\New folder (5)\\backupC-\\24102019_uwp\\obj\\",
+      "outputPath": "C:\\Users\\nguye\\Desktop\\New folder (5)\\backupC\\24102019_uwp\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [

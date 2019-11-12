@@ -25,10 +25,14 @@ namespace _24102019_uwp.Views
     public sealed partial class ReturnPage : Page
     {
         ReturnBS rb;
+        List<int> selected;
+        List<Disk> ListDisk;
         public ReturnPage()
         {
             this.InitializeComponent();
             rb = new ReturnBS();
+            selected = new List<int>();
+            ListDisk = rb.getAllDisk();
         }
 
         private void Autobox_QuerySubmitted(AutoSuggestBox sender, AutoSuggestBoxQuerySubmittedEventArgs args)
@@ -37,8 +41,6 @@ namespace _24102019_uwp.Views
         }
 
         private void Autobox_PreviewKeyDown(object sender, KeyRoutedEventArgs e)
-
-
         {
             if(e.Key == Windows.System.VirtualKey.Enter)
             {
@@ -56,7 +58,7 @@ namespace _24102019_uwp.Views
         }
         private  void Trigger()
         {          
-            DetailReturnDisk d = Search(autobox.Text);
+            DetailReturnDisk d = Search(autobox.Text.Trim());
             if (d != null)
             {
                 notFound.Text = "";
@@ -64,7 +66,21 @@ namespace _24102019_uwp.Views
             }
             else
             {
-                notFound.Text = "Disk does not exist";
+                notFound.Text = "Disk doesn't exist or isn't yet rented";
+            }
+        }
+        private void AutoSuggestBox_SuggestionChosen(AutoSuggestBox sender, AutoSuggestBoxSuggestionChosenEventArgs args)
+        {
+            var disk = (Disk)args.SelectedItem;
+            sender.Text = disk.DiskID.ToString();
+            if (selected.Contains(disk.DiskID)) return;
+            selected.Add(disk.DiskID);
+        }
+        private void AutoSuggestBox_TextChanged(AutoSuggestBox sender, AutoSuggestBoxTextChangedEventArgs args)
+        {
+            if (args.Reason == AutoSuggestionBoxTextChangeReason.UserInput)
+            {
+                sender.ItemsSource = ListDisk.Where(p => p.DiskID.ToString().Contains(sender.Text));
             }
         }
     }

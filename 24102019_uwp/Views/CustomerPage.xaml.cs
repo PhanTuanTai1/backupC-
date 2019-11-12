@@ -54,7 +54,7 @@ namespace _24102019_uwp.Views
                 {
                     ModifyCustomer(c);
                 }
-            }          
+            }
         }
         private void AddCustomer(Customer c)
         {
@@ -127,7 +127,7 @@ namespace _24102019_uwp.Views
         }
         private void Modify(object sender, RoutedEventArgs e)
         {
-            if(CreateObject() != null)
+            if (CreateObject() != null)
             {
                 SetStatusTextBox(true);
                 (sender as Button).IsEnabled = false;
@@ -300,7 +300,7 @@ namespace _24102019_uwp.Views
 
         private void Cancel(object sender, RoutedEventArgs e)
         {
-            if(add)
+            if (add)
             {
                 ClearText();
                 Display();
@@ -318,7 +318,7 @@ namespace _24102019_uwp.Views
         }
         public bool Validation()
         {
-            if(Name.Text.Trim().Length == 0)
+            if (Name.Text.Trim().Length == 0)
             {
                 ErrorName.Text = "Please enter customer name";
                 return false;
@@ -327,8 +327,8 @@ namespace _24102019_uwp.Views
             {
                 ErrorName.Text = "Customer name must be characters";
                 return false;
-            }            
-            if(Phone.Text.Trim().Length == 0)
+            }
+            if (Phone.Text.Trim().Length == 0)
             {
                 ErrorPhone.Text = "Please enter the customer phone number";
                 return false;

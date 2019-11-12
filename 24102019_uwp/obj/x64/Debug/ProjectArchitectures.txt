@@ -1,1 +1,1 @@
-C:\Users\nguye\Desktop\New folder (5)\backupC-\24102019_uwp\24102019_uwp.csproj;x64
+C:\Users\nguye\Desktop\New folder (5)\backupC\24102019_uwp\24102019_uwp.csproj;x64
