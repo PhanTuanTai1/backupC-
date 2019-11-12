@@ -129,6 +129,7 @@
       <RootProperty Name="TextMemberPath" />
       <RootProperty Name="DisplayMemberPath" />
       <RootProperty Name="Name" />
+      <RootProperty Name="ItemsSource" />
       <RootEvent Name="QuerySubmitted" />
       <RootEvent Name="PreviewKeyDown" />
       <RootEvent Name="TextChanged" />

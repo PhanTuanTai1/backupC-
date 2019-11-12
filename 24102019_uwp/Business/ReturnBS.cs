@@ -27,12 +27,15 @@ namespace _24102019_uwp.Business
                                     rd1,
                                     r1
                                 };
-                    Rentail_Detail rd = (Rentail_Detail)query.FirstOrDefault().rd1;
-                    Rental r = (Rental)query.FirstOrDefault().r1;
-                    Title title = db.Titles.Single(x => x.TitleID == d.TitleID);
-                    Models.Type t = db.Types.Single(x => x.TypeID == title.TypeID);
-                    detail = new DetailReturnDisk(r.CusID, d.TitleID, d.DiskID, r.StartRentDate, (DateTime)rd.DueDate, DateTime.Now, c.getName(r.CusID), getTitleName(d.TitleID), t.RentCharge);
-                    return detail;
+                    if(query.FirstOrDefault() != null)
+                    {
+                        Rentail_Detail rd = (Rentail_Detail)query.FirstOrDefault().rd1;
+                        Rental r = (Rental)query.FirstOrDefault().r1;
+                        Title title = db.Titles.Single(x => x.TitleID == d.TitleID);
+                        Models.Type t = db.Types.Single(x => x.TypeID == title.TypeID);
+                        detail = new DetailReturnDisk(r.CusID, d.TitleID, d.DiskID, r.StartRentDate, (DateTime)rd.DueDate, DateTime.Now, c.getName(r.CusID), getTitleName(d.TitleID), t.RentCharge);
+                        return detail;
+                    }                   
                 }
                 return null;
             }
@@ -109,6 +112,13 @@ namespace _24102019_uwp.Business
                         db.SaveChanges();                      
                     }
                 }
+            }
+        }
+        public List<Disk> getAllDisk()
+        {
+            using (ApplicationDBContext db = new ApplicationDBContext())
+            {
+                return db.Disks.Where(x => x.Deleted == false).ToList();                
             }
         }
     }

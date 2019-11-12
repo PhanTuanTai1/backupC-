@@ -21,7 +21,12 @@
                     Margin="0,12,0,0"
                     QueryIcon="Find" VerticalAlignment="Top" 
                     QuerySubmitted="Autobox_QuerySubmitted"
-                    PreviewKeyDown="Autobox_PreviewKeyDown"/>
+                    PreviewKeyDown="Autobox_PreviewKeyDown"
+                    TextMemberPath="DiskID"
+                    DisplayMemberPath="DiskID"
+                    SuggestionChosen="AutoSuggestBox_SuggestionChosen"
+                    ItemsSource="ListDisk"
+                    TextChanged="AutoSuggestBox_TextChanged"/>
         
         <Frame Name="resultSearch">
             <TextBlock Name="notFound" Foreground="Red"></TextBlock>
