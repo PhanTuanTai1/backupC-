@@ -5,11 +5,12 @@
     xmlns:local="using:_24102019_uwp.Views"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:models="using:_24102019_uwp.Models"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <ScrollViewer>
-        <RelativePanel>
+        <StackPanel>
 
             <HyperlinkButton x:Name="btnAddToDo"
                 Margin="24,32,24,24"
@@ -24,7 +25,7 @@
                     Name
                 </TextBlock>
 
-                <TextBlock Margin="0,12,0,0">
+                <TextBlock Name="Name" Margin="0,12,0,0">
                     Nguyễn Lê Nam Anh
                 </TextBlock>
 
@@ -32,7 +33,7 @@
                     Phone
                 </TextBlock>
 
-                <TextBlock Margin="0,12,0,0">
+                <TextBlock Name="Phone" Margin="0,12,0,0">
                     +84703620282
                 </TextBlock>
 
@@ -40,7 +41,7 @@
                     Address
                 </TextBlock>
 
-                <TextBlock Margin="0,12,0,0">
+                <TextBlock Name="Address" Margin="0,12,0,0">
                     3298 Pinchelone Street, Chesapeake, Virginia
                 </TextBlock>
 
@@ -48,7 +49,7 @@
                     Total number of DVDs/disks the customer currently has out
                 </TextBlock>
 
-                <TextBlock Margin="0,12,0,0">
+                <TextBlock Name="TotalDiskOut" Margin="0,12,0,0">
                     3
                 </TextBlock>
 
@@ -56,35 +57,104 @@
                     The total amount of all fines
                 </TextBlock>
 
-                <TextBlock Margin="0,12,0,0" Foreground="Red">
+                <TextBlock Name="TotalPrice" Margin="0,12,0,0" Foreground="Red">
                     $1500
                 </TextBlock>
-
-                <TextBlock FontWeight="Bold" Margin="0,48,0,0">
-                    List of overdue DVDs or disks
-                </TextBlock>
-
-                <ListView x:Name="Fruits" Margin="0,24,0,0">
-                    <x:String>Apricot</x:String>
-                    <x:String>Banana</x:String>
-                    <x:String>Cherry</x:String>
-                    <x:String>Orange</x:String>
-                    <x:String>Strawberry</x:String>
-                </ListView>
-
                 <TextBlock FontWeight="Bold" Margin="0,48,0,0">
                     List of fines currently owed
                 </TextBlock>
 
-                <ListView Margin="0,24,0,0">
-                    <x:String>Apricot</x:String>
-                    <x:String>Banana</x:String>
-                    <x:String>Cherry</x:String>
-                    <x:String>Orange</x:String>
-                    <x:String>Strawberry</x:String>
+                <ListView Margin="0,24,0,0" Name="lvDisk">
+                    <ListView.HeaderTemplate>
+                        <DataTemplate>
+                            <Grid Padding="12" Background="{ThemeResource SystemBaseLowColor}">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Column="0" Text="Disk ID" Style="{ThemeResource CaptionTextBlockStyle}"/>
+                                <TextBlock Grid.Column="1" Text="Title Name" Style="{ThemeResource CaptionTextBlockStyle}"/>
+                                <TextBlock Grid.Column="2" Text="Due Date" Style="{ThemeResource CaptionTextBlockStyle}"/>
+                                <TextBlock Grid.Column="3" Text="Return Date" Style="{ThemeResource CaptionTextBlockStyle}"/>
+                                <TextBlock Grid.Column="4" Text="Price" Style="{ThemeResource CaptionTextBlockStyle}"/>
+                            </Grid>
+                        </DataTemplate>
+                    </ListView.HeaderTemplate>
+                    <ListView.ItemTemplate>
+                        <DataTemplate >
+                            <Grid Height="48" Padding="10">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <TextBlock Grid.Column="0" Text="{Binding DiskID}" HorizontalAlignment="Stretch" />
+                                <TextBlock Grid.Column="1" Text="{Binding TitleName}" HorizontalAlignment="Stretch" />
+                                <TextBlock Grid.Column="2" Text="{Binding DueDate}" HorizontalAlignment="Stretch"/>
+                                <TextBlock Grid.Column="3" Text="{Binding ReturnDate}" HorizontalAlignment="Stretch" />
+                                <TextBlock Grid.Column="4" Text="{Binding Price}" HorizontalAlignment="Stretch" />
+                            </Grid>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                    <ListView.ItemContainerStyle>
+                        <Style TargetType="ListViewItem">
+                            <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                        </Style>
+                    </ListView.ItemContainerStyle>
+                </ListView>
+                <TextBlock FontWeight="Bold" Margin="0,48,0,0">
+                    List of overdue DVDs or disks
+                </TextBlock>
+
+                <ListView Margin="0,24,0,0" Name="lvLateCharge">
+                    <ListView.HeaderTemplate>
+                        <DataTemplate>
+                            <Grid Padding="12" Background="{ThemeResource SystemBaseLowColor}">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Column="0" Text="Disk ID" Style="{ThemeResource CaptionTextBlockStyle}"/>
+                                <TextBlock Grid.Column="1" Text="Title Name" Style="{ThemeResource CaptionTextBlockStyle}"/>
+                                <TextBlock Grid.Column="2" Text="Due Date" Style="{ThemeResource CaptionTextBlockStyle}"/>
+                                <TextBlock Grid.Column="3" Text="Return Date" Style="{ThemeResource CaptionTextBlockStyle}"/>
+                            </Grid>
+                        </DataTemplate>
+                    </ListView.HeaderTemplate>
+                    <ListView.ItemTemplate>
+                        <DataTemplate x:Name="TableDataTemplate">
+                            <Grid Height="48" Padding="10">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <TextBlock Grid.Column="0" Text="{Binding DiskID}" HorizontalAlignment="Stretch" />
+                                <TextBlock Grid.Column="1" Text="{Binding Title}" HorizontalAlignment="Stretch" />
+                                <TextBlock Grid.Column="2" Text="{Binding dueDate}" HorizontalAlignment="Stretch"/>
+                                <TextBlock Grid.Column="3" Text="{Binding returnDate}" HorizontalAlignment="Stretch" />
+                            </Grid>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                    <ListView.ItemContainerStyle>
+                        <Style TargetType="ListViewItem">
+                            <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                        </Style>
+                    </ListView.ItemContainerStyle>
                 </ListView>
 
+
             </StackPanel>
-        </RelativePanel>
+        </StackPanel>
     </ScrollViewer>
 </Page>

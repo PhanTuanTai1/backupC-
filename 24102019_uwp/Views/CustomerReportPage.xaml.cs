@@ -26,7 +26,7 @@ namespace _24102019_uwp.Views
 
         private void BtnViewDetail_Click(object sender, RoutedEventArgs e)
         {
-            MainPage.mainFrame.Navigate(typeof(DetailCustomerReportPage));
+            MainPage.mainFrame.Navigate(typeof(DetailCustomerReportPage), (CustomCustomer)lvCustomer.SelectedItem);
         }
 
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -47,7 +47,7 @@ namespace _24102019_uwp.Views
             }
             lvCustomer.ItemsSource = lsCustomer;
         }
-        
+
     }
 
     public class CustomCustomer

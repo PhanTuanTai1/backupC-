@@ -32,12 +32,12 @@ namespace _24102019_uwp.Views
             this.InitializeComponent();
             TitleControler = new TitleBS();
             TypeController = new TypeBS();
-            lstTitle = new ObservableCollection<customTitle>(TitleControler.getTitles().Where(n => n.Deleted == false).ToList());
+            //lstTitle = new ObservableCollection<customTitle>(TitleControler.getTitles().Where(n => n.Deleted == false).ToList());
 
             lsType = TypeController.getTypes();
 
             Type.ItemsSource = lsType;
-            lvTitle.ItemsSource = lstTitle;
+            lvTitle.ItemsSource = TitleControler.getTitles().Where(n => n.Deleted == false).ToList();//lstTitle;
             SetStatusTextBox(false);
 
         }

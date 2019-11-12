@@ -26,8 +26,8 @@ namespace _24102019_uwp.Data
             if (!_created)
             {
                 _created = true;
-                /*Database.EnsureDeleted();
-                Database.EnsureCreated();*/
+                //Database.EnsureDeleted();
+                //Database.EnsureCreated();
             }
         }
 
