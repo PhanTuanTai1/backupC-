@@ -27,7 +27,11 @@ namespace _24102019_uwp.Business
                                     rd1,
                                     r1
                                 };
-                    if (query.FirstOrDefault() != null)
+
+                   
+
+                    if(query.FirstOrDefault() != null)
+
                     {
                         Rentail_Detail rd = (Rentail_Detail)query.FirstOrDefault().rd1;
                         Rental r = (Rental)query.FirstOrDefault().r1;
@@ -35,7 +39,11 @@ namespace _24102019_uwp.Business
                         Models.Type t = db.Types.Single(x => x.TypeID == title.TypeID);
                         detail = new DetailReturnDisk(r.CusID, d.TitleID, d.DiskID, r.StartRentDate, (DateTime)rd.DueDate, DateTime.Now, c.getName(r.CusID), getTitleName(d.TitleID), t.RentCharge);
                         return detail;
-                    }
+
+                    
+
+                    }                   
+
                 }
                 return null;
             }
@@ -53,7 +61,7 @@ namespace _24102019_uwp.Business
         {
             using (ApplicationDBContext db = new ApplicationDBContext())
             {
-                Disk d = db.Disks.SingleOrDefault(x => x.DiskID == diskID);              
+                Disk d = db.Disks.SingleOrDefault(x => x.DiskID == diskID);
                 Rentail_Detail rd = db.Rentail_Detail.SingleOrDefault(x => x.DiskID == diskID && x.ReturnDate == null);
                 Rental r = db.Rentals.SingleOrDefault(x => x.RentalID == rd.RentalID && x.Status == (int)RentalInformation.RentalStatus.RENTED);
                 if (d != null && r != null && rd != null)
@@ -116,18 +124,16 @@ namespace _24102019_uwp.Business
                     {
                         d.ChkOutStatus = (short)Checkout.DiskStatus.ONHOLD;
                         FirstReservation.Status = (int)Checkout.ReservationStatus.HOLDING;
-                        db.SaveChanges();
-                        //return true;
+                        db.SaveChanges();                      
                     }
                 }
-                //return false;
             }
         }
         public List<Disk> getAllDisk()
         {
             using (ApplicationDBContext db = new ApplicationDBContext())
             {
-                return db.Disks.Where(x => x.Deleted == false).ToList();
+                return db.Disks.Where(x => x.Deleted == false).ToList();                
             }
         }
     }

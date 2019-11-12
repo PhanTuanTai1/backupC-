@@ -21,6 +21,7 @@
 
         <CommandBar DefaultLabelPosition="Right" Background="White" Margin="0,48,0,0">
             <AppBarButton Icon="Go" Label="View Detail" Name="btnViewDetail" Click="BtnViewDetail_Click"/>
+            <AppBarButton Icon="Refresh" Label="Refresh" Click="Refresh" Name="BtnRefresh"/>
 
             <CommandBar.Content>
                 <TextBlock Text="List of titles" Margin="0,9" FontWeight="Bold"/>

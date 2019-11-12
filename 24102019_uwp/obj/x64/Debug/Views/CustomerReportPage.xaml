@@ -21,6 +21,7 @@
 
         <CommandBar DefaultLabelPosition="Right" Background="White" Margin="0,48,0,0">
             <AppBarButton x:ConnectionId='12' Icon="Go" Label="View Detail" Name="btnViewDetail"                            />
+            <AppBarButton x:ConnectionId='13' Icon="Refresh" Label="Refresh"                 Name="BtnRefresh"/>
 
             <CommandBar.Content>
                 <TextBlock Text="List of titles" Margin="0,9" FontWeight="Bold"/>
