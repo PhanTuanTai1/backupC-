@@ -15,7 +15,7 @@ namespace _24102019_uwp.Models
 
         public enum DiskStatus
         {
-            RENTED, SHELF, ONHOLD
+            RENTED, SHELF, ONHOLD, INSTOCK
         }
 
         public enum ReservationStatus

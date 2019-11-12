@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 H:\ProjectC#\BACKUP\new2\new1\disc_store_management\24102019_uwp\24102019_uwp.csproj;x64
+=======
+C:\Users\VB Yoshara\Desktop\backupC-new\backupC-new\24102019_uwp\24102019_uwp.csproj;x64
+>>>>>>> cc5a47de9bfb4f7fd2f2e07f84b67b5275a93f84

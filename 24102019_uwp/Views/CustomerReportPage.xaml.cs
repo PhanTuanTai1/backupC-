@@ -1,5 +1,4 @@
 ﻿using _24102019_uwp.Business;
-using _24102019_uwp.Models;
 using System.Collections.ObjectModel;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -26,7 +25,26 @@ namespace _24102019_uwp.Views
 
         private void BtnViewDetail_Click(object sender, RoutedEventArgs e)
         {
-            MainPage.mainFrame.Navigate(typeof(DetailCustomerReportPage));
+            if (lvCustomer.SelectedItem != null)
+            {
+                MainPage.mainFrame.Navigate(typeof(DetailCustomerReportPage), (CustomCustomer)lvCustomer.SelectedItem);
+            }
+            else
+            {
+                ContentDialog cd = new ContentDialog();
+                cd.Content = "Please Choose One Customer in list below";
+                cd.Title = "Notification";
+                cd.PrimaryButtonText = "Close";
+                cd.ShowAsync();
+            }
+        }
+
+        private void Refresh(object sender, RoutedEventArgs e)
+        {
+            lsCustomer = new ObservableCollection<CustomCustomer>(rp.getAll());
+            lvCustomer.ItemsSource = lsCustomer;
+            lvCustomer.SelectedItem = null;
+            cbCustomReport.SelectedIndex = 0;
         }
 
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -47,7 +65,7 @@ namespace _24102019_uwp.Views
             }
             lvCustomer.ItemsSource = lsCustomer;
         }
-        
+
     }
 
     public class CustomCustomer
