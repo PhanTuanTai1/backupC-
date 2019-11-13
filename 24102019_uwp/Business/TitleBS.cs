@@ -19,14 +19,14 @@ namespace _24102019_uwp.Business
                 {
                     Deleted = n.Deleted,
                     Description = n.Description,
-                    IsAvailable = n.IsAvailable,
+                    IsAvailable = n.IsAvailable ? "Available" : "-",
                     Name = n.Name,
                     Price = n.Price,
                     TitleID = n.TitleID,
                     TypeName = db.Types.Single(m => m.TypeID == n.TypeID).TypeName
                 }).ToList();
             }
-            
+
         }
         public List<Title> getTitlesMain()
         {

@@ -1,6 +1,7 @@
 ﻿using _24102019_uwp.Business;
 using _24102019_uwp.Models;
 using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text.RegularExpressions;
@@ -39,6 +40,24 @@ namespace _24102019_uwp.Views
 
         private void Save(object sender, RoutedEventArgs e)
         {
+            if (Regex.IsMatch(diskCount.Text, @"^\d+$") == false)
+            {
+                ContentDialog cd = new ContentDialog();
+                cd.Content = "Please type a number!";
+                cd.Title = "Notification";
+                cd.PrimaryButtonText = "Close";
+                cd.ShowAsync();
+                return;
+            }
+            if (cbTitle.SelectedItem == null)
+            {
+                ContentDialog cd = new ContentDialog();
+                cd.Content = "Please chose one *Title* at commbobox, which you want to add copy disk!";
+                cd.Title = "Notification";
+                cd.PrimaryButtonText = "Close";
+                cd.ShowAsync();
+                return;
+            }
             for (int i = 0; i < int.Parse(diskCount.Text); i++)
             {
                 Disk d = CreateObject(i + "");
@@ -49,14 +68,21 @@ namespace _24102019_uwp.Views
             add = false;
             BtnAdd.IsEnabled = true;
             BtnDelete.IsEnabled = true;
-            btnSave.IsEnabled = false;
+            btnSave.IsEnabled = btnCancel.IsEnabled = false;
             ClearText();
             DisplayDialog("Add");
-            if (Regex.IsMatch(diskCount.Text, "/^[0-9]*$/"))
-            {
 
-            }
         }
+
+        private void Cancel(object sender, RoutedEventArgs e)
+        {
+            ClearText();
+            BtnAdd.IsEnabled = true;
+            BtnDelete.IsEnabled = true;
+            btnSave.IsEnabled = btnCancel.IsEnabled = false;
+            add = true;
+        }
+
         private void lvDisk_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             Display();
@@ -68,21 +94,8 @@ namespace _24102019_uwp.Views
                 customDisk d = (customDisk)lvDisk.SelectedItem;
                 userRent.Content = DiskControler.getUserRent(d.DiskID);
                 dueDate.Text = DiskControler.getDueDate(d.DiskID);
-                switch (d.ChkOutStatus)
-                {
-                    case (short)Checkout.DiskStatus.ONHOLD:
-                        status.Text = "On Hold";
-                        break;
-                    case (short)Checkout.DiskStatus.RENTED:
-                        status.Text = "Rented";
-                        break;
-                    case (short)Checkout.DiskStatus.SHELF:
-                        status.Text = "One Shelf";
-                        break;
-                    default:
-                        break;
-                }
-                
+                status.Text = d.ChkOutStatus;
+
             }
             catch (Exception)
             {
@@ -93,19 +106,35 @@ namespace _24102019_uwp.Views
 
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            UpdateList(((Title)cbTitle.SelectedItem).Name);
+            if (cbTitle.SelectedIndex != -1)
+            {
+                UpdateList();
+            }
         }
 
-        private void UpdateList(string name = null)
+        private void ComboBoxStatus_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (name == null)
+            if (cbStatus.SelectedIndex != -1)
             {
-                lsDisk = new ObservableCollection<customDisk>(DiskControler.getDisks());
+                UpdateList();
             }
-            else
+        }
+
+        private void UpdateList()
+        {
+            List<customDisk> ls = DiskControler.getDisks();
+
+            if (cbTitle.SelectedIndex != -1)
             {
-                lsDisk = new ObservableCollection<customDisk>(DiskControler.getDisks().Where(n => n.TitleName == name).ToList());
+                ls = ls.Where(n => n.TitleName == ((Title)cbTitle.SelectedItem).Name).ToList();
+
             }
+
+            if (cbStatus.SelectedIndex != -1)
+            {
+                ls = ls.Where(n => n.ChkOutStatus == (string)cbStatus.SelectedItem).ToList();
+            }
+            lsDisk = new ObservableCollection<customDisk>(ls);
             lvDisk.ItemsSource = lsDisk;
         }
 
@@ -191,7 +220,7 @@ namespace _24102019_uwp.Views
         private void SetStatusTextBox(bool e)
         {
             diskCount.IsEnabled = e;
-            btnSave.IsEnabled = e;
+            btnSave.IsEnabled = btnCancel.IsEnabled = e;
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
@@ -220,11 +249,17 @@ namespace _24102019_uwp.Views
                 {
                     lvDisk.ItemsSource = lsDisk.Where(x => x.DiskID.ToString().Contains(autobox.Text));
                 }
+                else
+                {
+                    lvDisk.ItemsSource = lsDisk.Where(x => x.TitleName.ToString().Contains(autobox.Text));
+                }
             }
         }
 
         private void Refresh(object sender, RoutedEventArgs e)
         {
+            cbTitle.SelectedIndex = -1;
+            cbStatus.SelectedIndex = -1;
             UpdateList();
         }
 
@@ -259,18 +294,18 @@ namespace _24102019_uwp.Views
     {
         public int DiskID { get; set; }
 
-        public short ChkOutStatus { get; set; }
+        public string ChkOutStatus { get; set; }
 
         public string TitleName { get; set; }
 
         public decimal Price { get; set; }
 
-        public bool IsAvailable { get; set; }
+        public string IsAvailable { get; set; }
 
         public bool Deleted { get; set; }
 
         public customDisk() { }
-        public customDisk(int diskID, short chkOutStatus, string titleName, decimal price, bool isAvailable, bool deleted)
+        public customDisk(int diskID, string chkOutStatus, string titleName, decimal price, string isAvailable, bool deleted)
         {
             DiskID = diskID;
             ChkOutStatus = chkOutStatus;
@@ -281,5 +316,5 @@ namespace _24102019_uwp.Views
         }
     }
 
-    
+
 }

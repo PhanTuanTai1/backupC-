@@ -18,6 +18,15 @@
         <SplitView.Pane>
             <StackPanel>
                 <TextBlock FontWeight="Bold" Margin="24,32,0,0">
+                    Select Status
+                </TextBlock>
+                <ComboBox Name="cbStatus" SelectionChanged="ComboBoxStatus_SelectionChanged" PlaceholderText="Pick a title" Width="272" Margin="0,12,0,0" HorizontalAlignment="Center" VerticalAlignment="Top">
+                    <x:String>Rented</x:String>
+                    <x:String>On Shelf</x:String>
+                    <x:String>On Hold</x:String>
+                    <x:String>In Stock</x:String>
+                </ComboBox>
+                <TextBlock FontWeight="Bold" Margin="24,32,0,0">
                     Select Title
                 </TextBlock>
                 <ComboBox Name="cbTitle" SelectionChanged="ComboBox_SelectionChanged" PlaceholderText="Pick a title" Width="272" Margin="0,12,0,0" HorizontalAlignment="Center" VerticalAlignment="Top">
@@ -26,17 +35,20 @@
                 <TextBlock FontWeight="Bold" Margin="24,24,0,0">Number of copy</TextBlock>
                 <TextBox IsEnabled="False" Name="diskCount" Margin="24,12,22,0" PlaceholderText="Please input name"/>
 
-                <Button Name="btnSave" IsEnabled="False" Margin="24,24,0,0" Click="Save">Save</Button>
+                <StackPanel Orientation="Horizontal">
+                    <Button Name="btnCancel" IsEnabled="False" Margin="24,24,0,0" Click="Cancel">Cancel</Button>
+                    <Button Name="btnSave" IsEnabled="False" Margin="24,24,0,0" Click="Save">Save</Button>
+                </StackPanel>
 
                 <TextBlock FontWeight="Bold" Margin="24,48,0,0">
                     Checkout Status
                 </TextBlock>
                 <TextBlock Name="status" Margin="24,12,0,0" Foreground="Green">
-                    On shelf
+
                 </TextBlock>
 
                 <TextBlock FontWeight="Bold" Margin="24,24,0,0">
-                    Rent or reservation by
+                    Rent by
                 </TextBlock>
                 <HyperlinkButton Name="userRent" Margin="24,12,0,0">
                 </HyperlinkButton>
@@ -71,55 +83,49 @@
                     <TextBlock Text="List of disks" Margin="0,9" FontWeight="Bold"/>
                 </CommandBar.Content>
             </CommandBar>
+            <ScrollViewer Height="700">
+                <ListView ItemsSource="{x:Bind lsDisk}" Margin="0,24,0,0" Name="lvDisk" SelectionChanged="lvDisk_SelectionChanged">
+                    <ListView.HeaderTemplate>
+                        <DataTemplate>
+                            <Grid Padding="12" Background="{ThemeResource SystemBaseLowColor}">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Column="0" Text="Disk ID" Style="{ThemeResource CaptionTextBlockStyle}"/>
+                                <TextBlock Grid.Column="1" Text="Title Name" Style="{ThemeResource CaptionTextBlockStyle}"/>
+                                <TextBlock Grid.Column="2" Text="Status" Style="{ThemeResource CaptionTextBlockStyle}"/>
+                                <TextBlock Grid.Column="4" Text="Price" Style="{ThemeResource CaptionTextBlockStyle}"/>
+                            </Grid>
+                        </DataTemplate>
+                    </ListView.HeaderTemplate>
+                    <ListView.ItemTemplate>
+                        <DataTemplate x:Name="TableDataTemplate" x:DataType="local:customDisk">
+                            <Grid Height="48" AutomationProperties.Name="{x:Bind DiskID}" Padding="10">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
 
-            <ListView ItemsSource="{x:Bind lsDisk}" Margin="0,24,0,0" Name="lvDisk" SelectionChanged="lvDisk_SelectionChanged">
-                <ListView.HeaderTemplate>
-                    <DataTemplate>
-                        <Grid Padding="12" Background="{ThemeResource SystemBaseLowColor}">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="*"/>
-                            </Grid.ColumnDefinitions>
-                            <TextBlock Grid.Column="0" Text="Disk ID" Style="{ThemeResource CaptionTextBlockStyle}"/>
-                            <TextBlock Grid.Column="1" Text="Title Name" Style="{ThemeResource CaptionTextBlockStyle}"/>
-                            <TextBlock Grid.Column="2" Text="Status" Style="{ThemeResource CaptionTextBlockStyle}"/>
-                            <TextBlock Grid.Column="3" Text="Deleted" Style="{ThemeResource CaptionTextBlockStyle}"/>
-                            <TextBlock Grid.Column="4" Text="Available" Style="{ThemeResource CaptionTextBlockStyle}"/>
-                            <TextBlock Grid.Column="5" Text="Price" Style="{ThemeResource CaptionTextBlockStyle}"/>
-                        </Grid>
-                    </DataTemplate>
-                </ListView.HeaderTemplate>
-                <ListView.ItemTemplate>
-                    <DataTemplate x:Name="TableDataTemplate" x:DataType="local:customDisk">
-                        <Grid Height="48" AutomationProperties.Name="{x:Bind DiskID}" Padding="10">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="*"/>
-                            </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Column="0" Text="{x:Bind DiskID}" HorizontalAlignment="Stretch" />
+                                <TextBlock Grid.Column="1" Text="{x:Bind TitleName}" HorizontalAlignment="Stretch" />
+                                <TextBlock Grid.Column="2" Text="{x:Bind ChkOutStatus}" HorizontalAlignment="Stretch"/>
+                                <TextBlock Grid.Column="4" Text="{x:Bind Price}" HorizontalAlignment="Stretch" />
+                            </Grid>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                    <ListView.ItemContainerStyle>
+                        <Style TargetType="ListViewItem">
+                            <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                        </Style>
+                    </ListView.ItemContainerStyle>
+                </ListView>
 
-                            <TextBlock Grid.Column="0" Text="{x:Bind DiskID}" HorizontalAlignment="Stretch" />
-                            <TextBlock Grid.Column="1" Text="{x:Bind TitleName}" HorizontalAlignment="Stretch" />
-                            <TextBlock Grid.Column="2" Text="{x:Bind ChkOutStatus}" HorizontalAlignment="Stretch"/>
-                            <TextBlock Grid.Column="3" Text="{x:Bind Deleted}" HorizontalAlignment="Stretch" />
-                            <TextBlock Grid.Column="4" Text="{x:Bind IsAvailable}" HorizontalAlignment="Stretch" />
-                            <TextBlock Grid.Column="5" Text="{x:Bind Price}" HorizontalAlignment="Stretch" />
-                        </Grid>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-                <ListView.ItemContainerStyle>
-                    <Style TargetType="ListViewItem">
-                        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
-                    </Style>
-                </ListView.ItemContainerStyle>
-            </ListView>
+            </ScrollViewer>
         </StackPanel>
     </SplitView>
 </Page>

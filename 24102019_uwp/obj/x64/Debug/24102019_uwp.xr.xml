@@ -24,7 +24,6 @@
     <RootPropertyPathName Name="cusName" />
     <RootPropertyPathName Name="TypeName" />
     <RootPropertyPathName Name="Description" />
-    <RootPropertyPathName Name="Deleted" />
     <RootPropertyPathName Name="IsAvailable" />
     <RootPropertyPathName Name="TitleID" />
   </Roots.PropertyPathNames>
@@ -203,12 +202,13 @@
       <RootProperty Name="DisplayMemberPath" />
       <RootEvent Name="SelectionChanged" />
     </RootType>
-    <RootType FullName="System.String" />
-    <RootType FullName="_24102019_uwp.Views.CustomerReportPage" />
     <RootType FullName="Windows.UI.Xaml.Controls.ScrollViewer">
+      <RootProperty Name="Height" />
       <RootProperty Name="Content" />
       <RootProperty Name="Margin" />
     </RootType>
+    <RootType FullName="System.String" />
+    <RootType FullName="_24102019_uwp.Views.CustomerReportPage" />
     <RootType FullName="Windows.UI.Xaml.Controls.HyperlinkButton">
       <RootProperty Name="Margin" />
       <RootProperty Name="Content" />

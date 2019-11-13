@@ -19,9 +19,9 @@ namespace _24102019_uwp.Business
                 {
                     DiskID = n.DiskID,
                     TitleName = db.Titles.Single(m => m.TitleID == n.TitleID).Name,
-                    ChkOutStatus = n.ChkOutStatus,
+                    ChkOutStatus = status(n.ChkOutStatus),
                     Deleted = n.Deleted,
-                    IsAvailable = db.Titles.Single(m => m.TitleID == n.TitleID).IsAvailable,
+                    IsAvailable = db.Titles.Single(m => m.TitleID == n.TitleID).IsAvailable ? "Có sẵn" : "Hết hàng",
                     Price = db.Titles.Single(m => m.TitleID == n.TitleID).Price
                 }).ToList();
             }
@@ -93,6 +93,23 @@ namespace _24102019_uwp.Business
                     return "None";
                 }
 
+            }
+        }
+
+        public string status(short t)
+        {
+            switch (t)
+            {
+                case (short)Checkout.DiskStatus.ONHOLD:
+                    return "On Hold";
+                case (short)Checkout.DiskStatus.RENTED:
+                    return "Rented";
+                case (short)Checkout.DiskStatus.SHELF:
+                    return "On Shelf";
+                case (short)Checkout.DiskStatus.INSTOCK:
+                    return "In Stock";
+                default:
+                    return "";
             }
         }
     }

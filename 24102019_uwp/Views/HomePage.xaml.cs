@@ -32,7 +32,7 @@ namespace _24102019_uwp.Views
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            //addDataBase();   
+            addDataBase();   
             //SeedTitle();
         }
 
@@ -98,14 +98,14 @@ namespace _24102019_uwp.Views
                 });
                 db.Disks.Add(new Disk()
                 {
-                    ChkOutStatus = (int)Checkout.DiskStatus.SHELF,
+                    ChkOutStatus = (int)Checkout.DiskStatus.RENTED,
                     Deleted = false,
                     DiskID = 100,
                     TitleID = 123
                 });
                 db.Disks.Add(new Disk()
                 {
-                    ChkOutStatus = (int)Checkout.DiskStatus.SHELF,
+                    ChkOutStatus = (int)Checkout.DiskStatus.RENTED,
                     Deleted = false,
                     DiskID = 101,
                     TitleID = 123
@@ -169,6 +169,7 @@ namespace _24102019_uwp.Views
                     Name = "Tai",
                     Phone = "01612345678"
                 });
+                //Cu việt mượn
                 db.Rentals.Add(new Rental()
                 {
                     CusID = 12345,
@@ -177,6 +178,7 @@ namespace _24102019_uwp.Views
                     StartRentDate = DateTime.Now,
                     Status = 0
                 });
+                //quá hạn-đã trả-phát sinh phí-chưa thanh toán
                 db.Rentail_Detail.Add(new Rentail_Detail()
                 {
                     DiskID = 101,
@@ -186,6 +188,7 @@ namespace _24102019_uwp.Views
                     ReturnDate = DateTime.Now,
                     Paid = false
                 });
+                //Quá hạn - đã trả - phát sinh phí- chưa thanh toán
                 db.Rentail_Detail.Add(new Rentail_Detail()
                 {
                     DiskID = 102,
@@ -195,33 +198,56 @@ namespace _24102019_uwp.Views
                     ReturnDate = DateTime.Now,
                     Paid = true
                 });
+                //Đúng hạn, đã trả, đã thanh toán
                 db.Rentail_Detail.Add(new Rentail_Detail()
                 {
                     DiskID = 103,
-                    DueDate = DateTime.Now.AddDays(-30),
+                    DueDate = DateTime.Now,
                     OwnedMoney = 0,
                     RentalID = 100,
-                    ReturnDate = DateTime.Now.AddDays(-15),
+                    ReturnDate = DateTime.Now.AddDays(-10),
                     Paid = true
                 });
 
+                //Cu Tài mượn
                 db.Rentals.Add(new Rental()
                 {
                     CusID = 11122,
                     Deleted = false,
                     RentalID = 101,
-                    StartRentDate = DateTime.Now,
+                    StartRentDate = DateTime.Now.AddDays(-30),
                     Status = 0
                 });
+                //Not trễ hẹn
                 db.Rentail_Detail.Add(new Rentail_Detail()
                 {
                     DiskID = 104,
-                    DueDate = DateTime.Now.AddDays(-15),
+                    DueDate = DateTime.Now.AddDays(10),
                     OwnedMoney = 0,
-                    RentalID = 100,
+                    RentalID = 101,
                     ReturnDate = null,
                     Paid = false
                 });
+                //Trễ hẹn - chưa trả - chưa phát sinh phí
+                db.Rentail_Detail.Add(new Rentail_Detail()
+                {
+                    DiskID = 100,
+                    DueDate = DateTime.Now.AddDays(-15),
+                    OwnedMoney = 0,
+                    RentalID = 101,
+                    ReturnDate = null,
+                    Paid = false
+                });
+                ////Đã trả, phát sinh phí, chưa thanh toán
+                //db.Rentail_Detail.Add(new Rentail_Detail()
+                //{
+                //    DiskID = 101,
+                //    DueDate = DateTime.Now.AddDays(-30),
+                //    OwnedMoney = 5000,
+                //    RentalID = 101,
+                //    ReturnDate = DateTime.Now,
+                //    Paid = false
+                //});
 
                 db.Reservations.Add(new Reservation()
                 {

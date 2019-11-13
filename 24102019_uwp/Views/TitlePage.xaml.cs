@@ -35,15 +35,31 @@ namespace _24102019_uwp.Views
             //lstTitle = new ObservableCollection<customTitle>(TitleControler.getTitles().Where(n => n.Deleted == false).ToList());
 
             lsType = TypeController.getTypes();
-
             Type.ItemsSource = lsType;
             lvTitle.ItemsSource = TitleControler.getTitles().Where(n => n.Deleted == false).ToList();//lstTitle;
             SetStatusTextBox(false);
 
         }
-
+        private void Cancel(object sender, RoutedEventArgs e)
+        {
+            SetStatusTextBox(false);
+            add = false;
+            BtnModify.IsEnabled = true;
+            BtnAdd.IsEnabled = true;
+            BtnDelete.IsEnabled = true;
+            BtnRefresh.IsEnabled = true;
+            BtnSave.IsEnabled = BtnCancel.IsEnabled = false;
+            lvTitle.IsEnabled = true;
+            modify = false;
+            ClearText();
+        }
         private void Save(object sender, RoutedEventArgs e)
         {
+            if (checkText() == false)
+            {
+                return;
+            }
+
             Title t = CreateObject();
             if (add == true && TitleControler.AddTitle(t))
             {
@@ -54,6 +70,8 @@ namespace _24102019_uwp.Views
                 BtnAdd.IsEnabled = true;
                 BtnDelete.IsEnabled = true;
                 BtnRefresh.IsEnabled = true;
+                BtnSave.IsEnabled = BtnCancel.IsEnabled = false;
+                lvTitle.IsEnabled = true;
                 ClearText();
                 DisplayDialog("Add");
                 return;
@@ -67,10 +85,52 @@ namespace _24102019_uwp.Views
                 BtnAdd.IsEnabled = true;
                 BtnDelete.IsEnabled = true;
                 BtnRefresh.IsEnabled = true;
+                BtnSave.IsEnabled = BtnCancel.IsEnabled = false;
+                lvTitle.IsEnabled = true;
                 DisplayDialog("Modify");
                 ClearText();
             }
         }
+
+        private bool checkText()
+        {
+            if (Name.Text.Trim().Length == 0)
+            {
+                showDialog("Please do not leave *Name* empty!");
+                return false;
+            }
+            if (Price.Text.Trim().Length == 0)
+            {
+                showDialog("Please do not leave *Price* empty!");
+                return false;
+            }
+            if (!isNumber(Price.Text))
+            {
+                showDialog("Price only accept number, please fix it!");
+                return false;
+            }
+            if (Type.SelectedItem == null)
+            {
+                showDialog("PLease choose type which you want to add");
+                return false;
+            }
+            if (Description.Text.Trim().Length == 0)
+            {
+                showDialog("Please do not leave *Price* empty!");
+                return false;
+            }
+            return true;
+        }
+
+        private void showDialog(string noiDung)
+        {
+            ContentDialog cd = new ContentDialog();
+            cd.Content = noiDung;
+            cd.Title = "Notification";
+            cd.PrimaryButtonText = "Close";
+            cd.ShowAsync();
+        }
+
         private void lvTitle_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             Display();
@@ -84,7 +144,7 @@ namespace _24102019_uwp.Views
                 Description.Text = t.Description;
                 Name.Text = t.Name;
                 Price.Text = t.Price + "";
-                IsAvailable.IsChecked = (bool)t.IsAvailable;
+                IsAvailable.IsChecked = t.IsAvailable == "-" ? false : true;
                 Deleted.IsChecked = (bool)t.Deleted;
                 Type.SelectedIndex = lsType.IndexOf(lsType.Single(n => n.TypeName == t.TypeName));
             }
@@ -93,9 +153,7 @@ namespace _24102019_uwp.Views
 
         private void UpdateList()
         {
-            lstTitle = new ObservableCollection<customTitle>();
-            lstTitle = new ObservableCollection<customTitle>(TitleControler.getTitles().Where(n=>n.Deleted==false).ToList());
-            lvTitle.ItemsSource = lstTitle;
+            lvTitle.ItemsSource = TitleControler.getTitles().Where(n => n.Deleted == false).ToList();
         }
 
         private void Add(object sender, RoutedEventArgs e)
@@ -108,19 +166,41 @@ namespace _24102019_uwp.Views
             BtnDelete.IsEnabled = false;
             BtnRefresh.IsEnabled = false;
             Deleted.IsEnabled = false;
+            BtnSave.IsEnabled = BtnCancel.IsEnabled = true;
+            lvTitle.IsEnabled = false;
             add = true;
         }
         private void Modify(object sender, RoutedEventArgs e)
         {
+            if (lvTitle.SelectedItem == null || Name.Text.Trim().Length == 0)
+            {
+                ContentDialog cd = new ContentDialog();
+                cd.Content = "Please Choose One Title in list below";
+                cd.Title = "Notification";
+                cd.PrimaryButtonText = "Close";
+                cd.ShowAsync();
+                return;
+            }
             SetStatusTextBox(true);
             (sender as Button).IsEnabled = false;
             BtnAdd.IsEnabled = false;
             BtnDelete.IsEnabled = false;
             BtnRefresh.IsEnabled = false;
+            BtnSave.IsEnabled = BtnCancel.IsEnabled = true;
+            lvTitle.IsEnabled = false;
             modify = true;
         }
         private void Delete(object sender, RoutedEventArgs e)
         {
+            if (lvTitle.SelectedItem == null)
+            {
+                ContentDialog cdt = new ContentDialog();
+                cdt.Content = "Please Choose One Title in list below";
+                cdt.Title = "Notification";
+                cdt.PrimaryButtonText = "Close";
+                cdt.ShowAsync();
+                return;
+            }
             ContentDialog cd = new ContentDialog();
             cd.Content = "Are you sure you want to delete this customer ?";
             cd.Title = "Delete Customer";
@@ -222,11 +302,13 @@ namespace _24102019_uwp.Views
             {
                 if (isNumber(autobox.Text))
                 {
-                    lvTitle.ItemsSource = lstTitle.Where(x => x.TitleID == int.Parse(autobox.Text));
+                    lvTitle.ItemsSource = TitleControler.getTitles().Where(n => n.Deleted == false && n.TitleID.ToString().Contains(autobox.Text)) != null ?
+                        TitleControler.getTitles().Where(n => n.Deleted == false && n.TitleID.ToString().Contains(autobox.Text)) : new List<customTitle>();
                 }
                 else
                 {
-                    lvTitle.ItemsSource = lstTitle.Where(x => x.Name.Contains(autobox.Text));
+                    lvTitle.ItemsSource = TitleControler.getTitles().Where(n => n.Deleted == false && n.Name.Contains(autobox.Text)) != null ?
+                        TitleControler.getTitles().Where(n => n.Deleted == false && n.TitleID.ToString().Contains(autobox.Text)) : new List<customTitle>();
                 }
             }
         }
@@ -276,5 +358,5 @@ namespace _24102019_uwp.Views
 
     }
 
-    
+
 }

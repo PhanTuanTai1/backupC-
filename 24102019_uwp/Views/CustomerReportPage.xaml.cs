@@ -64,6 +64,8 @@ namespace _24102019_uwp.Views
                     break;
             }
             lvCustomer.ItemsSource = lsCustomer;
+            lvCustomer.SelectedIndex = -1;
+            lvCustomer.SelectedItem = null;
         }
 
     }
@@ -100,7 +102,7 @@ namespace _24102019_uwp.Views
 
         public decimal Price { get; set; }
 
-        public bool IsAvailable { get; set; }
+        public string IsAvailable { get; set; }
 
         public bool Deleted { get; set; }
 
@@ -108,7 +110,7 @@ namespace _24102019_uwp.Views
 
         public customTitle() { }
 
-        public customTitle(int titleID, string description, string name, decimal price, bool isAvailable, bool deleted, string typeName)
+        public customTitle(int titleID, string description, string name, decimal price, string isAvailable, bool deleted, string typeName)
         {
             TitleID = titleID;
             Description = description;

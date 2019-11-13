@@ -51,9 +51,10 @@
                     Deleted ?
                 </CheckBox>
 
-
-                <Button Margin="24,24,0,0" Name="BtnSave" Click="Save">Save</Button>
-
+                <StackPanel Orientation="Horizontal">
+                    <Button Margin="24,24,0,0" IsEnabled="False" Name="BtnCancel" Click="Cancel">Cancel</Button>
+                    <Button Margin="24,24,0,0" IsEnabled="False" Name="BtnSave" Click="Save" >Save</Button>
+                </StackPanel>
             </StackPanel>
         </SplitView.Pane>
 
@@ -81,59 +82,57 @@
                     <TextBlock Text="List of titles" Margin="0,9" FontWeight="Bold"/>
                 </CommandBar.Content>
             </CommandBar>
+            <ScrollViewer Height="700">
+                <ListView Margin="0,24,0,0" Name="lvTitle" SelectionChanged="lvTitle_SelectionChanged">
+                    <ListView.HeaderTemplate>
+                        <DataTemplate>
+                            <Grid Padding="12" Background="{ThemeResource SystemBaseLowColor}">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Column="0" Text="Title ID" Style="{ThemeResource CaptionTextBlockStyle}"/>
+                                <TextBlock Grid.Column="1" Text="Name" Style="{ThemeResource CaptionTextBlockStyle}"/>
+                                <TextBlock Grid.Column="2" Text="Price Charge" Style="{ThemeResource CaptionTextBlockStyle}"/>
+                                <TextBlock Grid.Column="3" Text="Type" Style="{ThemeResource CaptionTextBlockStyle}"/>
+                                <TextBlock Grid.Column="4" Text="Available" Style="{ThemeResource CaptionTextBlockStyle}"/>
+                                <TextBlock Grid.Column="6" Text="Description" Style="{ThemeResource CaptionTextBlockStyle}"/>
+                            </Grid>
+                        </DataTemplate>
+                    </ListView.HeaderTemplate>
+                    <ListView.ItemTemplate>
+                        <DataTemplate x:Name="TableDataTemplate">
+                            <Grid Height="48" Padding="10">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
 
-            <ListView Margin="0,24,0,0" Name="lvTitle" SelectionChanged="lvTitle_SelectionChanged">
-                <ListView.HeaderTemplate>
-                    <DataTemplate>
-                        <Grid Padding="12" Background="{ThemeResource SystemBaseLowColor}">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="*"/>
-                            </Grid.ColumnDefinitions>
-                            <TextBlock Grid.Column="0" Text="Title ID" Style="{ThemeResource CaptionTextBlockStyle}"/>
-                            <TextBlock Grid.Column="1" Text="Name" Style="{ThemeResource CaptionTextBlockStyle}"/>
-                            <TextBlock Grid.Column="2" Text="Price Charge" Style="{ThemeResource CaptionTextBlockStyle}"/>
-                            <TextBlock Grid.Column="3" Text="Type" Style="{ThemeResource CaptionTextBlockStyle}"/>
-                            <TextBlock Grid.Column="4" Text="Available" Style="{ThemeResource CaptionTextBlockStyle}"/>
-                            <TextBlock Grid.Column="5" Text="Deleted" Style="{ThemeResource CaptionTextBlockStyle}"/>
-                            <TextBlock Grid.Column="6" Text="Description" Style="{ThemeResource CaptionTextBlockStyle}"/>
-                        </Grid>
-                    </DataTemplate>
-                </ListView.HeaderTemplate>
-                <ListView.ItemTemplate>
-                    <DataTemplate x:Name="TableDataTemplate">
-                        <Grid Height="48" Padding="10">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="*"/>
-                            </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Column="0" Text="{Binding TitleID}" HorizontalAlignment="Stretch" />
+                                <TextBlock Grid.Column="1" Text="{Binding Name}" HorizontalAlignment="Stretch" />
+                                <TextBlock Grid.Column="2" Text="{Binding Price}" HorizontalAlignment="Stretch"/>
+                                <TextBlock Grid.Column="3" Text="{Binding TypeName}" HorizontalAlignment="Stretch" />
+                                <TextBlock Grid.Column="4" Text="{Binding IsAvailable}" HorizontalAlignment="Stretch" />
+                                <TextBlock Grid.Column="6" Text="{Binding Description}" HorizontalAlignment="Stretch"/>
+                            </Grid>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                    <ListView.ItemContainerStyle>
+                        <Style TargetType="ListViewItem">
+                            <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                        </Style>
+                    </ListView.ItemContainerStyle>
+                </ListView>
 
-                            <TextBlock Grid.Column="0" Text="{Binding TitleID}" HorizontalAlignment="Stretch" />
-                            <TextBlock Grid.Column="1" Text="{Binding Name}" HorizontalAlignment="Stretch" />
-                            <TextBlock Grid.Column="2" Text="{Binding Price}" HorizontalAlignment="Stretch"/>
-                            <TextBlock Grid.Column="3" Text="{Binding TypeName}" HorizontalAlignment="Stretch" />
-                            <TextBlock Grid.Column="4" Text="{Binding IsAvailable}" HorizontalAlignment="Stretch" />
-                            <TextBlock Grid.Column="5" Text="{Binding Deleted}" HorizontalAlignment="Stretch"/>
-                            <TextBlock Grid.Column="6" Text="{Binding Description}" HorizontalAlignment="Stretch"/>
-                        </Grid>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-                <ListView.ItemContainerStyle>
-                    <Style TargetType="ListViewItem">
-                        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
-                    </Style>
-                </ListView.ItemContainerStyle>
-            </ListView>
+            </ScrollViewer>
         </StackPanel>
     </SplitView>
 </Page>
