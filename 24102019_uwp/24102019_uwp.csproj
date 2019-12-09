@@ -129,6 +129,7 @@
     <Compile Include="Business\ReservationBS.cs" />
     <Compile Include="Business\TitleBS.cs" />
     <Compile Include="Business\TypeBS.cs" />
+    <Compile Include="Converter\ForeColorStatus.cs" />
     <Compile Include="Data\ApplicationDBContext.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>

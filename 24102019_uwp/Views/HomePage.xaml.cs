@@ -32,7 +32,30 @@ namespace _24102019_uwp.Views
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            addDataBase();   
+            //addDataBase();   
+            //SeedTitle();
+        }
+
+        private void SeedTitle()
+        {
+            using(var db = new ApplicationDBContext())
+            {
+                db.Types.Add(new Models.Type()
+                {
+                    TypeID = 123,
+                    RentCharge = 10000,
+                    RentPeriod = 3,
+                    TypeName = "DVD"
+                });
+                db.Types.Add(new Models.Type()
+                {
+                    TypeID = 124,
+                    RentCharge = 10000,
+                    RentPeriod = 1,
+                    TypeName = "Game"
+                });
+                db.SaveChanges();
+            }
         }
 
         private void addDataBase()

@@ -8,6 +8,7 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using System.Threading.Tasks;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -40,6 +41,8 @@ namespace _24102019_uwp.Views
             lvLateCharges.ItemsSource = displayPayLateCharges;
         }
 
+        
+
         private void Autobox_TextChanged(AutoSuggestBox sender, AutoSuggestBoxTextChangedEventArgs args)
         {
             if (args.Reason == AutoSuggestionBoxTextChangeReason.UserInput)
@@ -65,7 +68,7 @@ namespace _24102019_uwp.Views
         {
             if (customer == null) return;
 
-            displayPayLateCharges = new PayLateChargeBS().GetDisplayPayLateChargesByCusID(customer.CusID);
+            displayPayLateCharges = new PayLateChargeBS().GetDisplayPayLateChargesByCusIDNew(customer.CusID);
 
             lvLateCharges.ItemsSource = displayPayLateCharges;
         }
@@ -113,5 +116,6 @@ namespace _24102019_uwp.Views
             ContentDialogResult result = await noWifiDialog.ShowAsync();
             return result;
         }
+
     }
 }

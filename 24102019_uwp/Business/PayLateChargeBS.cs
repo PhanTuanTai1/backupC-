@@ -22,6 +22,58 @@ namespace _24102019_uwp.Business
             return false;
         }
 
+        public List<DisplayPayLateCharge> GetDisplayPayLateChargesByCusIDNew(int cusID)
+        {
+            var paylatecharges = new List<DisplayPayLateCharge>();
+
+            using (var db = new ApplicationDBContext())
+            {
+                var rentals = db.Rentals.Where(p => p.CusID == cusID);
+
+                if (rentals.Count() <= 0) return null;
+
+                foreach (var rent in rentals)
+                {
+                    var rentID = rent.RentalID;
+                    var customerName = db.Customers.SingleOrDefault(p => p.CusID == rent.CusID).Name;
+
+                    var rentDetails = db.Rentail_Detail.Where(p => p.RentalID == rentID && p.OwnedMoney != null && p.OwnedMoney > 0);
+                    //var rentDetails = db.Rentail_Detail.Where(p => p.RentalID == rentID && !p.Paid);
+
+                    foreach (var rentDetail in rentDetails)
+                    {
+                        if (rentDetail.Deleted == null || !(bool)rentDetail.Deleted)
+                        {
+                            var titleID = db.Disks.SingleOrDefault(p => p.DiskID == rentDetail.DiskID).TitleID;
+
+                            var title = db.Titles.SingleOrDefault(p => p.TitleID == titleID);
+
+                            var temp = ((DateTime)rentDetail.ReturnDate).Date.Subtract(((DateTime)rentDetail.DueDate).Date).TotalDays;
+                            //var temp = ((TimeSpan)(rentDetail.ReturnDate - rentDetail.DueDate)).Days;
+
+                            var paylatecharge = new DisplayPayLateCharge()
+                            {
+                                DiskID = rentDetail.DiskID,
+                                RentalID = rentDetail.RentalID,
+                                dueDate = ((DateTime)rentDetail.DueDate).ToString("dd/MM/yyyy"),
+                                returnDate = ((DateTime)rentDetail.ReturnDate).ToString("dd/MM/yyyy"),
+                                totalLateDay = ((int)temp).ToString(),
+                                Title = title.Name,
+                                lateCharge = (decimal)rentDetail.OwnedMoney,
+                                startRentDate = rent.StartRentDate.ToString("dd/MM/yyyy"),
+                                Name = customerName,
+                                paid = rentDetail.Paid ? "Paid" : "Unpaid"
+                            };
+
+                            paylatecharges.Add(paylatecharge);
+                        }
+                    }
+                }
+
+                return paylatecharges;
+            }
+        }
+
         public List<DisplayPayLateCharge> GetDisplayPayLateChargesByCusID(int cusID)
         {
             var paylatecharges = new List<DisplayPayLateCharge>();
@@ -47,7 +99,8 @@ namespace _24102019_uwp.Business
 
                             var title = db.Titles.SingleOrDefault(p => p.TitleID == titleID);
 
-                            var temp = ((DateTime)rentDetail.ReturnDate).Subtract((DateTime)rentDetail.DueDate).TotalDays;
+                            var temp = ((DateTime)rentDetail.ReturnDate).Date.Subtract(((DateTime)rentDetail.DueDate).Date).TotalDays;
+                            //var temp = ((TimeSpan)(rentDetail.ReturnDate - rentDetail.DueDate)).Days;
 
                             var paylatecharge = new DisplayPayLateCharge()
                             {
@@ -76,15 +129,17 @@ namespace _24102019_uwp.Business
 
             using (var db = new ApplicationDBContext())
             {
-                var rentals = db.Rentals.Where(p => p.Status != (short)RentalInformation.RentalStatus.COMPLETE);
+                //var rentals = db.Rentals.Where(p => p.Status != (short)RentalInformation.RentalStatus.COMPLETE);
+                var rentals = db.Rentals;
 
                 if (rentals.Count() <= 0) return null;
 
                 foreach (var rent in rentals)
                 {
                     var rentID = rent.RentalID;
+                    var customerName = db.Customers.SingleOrDefault(p => p.CusID == rent.CusID).Name;
 
-                    var rentDetails = db.Rentail_Detail.Where(p => p.RentalID == rentID && p.OwnedMoney != null && p.OwnedMoney > 0 && !p.Paid);
+                    var rentDetails = db.Rentail_Detail.Where(p => p.RentalID == rentID && p.OwnedMoney != null && p.OwnedMoney > 0);
                     //var rentDetails = db.Rentail_Detail.Where(p => p.RentalID == rentID && !p.Paid);
 
                     foreach (var rentDetail in rentDetails)
@@ -95,7 +150,8 @@ namespace _24102019_uwp.Business
 
                             var title = db.Titles.SingleOrDefault(p => p.TitleID == titleID);
 
-                            var temp = ((DateTime)rentDetail.ReturnDate).Subtract((DateTime)rentDetail.DueDate).TotalDays;
+                            var temp = ((DateTime)rentDetail.ReturnDate).Date.Subtract(((DateTime)rentDetail.DueDate).Date).TotalDays;
+                            //var temp = ((TimeSpan)(rentDetail.ReturnDate - rentDetail.DueDate)).Days;
 
                             var paylatecharge = new DisplayPayLateCharge()
                             {
@@ -106,7 +162,9 @@ namespace _24102019_uwp.Business
                                 totalLateDay = ((int)temp).ToString(),
                                 Title = title.Name,
                                 lateCharge = (decimal)rentDetail.OwnedMoney,
-                                startRentDate = rent.StartRentDate.ToString("dd/MM/yyyy")
+                                startRentDate = rent.StartRentDate.ToString("dd/MM/yyyy"),
+                                Name = customerName,
+                                paid = rentDetail.Paid ? "Paid" : "Unpaid"
                             };
 
                             paylatecharges.Add(paylatecharge);

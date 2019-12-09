@@ -1,5 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Roots >
+  <Roots.Interfaces>
+    <RootInterface FullName="Windows.UI.Xaml.Data.IValueConverter" />
+  </Roots.Interfaces>
   <Roots.PropertyPathNames>
     <RootPropertyPathName Name="Price" />
     <RootPropertyPathName Name="ReturnDate" />
@@ -7,17 +10,18 @@
     <RootPropertyPathName Name="TitleName" />
     <RootPropertyPathName Name="DiskID" />
     <RootPropertyPathName Name="CusID" />
+    <RootPropertyPathName Name="paid" />
     <RootPropertyPathName Name="lateCharge" />
     <RootPropertyPathName Name="totalLateDay" />
     <RootPropertyPathName Name="returnDate" />
     <RootPropertyPathName Name="dueDate" />
     <RootPropertyPathName Name="startRentDate" />
     <RootPropertyPathName Name="Title" />
+    <RootPropertyPathName Name="Name" />
     <RootPropertyPathName Name="status" />
     <RootPropertyPathName Name="startResDate" />
     <RootPropertyPathName Name="cusPhone" />
     <RootPropertyPathName Name="cusName" />
-    <RootPropertyPathName Name="Name" />
     <RootPropertyPathName Name="TypeName" />
     <RootPropertyPathName Name="Description" />
     <RootPropertyPathName Name="Deleted" />
@@ -29,6 +33,7 @@
     <RootType FullName="Windows.UI.Xaml.Controls.Page">
       <RootProperty Name="Background" />
       <RootProperty Name="Content" />
+      <RootProperty Name="Resources" />
       <RootProperty Name="NavigationCacheMode" />
       <RootEvent Name="Loaded" />
     </RootType>
@@ -219,8 +224,13 @@
       <RootMethod Name="GetAlignRightWithPanel" />
       <RootMethod Name="SetAlignRightWithPanel" />
     </RootType>
-    <RootType FullName="Windows.UI.Xaml.Data.Binding" />
+    <RootType FullName="Windows.UI.Xaml.Data.Binding">
+      <RootProperty Name="Mode" />
+      <RootProperty Name="Converter" />
+    </RootType>
     <RootType FullName="_24102019_uwp.Views.DetailCustomerReportPage" />
+    <RootType FullName="_24102019_uwp.Converter.ForeColorStatus" />
+    <RootType FullName="Microsoft.Xaml.DirectUI.ProxyTypes.StaticResourceExtension" />
     <RootType FullName="_24102019_uwp.Views.DetailLateChargePage" />
     <RootType FullName="_24102019_uwp.Views.DetailReturnDiskPage" />
     <RootType FullName="_24102019_uwp.Views.DetailReservationPage" />

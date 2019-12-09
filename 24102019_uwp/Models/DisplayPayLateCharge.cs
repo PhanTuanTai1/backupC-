@@ -12,10 +12,12 @@ namespace _24102019_uwp.Models
         public int DiskID { get; set; }
 
         public string Title { get; set; }
+        public string Name { get; set; }
         public string startRentDate { get; set; }
         public string dueDate { get; set; }
         public string returnDate { get; set; }
         public string totalLateDay { get; set; }
         public decimal lateCharge { get; set; }
+        public string paid { get; set; }
     }
 }
